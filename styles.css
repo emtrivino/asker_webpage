@@ -24,15 +24,17 @@
 }
 
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
+  background: var(--color-bg);
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.7;
@@ -739,4 +741,19 @@ p {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+:root {
+  color-scheme: light;
+}
+
+body,
+.site-header,
+.section,
+.section-muted,
+.card,
+.nav-menu,
+.brand-mark,
+.highlight-card,
+.contact-card {
+  forced-color-adjust: none;
 }
