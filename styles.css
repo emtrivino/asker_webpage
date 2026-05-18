@@ -236,6 +236,11 @@ h3 {
   letter-spacing: -0.045em;
 }
 
+h3 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.3rem, 2.1vw, 1.7rem);
+}
+
 .section-dark h2 {
   color: var(--color-surface);
 }
@@ -455,6 +460,49 @@ p {
   font-size: 0.95rem;
 }
 
+.support-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.45rem 1rem 0.6rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 0.74rem;
+  color: var(--color-muted);
+}
+
+.support-strip span {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.support-strip a img {
+  height: 18px;
+  width: auto;
+  opacity: 0.92;
+}
+
+.upcoming-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.upcoming-card {
+  padding: 1.2rem;
+}
+
+.upcoming-card p {
+  margin-bottom: 0.5rem;
+}
+
+.ticket-note {
+  margin: 1rem 0 0;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
 .about-visual img,
 .rounded-image {
   width: 100%;
@@ -588,6 +636,19 @@ p {
   padding: 1.4rem 0;
 }
 
+.support-strip-footer {
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.support-strip-footer span {
+  color: #ddd6cb;
+}
+
+.support-strip-footer a img {
+  filter: saturate(0.95) brightness(0.98);
+}
+
 .footer-inner {
   display: flex;
   align-items: center;
@@ -673,6 +734,11 @@ p {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .upcoming-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 680px) {
@@ -744,6 +810,14 @@ p {
 }
 :root {
   color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background: var(--color-bg) !important;
+    color: var(--color-text) !important;
+  }
 }
 
 body,
