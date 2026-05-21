@@ -269,7 +269,7 @@ p {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(360px, 1.15fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
   width: min(100% - 2rem, 1320px);
@@ -289,7 +289,7 @@ p {
   z-index: 0;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  opacity: 0.2;
+  opacity: 0.48;
   pointer-events: none;
 }
 
@@ -297,7 +297,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(251, 250, 247, 0.9), rgba(251, 250, 247, 0.68));
+  background: linear-gradient(130deg, rgba(251, 250, 247, 0.74), rgba(251, 250, 247, 0.55));
   z-index: 1;
 }
 
@@ -312,7 +312,7 @@ p {
   width: clamp(180px, 15vw, 280px);
   height: clamp(360px, 68vh, 760px);
   object-fit: cover;
-  filter: saturate(1.05) contrast(0.95);
+  filter: saturate(1.08) contrast(0.98);
 }
 
 .hero-intro {
@@ -780,7 +780,6 @@ p {
     text-align: center;
   }
 
-  .hero,
   .two-column {
     grid-template-columns: 1fr;
   }
@@ -790,7 +789,7 @@ p {
   }
 
   .hero-ambient {
-    opacity: 0.16;
+    opacity: 0.42;
   }
 
   h1 {
