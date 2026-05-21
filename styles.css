@@ -267,6 +267,7 @@ p {
 }
 
 .hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(360px, 1.15fr);
   gap: clamp(2rem, 4vw, 4rem);
@@ -275,6 +276,43 @@ p {
   min-height: calc(100vh - 74px);
   margin-inline: auto;
   padding-top: clamp(2rem, 5vw, 5rem);
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.hero-ambient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(251, 250, 247, 0.9), rgba(251, 250, 247, 0.68));
+  z-index: 1;
+}
+
+.hero-ambient-track {
+  display: flex;
+  width: max-content;
+  min-height: 100%;
+  animation: heroAmbientMove 95s linear infinite;
+}
+
+.hero-ambient-track img {
+  width: clamp(180px, 15vw, 280px);
+  height: clamp(360px, 68vh, 760px);
+  object-fit: cover;
+  filter: saturate(1.05) contrast(0.95);
 }
 
 .hero-intro {
@@ -471,7 +509,42 @@ p {
 }
 
 .upcoming-card {
-  padding: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #111;
+  color: #f4f5f6;
+}
+
+.upcoming-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.upcoming-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 11, 19, 0.12), rgba(4, 8, 14, 0.88));
+}
+
+.upcoming-card-content {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 1.35rem;
+}
+
+.upcoming-card h3,
+.upcoming-card p,
+.upcoming-card strong {
+  color: inherit;
 }
 
 .upcoming-card p {
@@ -482,6 +555,15 @@ p {
   margin: 1rem 0 0;
   color: var(--color-muted);
   font-weight: 600;
+}
+
+@keyframes heroAmbientMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .about-visual img,
@@ -707,6 +789,10 @@ p {
     min-height: auto;
   }
 
+  .hero-ambient {
+    opacity: 0.16;
+  }
+
   h1 {
     max-width: 10ch;
   }
@@ -751,6 +837,11 @@ p {
     padding-block: 2.5rem 3.75rem;
   }
 
+  .hero-ambient-track img {
+    width: 170px;
+    height: 360px;
+  }
+
   .button-row,
   .button {
     width: 100%;
@@ -786,6 +877,10 @@ p {
     min-height: 240px;
     aspect-ratio: 4 / 3;
   }
+
+  .upcoming-card img {
+    min-height: 360px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -796,6 +891,10 @@ p {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .hero-ambient-track {
+    animation: none;
   }
 }
 :root {
