@@ -256,29 +256,92 @@
 
     <section class="section" id="video" aria-labelledby="video-title">
       <div class="container">
-        <p class="eyebrow">Video</p>
-        <h2 id="video-title">Se og hør orkesteret</h2>
-        <div class="video-grid">
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/3dWpDRrjYIo" title="Asker Symfoniorkester video 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/RjIQDAiVmII" title="Felix spiller Schumann" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/H15EEgzzeFc" title="Asker Symfoniorkester video 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-          <div class="video-frame"><iframe src="https://www.youtube.com/embed/5MuOO9f0heU" title="Asker Symfoniorkester video 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Video</p>
+            <h2 id="video-title">Se og hør orkesteret</h2>
+          </div>
+    
+          <div class="carousel-actions">
+            <button class="carousel-button" type="button" aria-label="Forrige video" data-carousel-prev>
+              ←
+            </button>
+            <button class="carousel-button" type="button" aria-label="Neste video" data-carousel-next>
+              →
+            </button>
+          </div>
+        </div>
+    
+        <div class="media-carousel video-carousel" data-carousel data-visible="2">
+          <div class="media-carousel-track">
+            <article class="media-card video-frame">
+              <iframe src="https://www.youtube.com/embed/3dWpDRrjYIo" title="Asker Symfoniorkester video 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </article>
+    
+            <article class="media-card video-frame">
+              <iframe src="https://www.youtube.com/embed/RjIQDAiVmII" title="Felix spiller Schumann" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </article>
+    
+            <article class="media-card video-frame">
+              <iframe src="https://www.youtube.com/embed/H15EEgzzeFc" title="Asker Symfoniorkester video 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </article>
+    
+            <article class="media-card video-frame">
+              <iframe src="https://www.youtube.com/embed/5MuOO9f0heU" title="Asker Symfoniorkester video 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </article>
+          </div>
         </div>
       </div>
     </section>
-
+    
     <section class="section section-muted" id="galleri" aria-labelledby="gallery-title">
       <div class="container">
-        <p class="eyebrow">Galleri</p>
-        <h2 id="gallery-title">Fra våre konserter</h2>
-        <div class="gallery-grid">
-          <img src="images/orchestra_1.jpg" alt="Orkesteret på konsertscene" loading="lazy">
-          <img src="images/orchestra_11.jpg" alt="Musikere i orkesteret under fremføring" loading="lazy">
-          <img src="images/orchestra_and_choird.jpg" alt="Orkester og kor fremfører sammen" loading="lazy">
-          <img src="images/orchestra_piano.jpg" alt="Pianosolist foran orkesteret" loading="lazy">
-          <img src="images/orchestra_playing.jpg" alt="Asker Symfoniorkester spiller konsert" loading="lazy">
-          <img src="images/orchestra_with_abba.jpg" alt="Orkesteret i en ABBA-inspirert produksjon" loading="lazy">
-          <img src="images/v1.jpg" alt="Historisk orkesterbilde fra Asker Symfoniorkester" loading="lazy">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Galleri</p>
+            <h2 id="gallery-title">Fra våre konserter</h2>
+          </div>
+    
+          <div class="carousel-actions">
+            <button class="carousel-button" type="button" aria-label="Forrige bilde" data-carousel-prev>
+              ←
+            </button>
+            <button class="carousel-button" type="button" aria-label="Neste bilde" data-carousel-next>
+              →
+            </button>
+          </div>
+        </div>
+    
+        <div class="media-carousel gallery-carousel" data-carousel data-visible="3">
+          <div class="media-carousel-track">
+            <figure class="media-card gallery-card">
+              <img src="images/orchestra_1.jpg" alt="Orkesteret på konsertscene" loading="lazy">
+            </figure>
+    
+            <figure class="media-card gallery-card">
+              <img src="images/orchestra_11.jpg" alt="Musikere i orkesteret under fremføring" loading="lazy">
+            </figure>
+    
+            <figure class="media-card gallery-card">
+              <img src="images/orchestra_and_choird.jpg" alt="Orkester og kor fremfører sammen" loading="lazy">
+            </figure>
+    
+            <figure class="media-card gallery-card">
+              <img src="images/orchestra_piano.jpg" alt="Pianosolist foran orkesteret" loading="lazy">
+            </figure>
+    
+            <figure class="media-card gallery-card">
+              <img src="images/orchestra_playing.jpg" alt="Asker Symfoniorkester spiller konsert" loading="lazy">
+            </figure>
+    
+            <figure class="media-card gallery-card">
+              <img src="images/orchestra_with_abba.jpg" alt="Orkesteret i en ABBA-inspirert produksjon" loading="lazy">
+            </figure>
+    
+            <figure class="media-card gallery-card">
+              <img src="images/v1.jpg" alt="Historisk orkesterbilde fra Asker Symfoniorkester" loading="lazy">
+            </figure>
+          </div>
         </div>
       </div>
     </section>
