@@ -89,3 +89,94 @@ if (heroSlider && !reduceMotion) {
   window.addEventListener("scroll", updateHeroParallax, { passive: true });
   window.addEventListener("resize", updateHeroParallax);
 }
+const carousels = document.querySelectorAll("[data-carousel]");
+
+carousels.forEach((carousel) => {
+  const track = carousel.querySelector(".media-carousel-track");
+  if (!track) return;
+
+  const originalItems = Array.from(track.children);
+  if (originalItems.length < 2) return;
+
+  const section = carousel.closest(".section");
+  const prevButton = section?.querySelector("[data-carousel-prev]");
+  const nextButton = section?.querySelector("[data-carousel-next]");
+
+  const cloneCount = Math.min(3, originalItems.length);
+
+  const firstClones = originalItems.slice(0, cloneCount).map((item) => {
+    const clone = item.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    return clone;
+  });
+
+  const lastClones = originalItems.slice(-cloneCount).map((item) => {
+    const clone = item.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    return clone;
+  });
+
+  lastClones.forEach((clone) => track.prepend(clone));
+  firstClones.forEach((clone) => track.append(clone));
+
+  let index = cloneCount;
+  let isMoving = false;
+
+  const getGap = () => {
+    const styles = window.getComputedStyle(track);
+    return parseFloat(styles.columnGap || styles.gap || 0);
+  };
+
+  const getStep = () => {
+    const item = track.children[index];
+    if (!item) return 0;
+    return item.getBoundingClientRect().width + getGap();
+  };
+
+  const moveToIndex = (withTransition = true) => {
+    track.style.transition = withTransition
+      ? "transform 520ms cubic-bezier(.2, .8, .2, 1)"
+      : "none";
+
+    track.style.transform = `translateX(${-index * getStep()}px)`;
+  };
+
+  const goNext = () => {
+    if (isMoving) return;
+    isMoving = true;
+    index += 1;
+    moveToIndex(true);
+  };
+
+  const goPrev = () => {
+    if (isMoving) return;
+    isMoving = true;
+    index -= 1;
+    moveToIndex(true);
+  };
+
+  track.addEventListener("transitionend", () => {
+    const itemCount = originalItems.length;
+
+    if (index >= itemCount + cloneCount) {
+      index = cloneCount;
+      moveToIndex(false);
+    }
+
+    if (index < cloneCount) {
+      index = itemCount + cloneCount - 1;
+      moveToIndex(false);
+    }
+
+    isMoving = false;
+  });
+
+  nextButton?.addEventListener("click", goNext);
+  prevButton?.addEventListener("click", goPrev);
+
+  window.addEventListener("resize", () => {
+    moveToIndex(false);
+  });
+
+  moveToIndex(false);
+});
