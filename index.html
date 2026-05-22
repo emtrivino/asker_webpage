@@ -12,6 +12,7 @@
   <title>Asker symfoniorkester</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Hopp til innhold</a>
 
@@ -23,27 +24,39 @@
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Åpne meny">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
       <nav class="nav-menu" id="nav-menu" aria-label="Hovednavigasjon" data-nav-menu>
         <a href="#hjem">Hjem</a>
+        <a href="#neste-konsert">Neste konsert</a>
         <a href="#om">Om</a>
         <a href="#for-medlemmer">For medlemmer</a>
+        <a href="#galleri">Galleri</a>
+        <a href="#video">Video</a>
+        <a href="#historie">Historie</a>
         <a href="#kontakt">Kontakt oss</a>
-        <a href="#repertoar">Repertoar</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" id="hjem" aria-labelledby="hero-title">
-      <img class="hero-image" src="images/orchestra_playing.jpg" alt="Asker symfoniorkester i konsert" loading="eager">
+      <img
+        class="hero-image"
+        src="images/orchestra_playing.jpg"
+        alt="Asker symfoniorkester i konsert"
+        loading="eager"
+      >
       <div class="hero-overlay"></div>
+
       <div class="container hero-content">
         <p class="eyebrow light">Stiftet i 1972 · Asker</p>
         <h1 id="hero-title">Asker symfoniorkester</h1>
         <p class="hero-subtitle">Kommunens symfoniorkester for unge og voksne amatørmusikere.</p>
+
         <div class="button-row">
           <a class="button button-primary" href="#neste-konsert">Neste konsert</a>
           <a class="button button-secondary" href="#for-medlemmer">Bli med</a>
@@ -55,15 +68,15 @@
       <div class="container concert-showcase">
         <article class="concert-copy">
           <p class="eyebrow">Neste konsert</p>
-    
+
           <h2 id="concert-title">
             Sommerkonsert med solister fra Asker kulturskole
           </h2>
-    
+
           <p class="lead">
             Søndag 7. juni kl. 19.00 · Østenstad kirke
           </p>
-    
+
           <div class="button-row">
             <a
               class="button button-primary"
@@ -74,22 +87,22 @@
               Kjøp billetter
             </a>
           </div>
-    
+
           <div class="concert-details" aria-labelledby="concert-details-title">
             <h3 id="concert-details-title">Program og medvirkende</h3>
-    
+
             <ul class="meta-list">
               <li>
                 <strong>Dirigent:</strong>
                 Carl Nilsen
               </li>
-    
+
               <li>
                 <strong>Solister:</strong>
                 Aurora Sommerfeldt Floden (bratsj), Eline Øverli Waaler (fløyte),
                 Linnea Line (piano), Anja Møgedal Skjellestad (saksofon)
               </li>
-    
+
               <li>
                 <strong>Program:</strong>
                 Grieg: Peer Gynt Suite nr. 1 og 2 · Mozart: Andante for fløyte og orkester ·
@@ -97,13 +110,13 @@
                 Gabriel Pierné: Canzonetta for saksofon og orkester
               </li>
             </ul>
-    
+
             <p class="support-note">
               Konserten støttes av Asker kommune, NASOL og Sparebankstiftelsen DNB.
             </p>
           </div>
         </article>
-    
+
         <figure class="concert-visual">
           <img
             src="images/orchestra_t7.jpg"
@@ -114,47 +127,88 @@
       </div>
     </section>
 
-    <section class="section section-muted" aria-labelledby="program-title">
+    <section class="section section-muted" id="kommende-konserter" aria-labelledby="program-title">
       <div class="container">
         <p class="eyebrow">Konsertoversikt</p>
         <h2 id="program-title">Flere konserter i 2026</h2>
+
         <div class="cards-grid">
           <article class="event-card">
-            <img src="images/orchestra_v10.jpg" alt="Orkester på scenen under høstkonsert" loading="lazy">
+            <img
+              src="images/orchestra_v10.jpg"
+              alt="Orkester på scenen under høstkonsert"
+              loading="lazy"
+            >
             <div>
               <h3>Søndag 25. oktober · Høstkonsert i Asker kirke</h3>
-              <p>Dirigent: Tanja Karita Ikonen · Solist: Ida Kamilla Andersen, fiolin · Program: Tsjaikovskij Symfoni nr. 5 og Bruch Fiolinkonsert.</p>
+              <p>
+                Dirigent: Tanja Karita Ikonen · Solist: Ida Kamilla Andersen, fiolin ·
+                Program: Tsjaikovskij Symfoni nr. 5 og Bruch Fiolinkonsert.
+              </p>
+              <p>Konserten er også årets SiA-prosjekt, Symfoniorkestrene i Akershus.</p>
             </div>
           </article>
+
           <article class="event-card">
-            <img src="images/orchestra_t15.jpg" alt="Salongorkester i konsertlokale" loading="lazy">
+            <img
+              src="images/orchestra_t15.jpg"
+              alt="Salongorkester i konsertlokale"
+              loading="lazy"
+            >
             <div>
               <h3>Lørdag 21. november · Afternoon Tea i Venskaben</h3>
-              <p>Asker symfoniorkesters salongorkester spiller stemningsfull musikk i klassisk café-atmosfære.</p>
+              <p>
+                Asker symfoniorkesters salongorkester spiller stemningsfull musikk
+                i klassisk café-atmosfære.
+              </p>
             </div>
           </article>
+
           <article class="event-card">
-            <img src="images/orchestra_t7.jpg" alt="Julekonsert med orkester" loading="lazy">
+            <img
+              src="images/orchestra_t7.jpg"
+              alt="Julekonsert med orkester"
+              loading="lazy"
+            >
             <div>
               <h3>29. november og 6. desember · Julekonsert / Operagalla</h3>
-              <p>Dirigent: Guro Anstensen Haugli · Solister: Øystein Skre og Marit Sehl.</p>
+              <p>
+                Dirigent: Guro Anstensen Haugli · Solister: Øystein Skre og Marit Sehl.
+              </p>
+              <p>Program kommer.</p>
             </div>
           </article>
         </div>
+
+        <p class="support-note">Billetter for disse konsertene er ikke lagt ut ennå.</p>
       </div>
     </section>
 
     <section class="section" id="om" aria-labelledby="about-title">
       <div class="container split">
         <div>
-          <p class="eyebrow">Om</p>
+          <p class="eyebrow">Om oss</p>
           <h2 id="about-title">Et levende orkesterfellesskap i Asker</h2>
-          <p>Asker symfoniorkester er et aktivt amatørorkester med rundt 35 faste musikere i alderen 17–84 år.</p>
-          <p>Orkesteret ble stiftet i 1972 og holder rundt fem konserter i året, med klassisk repertoar og samarbeid med solister og lokale kulturaktører.</p>
-          <a class="text-link" href="#repertoar">Utforsk repertoar</a>
+          <p>
+            Asker symfoniorkester er kommunens eneste symfoniorkester for unge og voksne
+            amatørmusikere, med ca. 35 medlemmer i alderen 17–84 år.
+          </p>
+          <p>
+            Siden oppstarten i 1972 har orkesteret jobbet for å berike det lokale
+            musikkmiljøet og gi ungdom og voksne et helt liv med musikk, fellesskap og mestring.
+          </p>
+          <p>
+            Orkesteret spiller et variert repertoar, samarbeider med unge solister og lokale
+            kulturaktører, og holder rundt fem konserter i året.
+          </p>
         </div>
+
         <figure class="image-block">
-          <img src="images/orchestra_1.jpg" alt="Asker symfoniorkester samlet på scenen" loading="lazy">
+          <img
+            src="images/orchestra_1.jpg"
+            alt="Asker symfoniorkester samlet på scenen"
+            loading="lazy"
+          >
         </figure>
       </div>
     </section>
@@ -162,46 +216,222 @@
     <section class="section section-soft" id="for-medlemmer" aria-labelledby="join-title">
       <div class="container split">
         <figure class="image-block">
-          <img src="images/orchestra_t7.jpg" alt="Musikere i øvelse" loading="lazy">
+          <img
+            src="images/orchestra_t7.jpg"
+            alt="Musikere i Asker symfoniorkester"
+            loading="lazy"
+          >
         </figure>
+
         <div>
           <p class="eyebrow">For medlemmer</p>
           <h2 id="join-title">Bli med i orkesteret</h2>
-          <p>Vi ønsker flere gode amatørmusikere velkommen. Vi øver hver tirsdag på Borgen ungdomsskole kl. 19.00–21.45.</p>
+          <p>Vi ønsker flere gode amatørmusikere velkommen.</p>
+          <p>Vi øver hver tirsdag på Borgen ungdomsskole kl. 19.00–21.45.</p>
           <p>Ta kontakt hvis du vil besøke en øvelse eller høre mer om medlemskap.</p>
           <a class="button button-primary" href="mailto:leder@asym.no">Kontakt oss</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="repertoar" aria-labelledby="rep-title">
-      <div class="container repertoire-box">
-        <p class="eyebrow">Repertoar</p>
-        <h2 id="rep-title">Fra klassiske hovedverk til salongorkester</h2>
-        <p>Programmet favner både symfoniske verk, solistkonserter og salongorkestertradisjon. Se konsertoversikten og følg kommende programmer.</p>
-        <a class="button button-secondary" href="#neste-konsert">Se konsertprogram</a>
+    <section class="section" id="galleri" aria-labelledby="gallery-title">
+      <div class="container">
+        <p class="eyebrow">Galleri</p>
+        <h2 id="gallery-title">Fra våre konserter</h2>
+
+        <div class="gallery-grid">
+          <figure>
+            <img src="images/orchestra_1.jpg" alt="Orkesteret på konsertscene" loading="lazy">
+          </figure>
+          <figure>
+            <img src="images/orchestra_11.jpg" alt="Musikere i orkesteret under fremføring" loading="lazy">
+          </figure>
+          <figure>
+            <img src="images/orchestra_and_choird.jpg" alt="Orkester og kor fremfører sammen" loading="lazy">
+          </figure>
+          <figure>
+            <img src="images/orchestra_piano.jpg" alt="Pianosolist foran orkesteret" loading="lazy">
+          </figure>
+          <figure>
+            <img src="images/orchestra_playing.jpg" alt="Asker symfoniorkester spiller konsert" loading="lazy">
+          </figure>
+          <figure>
+            <img src="images/orchestra_with_abba.jpg" alt="Orkesteret i en større konsertproduksjon" loading="lazy">
+          </figure>
+          <figure>
+            <img src="images/v1.jpg" alt="Historisk orkesterbilde fra Asker symfoniorkester" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="video" aria-labelledby="video-title">
+      <div class="container">
+        <p class="eyebrow">Video</p>
+        <h2 id="video-title">Se og hør orkesteret</h2>
+
+        <div class="video-grid">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/3dWpDRrjYIo"
+              title="Asker symfoniorkester video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/RjIQDAiVmII"
+              title="Felix spiller Schumann"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/H15EEgzzeFc"
+              title="Asker symfoniorkester konsertopptak"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/5MuOO9f0heU"
+              title="Asker symfoniorkester opptak"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="historie" aria-labelledby="history-title">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Historie</p>
+          <h2 id="history-title">Musikk, fellesskap og lokal kultur siden 1972</h2>
+          <p>
+            Asker symfoniorkester er kommunens eneste symfoniorkester for unge og voksne
+            amatørmusikere. Siden oppstarten i 1972 har orkesteret jobbet for å berike
+            det lokale musikkmiljøet.
+          </p>
+          <p>
+            Vår visjon er å gi ungdom og voksne et helt liv med musikk, samhold på tvers
+            av generasjoner og mestringsfølelse.
+          </p>
+          <p>
+            Orkesteret har et variert repertoar, fra uroppførelser til klassiske verk fra
+            den romantiske perioden, og samarbeider ofte med unge solister, kor i regionen
+            og kulturskolen i Asker.
+          </p>
+          <p>
+            Orkesterets faste dirigent var i nesten 30 år Arne Hagen. Bildet viser
+            orkesterets første konsert i 1973 på Tveter gård.
+          </p>
+        </div>
+
+        <figure class="image-block history-visual">
+          <img
+            src="images/Asker_symphonyorkester_origin.jpg"
+            alt="Orkesterets første konsert i 1973 på Tveter gård"
+            loading="lazy"
+          >
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-soft contact-section" id="kontakt" aria-labelledby="contact-title">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Kontakt</p>
+          <h2 id="contact-title">Kontakt oss</h2>
+          <p>
+            Asker symfoniorkester ble stiftet i 1972 og består av ca. 35 faste
+            amatørmusikere. Vi holder ca. fem konserter i året og ønsker flere gode
+            amatørmusikere velkommen.
+          </p>
+          <p>
+            Ta kontakt hvis du har spørsmål om medlemskap, konserter eller samarbeid.
+          </p>
+        </div>
+
+        <address class="card contact-card">
+          <p><strong>Leder:</strong> Ingrid Dahl</p>
+          <p><strong>Kasserer:</strong> Marianne Brænden</p>
+          <p><strong>Styremedlem:</strong> Sigurd Solbu</p>
+          <p><strong>Styremedlem:</strong> Christina Øglænd Sveen</p>
+          <p><strong>Styremedlem:</strong> Richard Blichfeldt</p>
+          <p>
+            <strong>E-post:</strong>
+            <a href="mailto:leder@asym.no">leder@asym.no</a>
+          </p>
+        </address>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer" id="kontakt">
+  <footer class="site-footer">
     <div class="container footer-grid">
       <div>
         <h2 class="footer-title">Asker symfoniorkester</h2>
         <p>Kommunens symfoniorkester for unge og voksne amatørmusikere.</p>
       </div>
+
       <nav aria-label="Bunnnavigasjon" class="footer-links">
         <a href="#hjem">Hjem</a>
+        <a href="#neste-konsert">Neste konsert</a>
         <a href="#om">Om</a>
         <a href="#for-medlemmer">For medlemmer</a>
+        <a href="#galleri">Galleri</a>
+        <a href="#video">Video</a>
+        <a href="#historie">Historie</a>
         <a href="#kontakt">Kontakt oss</a>
-        <a href="#repertoar">Repertoar</a>
       </nav>
+
       <div class="footer-contact">
         <a href="mailto:leder@asym.no">leder@asym.no</a>
-        <a href="https://www.facebook.com/profile.php?id=100062928895060&amp;ref=embed_page#" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://checkout.ebillett.no/359/events/19/purchase/setup" target="_blank" rel="noopener">Billetter</a>
+        <a
+          href="https://www.facebook.com/profile.php?id=100062928895060&amp;ref=embed_page#"
+          target="_blank"
+          rel="noopener"
+        >
+          Facebook
+        </a>
+        <a
+          href="https://checkout.ebillett.no/359/events/19/purchase/setup"
+          target="_blank"
+          rel="noopener"
+        >
+          Billetter
+        </a>
       </div>
+    </div>
+
+    <div class="container footer-support-row" aria-label="Støttespillere">
+      <span>Med støtte fra</span>
+
+      <a href="https://www.asker.kommune.no/" target="_blank" rel="noopener">
+        <img
+          src="https://www.asker.kommune.no/contentassets/21d3166cd6d745eab948cf480d345d1b/logopolitical.svg"
+          alt="Asker kommune"
+        >
+      </a>
+
+      <a href="https://nasol.no/" target="_blank" rel="noopener">
+        <img
+          src="https://nasol.no/wp-content/uploads/2014/11/logo1.png"
+          alt="NASOL"
+        >
+      </a>
     </div>
   </footer>
 
