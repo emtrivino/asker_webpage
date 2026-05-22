@@ -17,3 +17,25 @@ if (navToggle && navMenu) {
     }
   });
 }
+const concertParallax = document.querySelector("[data-concert-parallax] img");
+
+if (
+  concertParallax &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
+  const updateConcertParallax = () => {
+    const rect = concertParallax.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.bottom < 0 || rect.top > windowHeight) return;
+
+    const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+    const offset = (progress - 0.5) * 28;
+
+    concertParallax.style.transform = `scale(1.04) translateY(${offset}px)`;
+  };
+
+  updateConcertParallax();
+  window.addEventListener("scroll", updateConcertParallax, { passive: true });
+  window.addEventListener("resize", updateConcertParallax);
+}
