@@ -25,9 +25,12 @@ if (carousel) {
   const prevButton = carousel.querySelector('[data-carousel-prev]');
   const nextButton = carousel.querySelector('[data-carousel-next]');
   const dotsContainer = carousel.querySelector('[data-carousel-dots]');
+  const carouselTrack = carousel.querySelector('.carousel-track');
+  const hero = carousel.closest('.hero');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let activeIndex = 0;
   let intervalId;
+  let parallaxTicking = false;
 
   const dots = slides.map((_, index) => {
     const dot = document.createElement('button');
@@ -67,7 +70,7 @@ if (carousel) {
 
   function startTimer() {
     if (!reduceMotion && slides.length > 1) {
-      intervalId = window.setInterval(nextSlide, 5000);
+      intervalId = window.setInterval(nextSlide, 3800);
     }
   }
 
@@ -88,6 +91,36 @@ if (carousel) {
 
   carousel.addEventListener('mouseenter', () => window.clearInterval(intervalId));
   carousel.addEventListener('mouseleave', startTimer);
+
+  function updateHeroParallax() {
+    if (!hero || !carouselTrack) {
+      return;
+    }
+
+    const heroRect = hero.getBoundingClientRect();
+
+    if (heroRect.bottom < 0 || heroRect.top > window.innerHeight) {
+      parallaxTicking = false;
+      return;
+    }
+
+    const offset = Math.min(90, Math.max(0, -heroRect.top * 0.18));
+    carouselTrack.style.setProperty('--hero-parallax', `${offset}px`);
+    parallaxTicking = false;
+  }
+
+  function requestHeroParallax() {
+    if (!parallaxTicking) {
+      window.requestAnimationFrame(updateHeroParallax);
+      parallaxTicking = true;
+    }
+  }
+
+  if (!reduceMotion && hero && carouselTrack) {
+    window.addEventListener('scroll', requestHeroParallax, { passive: true });
+    window.addEventListener('resize', requestHeroParallax);
+    updateHeroParallax();
+  }
 
   showSlide(0);
   startTimer();

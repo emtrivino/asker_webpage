@@ -1,6 +1,6 @@
-# Asker Symfoniorkester nettside
+# Asker symfoniorkester nettside
 
-Dette repoet inneholder en statisk én-sides nettside for Asker Symfoniorkester. Siden er laget med ren HTML, CSS og JavaScript, uten backend og uten eksterne rammeverk.
+Dette repoet inneholder en statisk én-sides nettside for Asker symfoniorkester. Siden er laget med ren HTML, CSS og JavaScript, uten backend og uten eksterne rammeverk.
 
 ## Forhåndsvis lokalt
 
