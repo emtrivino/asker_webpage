@@ -210,32 +210,87 @@
       </div>
     </section>
 
-    <section class="section section-muted" id="kommende-konserter" aria-labelledby="upcoming-title">
-      <div class="container">
-        <p class="eyebrow">Kommende konserter</p>
-        <h2 id="upcoming-title">Programmet videre i 2026</h2>
-        <div class="upcoming-grid">
-          <article class="card upcoming-card">
-            <h3>Søndag 25. oktober · Høstkonsert i Asker kirke</h3>
-            <p><strong>Dirigent:</strong> Tanja Karita Ikonen</p>
-            <p><strong>Solist:</strong> Ida Kamilla Andersen, fiolin (Barratt-Due)</p>
-            <p><strong>Program:</strong> Tsjaikovskij: Symfoni nr. 5 · Bruch: Fiolinkonsert</p>
-            <p>Konserten er også årets SiA-prosjekt (Symfoniorkestrene i Akershus).</p>
-          </article>
-          <article class="card upcoming-card">
-            <h3>Lørdag 21. november · Afternoon Tea i Venskaben</h3>
-            <p>Inviter familie og venner til en stemningsfull Afternoon Tea med påsmurte delikatesser, søte kaker, champagne og varm te.</p>
-            <p>Asker symfoniorkesters salongorkester sørger for elegant musikk inspirert av Teaterkafeen.</p>
-          </article>
-          <article class="card upcoming-card">
-            <h3>Julekonsert / Operagalla</h3>
-            <p><strong>Datoer:</strong> 29. november (Østenstad kirke) og 6. desember (Dynamitten, Sætre)</p>
-            <p><strong>Dirigent:</strong> Guro Anstensen Haugli</p>
-            <p><strong>Solister:</strong> Øystein Skre (bass) og Marit Sehl (mezzosopran)</p>
-            <p><strong>Program:</strong> Annonseres senere</p>
-          </article>
+    <section class="section upcoming-section" id="kommende-konserter" aria-labelledby="upcoming-title">
+      <div class="container upcoming-panel">
+        <div class="upcoming-header">
+          <p class="eyebrow">Kommende konserter</p>
+          <h2 id="upcoming-title">Programmet videre i 2026</h2>
+          <div class="upcoming-controls" aria-label="Bla i kommende konserter">
+            <button class="upcoming-control" type="button" aria-label="Forrige konsert" data-upcoming-prev>‹</button>
+            <button class="upcoming-control" type="button" aria-label="Neste konsert" data-upcoming-next>›</button>
+          </div>
         </div>
-        <p class="ticket-note">Billetter for disse konsertene er ikke lagt ut ennå.</p>
+        <div class="upcoming-carousel" data-upcoming-carousel>
+          <div class="upcoming-grid" data-upcoming-track>
+            <article class="upcoming-card upcoming-card-dark">
+              <img src="images/orchestra_t8.jpg" alt="Orkesteret sett fra konsertscenen" loading="lazy">
+              <div class="upcoming-card-body">
+                <p class="upcoming-date">25. oktober</p>
+                <h3>Høstkonsert i Asker kirke</h3>
+                <p class="upcoming-place">Asker kirke</p>
+                <dl>
+                  <div>
+                    <dt>Dirigent</dt>
+                    <dd>Tanja Karita Ikonen</dd>
+                  </div>
+                  <div>
+                    <dt>Solist</dt>
+                    <dd>Ida Kamilla Andersen, fiolin (Barratt-Due)</dd>
+                  </div>
+                  <div>
+                    <dt>Program</dt>
+                    <dd>Tsjaikovskij: Symfoni nr. 5</dd>
+                    <dd>Bruch: Fiolinkonsert</dd>
+                  </div>
+                </dl>
+                <p class="upcoming-note">Årets SiA-prosjekt (Symfoniorkestrene i Akershus).</p>
+              </div>
+            </article>
+            <article class="upcoming-card upcoming-card-warm">
+              <img src="images/orchestra_t11.jpg" alt="Musikere spiller i mindre ensemble" loading="lazy">
+              <div class="upcoming-card-body">
+                <p class="upcoming-date">21. november</p>
+                <h3>Afternoon Tea i Venskaben</h3>
+                <p class="upcoming-place">Venskaben</p>
+                <dl>
+                  <div>
+                    <dt>Format</dt>
+                    <dd>Påsmurte delikatesser, søte kaker, champagne og varm te.</dd>
+                  </div>
+                  <div>
+                    <dt>Musikk</dt>
+                    <dd>Asker symfoniorkesters salongorkester med elegant kaferepertoar.</dd>
+                  </div>
+                </dl>
+                <p class="upcoming-note">Et intimt lørdagsarrangement inspirert av Teaterkafeen.</p>
+              </div>
+            </article>
+            <article class="upcoming-card upcoming-card-rose">
+              <img src="images/orchestra_11.jpg" alt="Asker symfoniorkester under en større konsertproduksjon" loading="lazy">
+              <div class="upcoming-card-body">
+                <p class="upcoming-date">29. november · 6. desember</p>
+                <h3>Julekonsert / Operagalla</h3>
+                <p class="upcoming-place">Østenstad kirke · Dynamitten, Sætre</p>
+                <dl>
+                  <div>
+                    <dt>Dirigent</dt>
+                    <dd>Guro Anstensen Haugli</dd>
+                  </div>
+                  <div>
+                    <dt>Solister</dt>
+                    <dd>Øystein Skre, bass</dd>
+                    <dd>Marit Sehl, mezzosopran</dd>
+                  </div>
+                  <div>
+                    <dt>Program</dt>
+                    <dd>Annonseres senere</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          </div>
+        </div>
+        <p class="ticket-note">Billetter legges ut nærmere konsertdatoene.</p>
       </div>
     </section>
 

@@ -125,3 +125,70 @@ if (carousel) {
   showSlide(0);
   startTimer();
 }
+
+const upcomingCarousel = document.querySelector('[data-upcoming-carousel]');
+
+if (upcomingCarousel) {
+  const upcomingTrack = upcomingCarousel.querySelector('[data-upcoming-track]');
+  const upcomingCards = Array.from(upcomingCarousel.querySelectorAll('.upcoming-card'));
+  const upcomingSection = upcomingCarousel.closest('.upcoming-section');
+  const upcomingPrev = upcomingSection?.querySelector('[data-upcoming-prev]');
+  const upcomingNext = upcomingSection?.querySelector('[data-upcoming-next]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeUpcomingIndex = 0;
+  let upcomingTimerId;
+
+  function getUpcomingItemsPerView() {
+    return window.matchMedia('(min-width: 961px)').matches ? 2 : 1;
+  }
+
+  function getUpcomingMaxIndex() {
+    return Math.max(0, upcomingCards.length - getUpcomingItemsPerView());
+  }
+
+  function showUpcoming(index) {
+    const maxIndex = getUpcomingMaxIndex();
+    activeUpcomingIndex = index > maxIndex ? 0 : index < 0 ? maxIndex : index;
+    upcomingTrack?.style.setProperty('--upcoming-index', String(activeUpcomingIndex));
+  }
+
+  function nextUpcoming() {
+    showUpcoming(activeUpcomingIndex + 1);
+  }
+
+  function previousUpcoming() {
+    showUpcoming(activeUpcomingIndex - 1);
+  }
+
+  function startUpcomingTimer() {
+    if (!reduceMotion && upcomingCards.length > getUpcomingItemsPerView()) {
+      upcomingTimerId = window.setInterval(nextUpcoming, 4600);
+    }
+  }
+
+  function restartUpcomingTimer() {
+    window.clearInterval(upcomingTimerId);
+    startUpcomingTimer();
+  }
+
+  upcomingPrev?.addEventListener('click', () => {
+    previousUpcoming();
+    restartUpcomingTimer();
+  });
+
+  upcomingNext?.addEventListener('click', () => {
+    nextUpcoming();
+    restartUpcomingTimer();
+  });
+
+  upcomingCarousel.addEventListener('mouseenter', () => window.clearInterval(upcomingTimerId));
+  upcomingCarousel.addEventListener('mouseleave', startUpcomingTimer);
+
+  window.addEventListener('resize', () => {
+    showUpcoming(activeUpcomingIndex);
+    restartUpcomingTimer();
+  });
+
+  showUpcoming(0);
+  startUpcomingTimer();
+}
