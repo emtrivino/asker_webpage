@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="theme-color" content="#fbfaf7">
-  <meta name="description" content="Asker symfoniorkester samler musikere i Asker til symfoniske konserter, lokale samarbeid og musikalsk utvikling.">
-  <title>Asker symfoniorkester</title>
+  <meta name="description" content="Kjøp billetter til Asker symfoniorkesters høstkonsert i Asker kirke søndag 25. oktober kl. 18.00.">
+  <title>Høstkonsert i Asker kirke | Asker symfoniorkester</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +19,9 @@
     <nav class="nav" aria-label="Hovednavigasjon">
       <a class="brand" href="#top" aria-label="Asker symfoniorkester hjem">
         <span class="brand-mark" aria-hidden="true">AS</span>
-        <span>Asker symfoniorkester</span>
+        <span class="brand-text">
+          <span>Asker symfoniorkester</span>
+        </span>
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Åpne meny">
@@ -26,12 +31,11 @@
       </button>
 
       <div class="nav-menu" id="nav-menu" data-nav-menu>
-        <a href="#om-oss">Om oss</a>
-        <a href="#konserter">Konserter</a>
-        <a href="#bli-medlem">Bli medlem</a>
-        <a href="#video" class="nav-cta">Se høydepunktene</a>
-        <a href="https://www.facebook.com/profile.php?id=100062928895060&amp;ref=embed_page#" target="_blank" rel="noopener">Facebook</a>
+        <a href="#konserter">Program</a>
+        <a href="#kommende-konserter">Sesong</a>
+        <a href="#om-oss">Orkesteret</a>
         <a href="mailto:leder@asym.no">Kontakt oss</a>
+        <a href="https://checkout.ebillett.no/359/events/20/purchase" class="nav-cta" target="_blank" rel="noopener"><span class="nav-cta-long">Kjøp billetter</span><span class="nav-cta-short">Billetter</span></a>
       </div>
     </nav>
   </header>
@@ -39,164 +43,66 @@
   <main id="main">
     <section class="hero section" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">Stiftet i 1972 · Asker, Norge</p>
-        <h1 id="hero-title"><span>Asker</span><span>symfoniorkester</span></h1>
-        <p class="hero-subtitle">Symfonisk musikk og lokale samarbeid siden 1972</p>
-        <p class="hero-intro">Et levende orkesterfellesskap for unge og voksne musikere i Asker.</p>
+        <p class="eyebrow">Høstkonsert 2026</p>
+        <h1 id="hero-title"><span>Tsjaikovskij</span><span>&amp; Bruch</span></h1>
+        <p class="hero-subtitle">Søndag 25. oktober kl. 18.00 i Asker kirke.</p>
+        <p class="hero-intro">Tanja Karita Ikonen dirigerer. Ida Kamilla Andersen er solist i Bruchs fiolinkonsert.</p>
         <div class="button-row">
-          <a class="button button-primary" href="#konserter">Siste konsert</a>
-          <a class="button button-secondary" href="#video">Se høydepunktene</a>
-          <a class="button button-ghost" href="#bli-medlem">Bli medlem</a>
+          <a class="button button-primary button-large" href="https://checkout.ebillett.no/359/events/20/purchase" target="_blank" rel="noopener">Kjøp billetter nå</a>
+          <a class="button button-secondary" href="#konserter">Se program</a>
         </div>
       </div>
 
       <section class="carousel" aria-label="Bilder fra Asker symfoniorkester" data-carousel>
         <div class="carousel-track">
           <figure class="carousel-slide is-active">
-            <img src="images/orchestra_with_abba.jpg" alt="Asker symfoniorkester under en større konsertproduksjon" fetchpriority="high">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_and_choird.jpg" alt="Asker symfoniorkester og kor på konsertscene" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_piano.jpg" alt="Pianist og orkester under konsert" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_playing.jpg" alt="Musikere i Asker symfoniorkester spiller sammen" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_1.jpg" alt="Asker symfoniorkester samlet på scenen" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_11.jpg" alt="Musikere i orkesteret under fremføring" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestrav11.jpg" alt="Asker symfoniorkester under konsert" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_v10.jpg" alt="Orkesteret spiller på scenen" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_v12.jpg" alt="Symfoniorkesteret i samspill" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_v14.jpg" alt="Konsertbilde fra Asker symfoniorkester" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_v15.jpg" alt="Orkesteret under en konsertproduksjon" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t1.jpg" alt="Detaljbilde fra orkesterkonsert" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t2.jpg" alt="Musikere fra Asker symfoniorkester på scenen" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t3.jpg" alt="Orkesterbilde fra konsert" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t4.jpg" alt="Strykere og musikere under fremføring" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t5.jpg" alt="Musikere i konsertsal" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t6.jpg" alt="Asker symfoniorkester i konsert" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t7.jpg" alt="Musikere fremfører symfonisk musikk" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t8.jpg" alt="Orkesteret sett fra konsertscenen" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t9.jpg" alt="Konsertstemning med Asker symfoniorkester" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t10.jpg" alt="Orkesteret spiller for publikum" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t11.jpg" alt="Sceneøyeblikk fra Asker symfoniorkester" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/orchestra_t12.jpg" alt="Musikere samlet under konsert" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/v1.jpg" alt="Historisk orkesterbilde fra Asker symfoniorkester" loading="lazy">
-          </figure>
-          <figure class="carousel-slide">
-            <img src="images/Asker_symphonyorkester_origin.jpg" alt="Orkesterets første konsert i 1973 på Tveter gård" loading="lazy">
+            <img src="images/orchestra_t8.jpg" alt="Asker symfoniorkester på scenen sett fra orkesteret mot publikum" fetchpriority="high">
           </figure>
         </div>
-        <button class="carousel-control carousel-prev" type="button" aria-label="Vis forrige bilde" data-carousel-prev>‹</button>
-        <button class="carousel-control carousel-next" type="button" aria-label="Vis neste bilde" data-carousel-next>›</button>
-        <div class="carousel-dots" data-carousel-dots></div>
       </section>
     </section>
 
     <section class="section concert-feature" id="konserter" aria-labelledby="concert-title">
       <div class="container concert-shell">
         <div class="concert-date">
-          <span class="concert-day">07</span>
-          <span class="concert-month">Juni</span>
+          <span class="concert-day">25</span>
+          <span class="concert-month">Oktober</span>
           <span class="concert-year">2026</span>
         </div>
 
         <div class="concert-copy">
-          <p class="eyebrow">Siste konsert</p>
-          <h2 id="concert-title">Peer Gynt med solister fra Asker kulturskole</h2>
-          <p class="lead">Østenstad kirke · 7. juni 2026</p>
+          <p class="eyebrow">Billetter er i salg</p>
+          <h2 id="concert-title">Program</h2>
+          <p class="lead">Tsjaikovskij · Bruch · Asker kirke</p>
           <div class="concert-actions">
-            <a class="button button-primary" href="#video">Se høydepunktene</a>
-            <a class="button button-ghost" href="#kommende-konserter">Se sesongen</a>
+            <a class="button button-primary" href="https://checkout.ebillett.no/359/events/20/purchase" target="_blank" rel="noopener">Kjøp billetter</a>
+            <a class="button button-ghost" href="#kommende-konserter">Flere konserter</a>
           </div>
           <ul class="concert-highlights">
-            <li>Carl Nilsen, dirigent</li>
-            <li>4 unge solister</li>
-            <li>Grieg · Mozart · Poulenc</li>
+            <li>Tsjaikovskij: Symfoni nr. 5</li>
+            <li>Max Bruch: Fiolinkonsert i G-moll</li>
+            <li>Ida Kamilla Andersen, fiolin</li>
           </ul>
         </div>
 
         <figure class="concert-visual">
-          <img src="images/orchestra_v12.jpg" alt="Asker symfoniorkester under konsert" loading="lazy">
-          <figcaption>Sommerkveld i Østenstad kirke</figcaption>
+          <img src="images/orchestra_t8.jpg" alt="Asker symfoniorkester under konsert sett fra scenen" loading="lazy">
         </figure>
 
-        <div class="card concert-card">
-          <div class="concert-card-header">
-            <p class="eyebrow">Program</p>
-            <p>Solister fra Asker kulturskole møtte symfonisk repertoar i en sommerkveld bygget for nærhet, presisjon og energi.</p>
-          </div>
-          <dl class="concert-details">
-            <div>
-              <dt>Solister</dt>
-              <dd>Aurora Sommerfeldt Floden, bratsj</dd>
-              <dd>Eline Øverli Waaler, fløyte</dd>
-              <dd>Linnea Line, piano</dd>
-              <dd>Anja Møgedal Skjellestad, saksofon</dd>
-            </div>
-            <div>
-              <dt>Verk</dt>
-              <dd>Grieg: Peer Gynt Suite nr. 1 og 2</dd>
-              <dd>Mozart: Andante for fløyte og orkester</dd>
-              <dd>Poulenc: Klaverkonsert, 1. sats</dd>
-              <dd>Kjell Marcussen: Pavane for bratsj og orkester</dd>
-              <dd>Gabriel Pierné: Canzonetta for saksofon og orkester</dd>
-            </div>
-          </dl>
-          <p class="support-note">Med støtte fra Asker kommune, NASOL og Sparebankstiftelsen DNB.</p>
-        </div>
       </div>
     </section>
 
-    <section class="section" id="om-oss" aria-labelledby="about-title">
-      <div class="container two-column align-start">
-        <div>
+    <section class="section about-section" id="om-oss" aria-labelledby="about-title">
+      <div class="container about-shell">
+        <div class="about-copy">
           <p class="eyebrow">Om oss</p>
           <h2 id="about-title">Et orkester for hele Asker</h2>
-          <p>Asker symfoniorkester samler rundt 35 musikere i alderen 17–84 år til ambisiøse prosjekter og konserter i lokalmiljøet.</p>
-          <p>Vi ønsker å være en inkluderende møteplass for musikalsk utvikling, samspill og mestring på tvers av generasjoner.</p>
-          <p>Repertoaret spenner fra klassiske hovedverk til nyere musikk, ofte i samarbeid med unge solister, kor og profesjonelle dirigenter.</p>
+          <p class="lead">Asker symfoniorkester samler musikere på tvers av generasjoner til klassiske hovedverk, lokale prosjekter og samarbeid med solister.</p>
+          <ul class="about-list">
+            <li>Symfonisk repertoar og konsertprosjekter i Asker.</li>
+            <li>Et inkluderende miljø for utvikling, samspill og mestring.</li>
+            <li>Øvelser tirsdager kl. 19.00–21.45.</li>
+          </ul>
         </div>
         <div class="about-visual">
           <img src="images/orchestra_1.jpg" alt="Asker symfoniorkester samlet på scenen" loading="lazy">
@@ -215,35 +121,17 @@
         <div class="upcoming-header">
           <p class="eyebrow">Kommende konserter</p>
           <h2 id="upcoming-title">Programmet videre i 2026</h2>
-          <div class="upcoming-controls" role="group" aria-label="Bla i kommende konserter">
-            <button class="upcoming-control" type="button" aria-label="Forrige konsert" data-upcoming-prev>‹</button>
-            <button class="upcoming-control" type="button" aria-label="Neste konsert" data-upcoming-next>›</button>
-          </div>
         </div>
-        <div class="upcoming-carousel" data-upcoming-carousel>
-          <div class="upcoming-grid" data-upcoming-track>
+        <div class="upcoming-carousel">
+          <div class="upcoming-grid">
             <article class="upcoming-card upcoming-card-dark">
               <img src="images/orchestra_t8.jpg" alt="Orkesteret sett fra konsertscenen" loading="lazy">
               <div class="upcoming-card-body">
                 <p class="upcoming-date">25. oktober</p>
                 <h3>Høstkonsert i Asker kirke</h3>
-                <p class="upcoming-place">Asker kirke</p>
-                <dl>
-                  <div>
-                    <dt>Dirigent</dt>
-                    <dd>Tanja Karita Ikonen</dd>
-                  </div>
-                  <div>
-                    <dt>Solist</dt>
-                    <dd>Ida Kamilla Andersen, fiolin (Barratt-Due)</dd>
-                  </div>
-                  <div>
-                    <dt>Program</dt>
-                    <dd>Tsjaikovskij: Symfoni nr. 5</dd>
-                    <dd>Bruch: Fiolinkonsert</dd>
-                  </div>
-                </dl>
-                <p class="upcoming-note">Årets SiA-prosjekt (Symfoniorkestrene i Akershus).</p>
+                <p class="upcoming-place">Asker kirke · kl. 18.00</p>
+                <p class="upcoming-note">Tsjaikovskij · Bruch · Ida Kamilla Andersen</p>
+                <a class="button button-primary upcoming-cta" href="https://checkout.ebillett.no/359/events/20/purchase" target="_blank" rel="noopener">Kjøp billetter</a>
               </div>
             </article>
             <article class="upcoming-card upcoming-card-warm">
@@ -252,17 +140,7 @@
                 <p class="upcoming-date">21. november</p>
                 <h3>Afternoon Tea i Venskaben</h3>
                 <p class="upcoming-place">Venskaben</p>
-                <dl>
-                  <div>
-                    <dt>Format</dt>
-                    <dd>Ettermiddagsluksus med påsmurte delikatesser, søte kaker, champagne og varm te.</dd>
-                  </div>
-                  <div>
-                    <dt>Musikk</dt>
-                    <dd>Vårt eget salongorkester underholder med herlig musikk fra Teaterkafeen.</dd>
-                  </div>
-                </dl>
-                <p class="upcoming-note">Inviter familie og venner til en unik Afternoon Tea-opplevelse i Asker. Vi lover hyggelige overraskelser!</p>
+                <p class="upcoming-note">Salongorkester, te, kaker og et musikalsk ettermiddagsformat.</p>
               </div>
             </article>
             <article class="upcoming-card upcoming-card-rose">
@@ -271,26 +149,12 @@
                 <p class="upcoming-date">29. november · 6. desember</p>
                 <h3>Julekonsert / Operagalla</h3>
                 <p class="upcoming-place">Østenstad kirke · Dynamitten, Sætre</p>
-                <dl>
-                  <div>
-                    <dt>Dirigent</dt>
-                    <dd>Guro Anstensen Haugli</dd>
-                  </div>
-                  <div>
-                    <dt>Solister</dt>
-                    <dd>Øystein Skre, bass</dd>
-                    <dd>Marit Sehl, mezzosopran</dd>
-                  </div>
-                  <div>
-                    <dt>Program</dt>
-                    <dd>Annonseres senere</dd>
-                  </div>
-                </dl>
+                <p class="upcoming-note">Guro Anstensen Haugli · Øystein Skre · Marit Sehl</p>
               </div>
             </article>
           </div>
         </div>
-        <p class="ticket-note">Billetter legges ut nærmere konsertdatoene.</p>
+        <p class="ticket-note">Billetter til høstkonserten kan kjøpes via eBillett.</p>
       </div>
     </section>
 
@@ -300,84 +164,9 @@
           <p class="eyebrow light">Bli med</p>
           <h2 id="member-title">Bli medlem</h2>
           <p class="lead">Vil du spille symfonisk musikk i et aktivt orkester?</p>
-          <p>Vi øver tirsdager på Borgen ungdomsskole kl. 19.00–21.45.</p>
-          <p>Ta kontakt for en uforpliktende prat om ledige plasser og nivå.</p>
-          <p><a href="mailto:leder@asym.no">leder@asym.no</a></p>
+          <p>Øvelser tirsdager kl. 19.00–21.45 · <a href="mailto:leder@asym.no">leder@asym.no</a></p>
         </div>
         <a class="button button-light" href="mailto:leder@asym.no">Kontakt oss</a>
-      </div>
-    </section>
-
-    <section class="section video-section" id="video" aria-labelledby="video-title">
-      <div class="container video-shell">
-        <div class="video-intro">
-          <p class="eyebrow">Siste konsert</p>
-          <h2 id="video-title">Gjenopplev høydepunktene fra sommerkonserten</h2>
-          <p class="lead">Fire øyeblikk fra Østenstad kirke med Peer Gynt, unge solister og Asker symfoniorkester.</p>
-        </div>
-        <ul class="video-meta">
-          <li>7. juni 2026</li>
-          <li>Østenstad kirke</li>
-          <li>Grieg · Marcussen · Pierné</li>
-        </ul>
-        <ul class="video-grid">
-          <li>
-            <a class="video-card video-card-featured" href="https://www.youtube.com/watch?v=9p1ZSEAKiZI" target="_blank" rel="noopener" aria-label="Se 2026-06-07. E. Grieg. Peer Gynt Suite nr. 1 på YouTube">
-              <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/9p1ZSEAKiZI/hqdefault.jpg" alt="Miniatyrbilde fra Peer Gynt Suite nr. 1" loading="lazy">
-                <span class="video-play" aria-hidden="true"></span>
-                <span class="video-source">YouTube · Knut Helgesen</span>
-              </div>
-              <div class="video-card-copy">
-                <p class="video-kicker">Høydepunkt 1</p>
-                <h3>2026-06-07. E. Grieg. Peer Gynt Suite nr. 1</h3>
-                <p>Sommerkonsert i Østenstad kirke 7. juni 2026. Dirigent: Carl Nilsen.</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="video-card" href="https://www.youtube.com/watch?v=rPnUEgZmB5s" target="_blank" rel="noopener" aria-label="Se 2026-06-07. ASYM. Peer Gynt Suite nr. 2 på YouTube">
-              <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/rPnUEgZmB5s/hqdefault.jpg" alt="Miniatyrbilde fra Peer Gynt Suite nr. 2" loading="lazy">
-                <span class="video-play" aria-hidden="true"></span>
-                <span class="video-source">YouTube · Knut Helgesen</span>
-              </div>
-              <div class="video-card-copy">
-                <p class="video-kicker">Høydepunkt 2</p>
-                <h3>2026-06-07. ASYM. Peer Gynt Suite nr. 2</h3>
-                <p>Peer Gynt Suite nr. 2 fra sommerkonserten i Østenstad kirke. Dirigent: Carl Nilsen.</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="video-card" href="https://www.youtube.com/watch?v=FYXpNnOqgFY" target="_blank" rel="noopener" aria-label="Se 2026-06-07. ASYM. Pavane for bratsj og orkester på YouTube">
-              <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/FYXpNnOqgFY/hqdefault.jpg" alt="Miniatyrbilde fra Pavane for bratsj og orkester" loading="lazy">
-                <span class="video-play" aria-hidden="true"></span>
-                <span class="video-source">YouTube · Knut Helgesen</span>
-              </div>
-              <div class="video-card-copy">
-                <p class="video-kicker">Høydepunkt 3</p>
-                <h3>2026-06-07. ASYM. Pavane for bratsj og orkester</h3>
-                <p>Kjell Marcussen: Pavane for bratsj og orkester. Solist: Aurora Sommerfeldt Floden. Dirigent: Carl Nilsen.</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="video-card" href="https://www.youtube.com/watch?v=wpGN8_MHE5k" target="_blank" rel="noopener" aria-label="Se 2026-06-07. G. Pierné. Canzonetta på YouTube">
-              <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/wpGN8_MHE5k/hqdefault.jpg" alt="Miniatyrbilde fra G. Pierné: Canzonetta" loading="lazy">
-                <span class="video-play" aria-hidden="true"></span>
-                <span class="video-source">YouTube · Knut Helgesen</span>
-              </div>
-              <div class="video-card-copy">
-                <p class="video-kicker">Høydepunkt 4</p>
-                <h3>2026-06-07. G. Pierné. Canzonetta</h3>
-                <p>Gabriel Pierné: Canzonetta. Solist: Anja Møgedal Skjellestad. Dirigent: Carl Nilsen.</p>
-              </div>
-            </a>
-          </li>
-        </ul>
       </div>
     </section>
 
@@ -431,15 +220,17 @@
         <div>
           <p class="eyebrow">Kontakt</p>
           <h2 id="contact-title">Kontakt styret</h2>
-          <p>Har du spørsmål om konserter, samarbeid eller medlemskap? Ta gjerne kontakt med styret.</p>
+          <p>Spørsmål om konserter, samarbeid eller medlemskap?</p>
         </div>
         <address class="contact-card card">
-          <p><strong>Leder:</strong> Ingrid Dahl</p>
-          <p><strong>Kasserer:</strong> Marianne Brænden</p>
-          <p><strong>Styremedlem:</strong> Sigurd Solbu</p>
-          <p><strong>Styremedlem:</strong> Christina Øglænd Sveen</p>
-          <p><strong>Styremedlem:</strong> Richard Blichfeldt</p>
-          <p><strong>E-post:</strong> <a href="mailto:leder@asym.no">leder@asym.no</a></p>
+          <a class="contact-email" href="mailto:leder@asym.no">leder@asym.no</a>
+          <div class="contact-list" aria-label="Styret">
+            <span><strong>Leder</strong> Ingrid Dahl</span>
+            <span><strong>Kasserer</strong> Marianne Brænden</span>
+            <span><strong>Styret</strong> Sigurd Solbu</span>
+            <span><strong>Styret</strong> Christina Øglænd Sveen</span>
+            <span><strong>Styret</strong> Richard Blichfeldt</span>
+          </div>
         </address>
       </div>
     </section>
@@ -451,13 +242,14 @@
       <div class="footer-links">
         <a href="https://www.facebook.com/profile.php?id=100062928895060&amp;ref=embed_page#" target="_blank" rel="noopener">Facebook</a>
         <a href="mailto:leder@asym.no">Kontakt oss</a>
-        <a href="#video">Se høydepunktene</a>
+        <a href="https://checkout.ebillett.no/359/events/20/purchase" target="_blank" rel="noopener">Kjøp billetter</a>
       </div>
     </div>
     <div class="container footer-support-row">
-      <span>Med støtte fra</span>
+      <span>Høstkonserten støttes av</span>
       <a href="https://www.asker.kommune.no/" target="_blank" rel="noopener"><img src="https://www.asker.kommune.no/contentassets/21d3166cd6d745eab948cf480d345d1b/logopolitical.svg" alt="Asker kommune"></a>
-      <a href="https://nasol.no/" target="_blank" rel="noopener"><img src="https://nasol.no/wp-content/uploads/2014/11/logo1.png" alt="NASOL"></a>
+      <strong class="support-name">SiA</strong>
+      <strong class="support-name">Sparebankstiftelsen</strong>
     </div>
   </footer>
 
