@@ -1040,19 +1040,22 @@ p {
 
 .highlight-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.55rem;
-  margin: 0.7rem 0 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 0.75rem 0 0;
   padding: 0;
   list-style: none;
 }
 
 .highlight-card {
   min-width: 0;
+  min-height: 5.25rem;
+  display: grid;
+  align-content: start;
   border: 1px solid rgba(35, 53, 47, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.82);
-  padding: 0.75rem;
+  padding: 0.85rem;
 }
 
 .highlight-card strong,
@@ -1063,16 +1066,18 @@ p {
 .highlight-card strong {
   color: var(--color-ink);
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-size: clamp(1.32rem, 1.65vw, 1.58rem);
   font-weight: 500;
   line-height: 1;
+  overflow-wrap: anywhere;
 }
 
 .highlight-card span {
   margin-top: 0.28rem;
   color: var(--color-muted);
-  font-size: 0.78rem;
-  line-height: 1.25;
+  font-size: 0.82rem;
+  line-height: 1.28;
+  overflow-wrap: break-word;
 }
 
 .member-panel {
