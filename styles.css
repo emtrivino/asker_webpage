@@ -27,7 +27,7 @@ h1, h2, h3 { margin: 0; color: var(--ink); font-family: var(--serif); font-weigh
 h2 { margin-bottom: 1.25rem; font-size: clamp(2.1rem, 4vw, 3.65rem); }
 h3 { font-size: clamp(1.5rem, 2.2vw, 1.95rem); }
 .container, .nav { width: min(calc(100% - var(--gutter) * 2), var(--container)); margin-inline: auto; }
-.section { padding-block: clamp(3.75rem, 7.5vw, 7rem); }
+.section { padding-block: clamp(3rem, 5.4vw, 5.5rem); }
 .section-muted { background: var(--mist); }
 .eyebrow { display: flex; align-items: center; gap: .7rem; margin-bottom: 1.25rem; color: var(--fjord); font-size: .7rem; font-weight: 700; line-height: 1.5; letter-spacing: .19em; text-transform: uppercase; }
 .eyebrow::before { content: ''; width: 1.75rem; height: 1px; background: currentColor; }
@@ -51,12 +51,12 @@ h3 { font-size: clamp(1.5rem, 2.2vw, 1.95rem); }
 .nav-toggle[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded='true'] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 .hero { position: relative; isolation: isolate; display: grid; align-items: center; min-height: 660px; min-height: min(780px, 88svh); padding: clamp(4rem, 8vw, 8rem) var(--gutter); color: white; background: var(--ink); overflow: hidden; }
-.hero::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(10,38,46,.74), rgba(10,38,46,.42) 43%, rgba(10,38,46,.05)), linear-gradient(0deg, rgba(8,29,35,.28), transparent 52%); }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(0,0,0,.58), rgba(0,0,0,.22) 44%, rgba(0,0,0,.02)), linear-gradient(0deg, rgba(0,0,0,.18), transparent 52%); }
 .hero-copy { position: relative; z-index: 2; width: min(100%, var(--container)); margin-inline: auto; }
-.hero .eyebrow { color: #d3e5dc; margin-bottom: 1.5rem; }
+.hero .eyebrow { color: #f3f2eb; margin-bottom: 1.5rem; }
 .hero h1 { color: #f8f9f3; font-size: clamp(3.4rem, 7.3vw, 7rem); line-height: .99; letter-spacing: -.045em; margin-bottom: 1.65rem; }
 .hero h1 span { display: block; }
-.hero h1 span:last-child { color: #c4ded1; font-style: italic; }
+.hero h1 span:last-child { color: #f3f2eb; font-style: italic; }
 .hero-subtitle { margin-bottom: .7rem; color: white; font-size: clamp(1rem, 1.5vw, 1.2rem); }
 .hero-intro { max-width: 410px; color: #d4dfdf; font-size: .96rem; }
 .hero-gallery { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
@@ -75,11 +75,13 @@ h3 { font-size: clamp(1.5rem, 2.2vw, 1.95rem); }
 .carousel-slide img { object-fit: cover; object-position: 60% 45%; }
 .button-row, .concert-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 1rem; min-height: 48px; border: 1px solid transparent; border-radius: 999px; padding: .8rem 1.4rem; font-size: .88rem; font-weight: 600; line-height: 1.3; text-decoration: none; transition: background .2s, transform .2s, border-color .2s; }
-.button-primary { background: var(--fjord); color: white; }
+.button-primary { background: linear-gradient(135deg, #2f7469, #1d4f4c); color: white; }
 .button-primary::after, .button-light::after { content: '↗'; font-size: 1.1rem; }
-.button-primary:hover { background: var(--ink); transform: translateY(-2px); }
-.hero .button-primary, .button-light { background: var(--ice); color: var(--ink); }
-.hero .button-primary:hover, .button-light:hover { background: #f0f5e9; }
+.button-primary:hover { background: linear-gradient(135deg, #398577, #245b59); transform: translateY(-2px); }
+.hero .button-primary { background: linear-gradient(135deg, #2f7469, #1d4f4c); color: white; }
+.button-light { background: var(--ice); color: var(--ink); }
+.hero .button-primary:hover { background: linear-gradient(135deg, #398577, #245b59); }
+.button-light:hover { background: #f0f5e9; }
 .button-secondary { background: rgba(255,255,255,.04); border-color: #91a4a6; color: white; }
 .button-secondary:hover { background: rgba(255,255,255,.15); border-color: white; }
 .button-ghost { border-color: var(--line); color: var(--fjord); }
@@ -121,7 +123,7 @@ h3 { font-size: clamp(1.5rem, 2.2vw, 1.95rem); }
 .upcoming-card-dark { border-color: var(--ink); background: var(--ink); color: #d5e2e2; }
 .upcoming-card-dark h3 { color: white; }
 .upcoming-card-dark .upcoming-date { color: #bad7c8; }
-.upcoming-card-dark .button-primary { background: var(--ice); color: var(--ink); }
+.upcoming-card-dark .button-primary { background: linear-gradient(135deg, #398577, #245b59); color: white; }
 .upcoming-card-warm { background: #f4f3ea; }
 .upcoming-card-rose { background: #e0e9ec; }
 .ticket-note { margin: 1.5rem 0 0; font-size: .82rem; color: var(--muted); }
@@ -184,7 +186,7 @@ body:has(.image-viewer[open]) { overflow: hidden; }
   .nav-menu a { min-height: 48px; padding-inline: .7rem; }
   .nav-menu .nav-cta { margin: .5rem 0 0; justify-content: center; }
   .hero { min-height: 620px; min-height: min(740px,88svh); padding-block: 4rem; }
-  .hero::before { background: linear-gradient(90deg,rgba(10,38,46,.72),rgba(10,38,46,.32)),linear-gradient(0deg,rgba(10,38,46,.34),transparent); }
+  .hero::before { background: linear-gradient(90deg,rgba(0,0,0,.56),rgba(0,0,0,.2)),linear-gradient(0deg,rgba(0,0,0,.23),transparent); }
   .hero h1 { font-size: clamp(3.1rem,10.5vw,5.4rem); }
   .hero-intro { max-width: 360px; }
   .concert-shell { grid-template-columns: 64px minmax(0,1fr); gap: 1.5rem; }
@@ -270,13 +272,18 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 @media (max-width: 600px) { .facebook-float { right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); } .facebook-float-copy { display: none; } .facebook-float-close { opacity: 1; transform: scale(1); } }
 
 /* Light, depth and tactile motion give the landing page a more live concert feel. */
-.hero::after { content: ''; position: absolute; z-index: 1; inset: -18%; pointer-events: none; background: radial-gradient(circle at 76% 28%, rgba(206,235,212,.2), transparent 20%), radial-gradient(circle at 28% 80%, rgba(76,157,168,.16), transparent 30%); mix-blend-mode: screen; }
+.hero::after { content: ''; position: absolute; z-index: 1; inset: -18%; pointer-events: none; background: radial-gradient(circle at 76% 28%, rgba(255,255,255,.12), transparent 20%), radial-gradient(circle at 28% 80%, rgba(0,0,0,.12), transparent 30%); }
 .hero-copy { text-shadow: 0 16px 38px rgba(5,21,27,.22); }
 .hero .eyebrow { text-shadow: none; }
 .button { position: relative; overflow: hidden; isolation: isolate; box-shadow: 0 7px 17px rgba(18,54,60,.1); }
 .button::before { content: ''; position: absolute; z-index: 1; inset: -2px; pointer-events: none; background: linear-gradient(110deg, transparent 22%, rgba(255,255,255,.36) 44%, transparent 62%); opacity: 0; transform: translateX(-115%); }
 .button-primary { box-shadow: 0 12px 24px rgba(21,89,87,.25); }
 .hero .button-primary, .button-light { box-shadow: 0 15px 30px rgba(3,24,30,.3); }
+.ticket-cta { position: relative; overflow: hidden; isolation: isolate; }
+.ticket-cta::before { content: ''; position: absolute; inset: -2px; z-index: 1; pointer-events: none; background: linear-gradient(110deg, transparent 28%, rgba(255,255,255,.48) 46%, transparent 64%); opacity: 0; transform: translateX(-120%); }
+.nav-menu .ticket-cta { background: linear-gradient(135deg, #2f7469, #1d4f4c); color: white; box-shadow: 0 10px 22px rgba(15,71,65,.26); }
+.nav-menu .ticket-cta:hover { background: linear-gradient(135deg, #398577, #245b59); color: white; }
+.footer-ticket-link { padding: .6rem 1rem; border-radius: 999px; background: linear-gradient(135deg, #2f7469, #1d4f4c); color: white; font-weight: 700; text-decoration: none; box-shadow: 0 8px 18px rgba(0,0,0,.2); }
 .concert-visual, .opera-poster { box-shadow: 0 24px 54px rgba(16,47,57,.16); }
 .concert-visual img, .opera-poster img, .upcoming-card > img { transition: transform .55s cubic-bezier(.2,.7,.2,1), filter .55s ease; }
 .upcoming-card { box-shadow: 0 10px 24px rgba(16,47,57,.06); transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease; }
@@ -295,9 +302,11 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 @media (prefers-reduced-motion: no-preference) {
   .hero::after { animation: ambient-light 12s ease-in-out infinite alternate; }
   .facebook-float { animation: social-arrival .65s .7s both; }
+  .button-primary::before, .ticket-cta::before { animation: cta-idle-sheen 4.8s 1.2s ease-in-out infinite; }
 }
 @keyframes ambient-light { from { transform: translate3d(-1.2%,-.8%,0) scale(1); } to { transform: translate3d(1.2%,.8%,0) scale(1.04); } }
 @keyframes social-arrival { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cta-idle-sheen { 0%, 70%, 100% { opacity: 0; transform: translateX(-120%); } 78% { opacity: .85; } 94% { opacity: 0; transform: translateX(120%); } }
 @media (prefers-reduced-motion: reduce) { .hero::after, .facebook-float, .button, .upcoming-card, .concert-visual img, .opera-poster img, .upcoming-card > img { animation: none !important; transition: none !important; } }
 
 /* Concert cinema: one player, a touch-scrollable selection, no autoplay on arrival. */
