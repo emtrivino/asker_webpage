@@ -130,14 +130,6 @@ if (videoSection) {
   });
 }
 
-const facebookFloat = document.querySelector('[data-facebook-float]');
-const facebookClose = document.querySelector('[data-facebook-close]');
-if (facebookFloat && facebookClose) {
-  facebookClose.addEventListener('click', () => {
-    facebookFloat.classList.add('is-dismissed');
-  });
-}
-
 const heroGallery = document.querySelector('[data-hero-gallery]');
 if (heroGallery) {
   const slides = [...heroGallery.querySelectorAll('.hero-gallery-slide')];

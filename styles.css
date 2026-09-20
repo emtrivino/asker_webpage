@@ -259,17 +259,13 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 
 /* A compact, dismissible social shortcut that stays clear of the page content. */
 .facebook-float { position: fixed; right: clamp(1rem, 2.5vw, 2rem); bottom: clamp(1rem, 2.5vw, 2rem); z-index: 90; display: flex; align-items: center; width: 58px; height: 58px; border-radius: 50%; background: white; box-shadow: 0 14px 30px rgba(10,42,86,.28); color: white; transition: opacity .2s ease, transform .2s ease; }
-.facebook-float.is-dismissed { visibility: hidden; opacity: 0; transform: translateY(14px); pointer-events: none; }
 .facebook-float-link { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; color: white; text-decoration: none; }
 .facebook-float-icon, .facebook-float-icon svg { display: block; width: 58px; height: 58px; }
 .facebook-float-link:hover .facebook-float-icon { transform: scale(1.05); }
 .facebook-float-copy { position: absolute; right: calc(100% + .8rem); top: 50%; width: max-content; max-width: min(220px, calc(100vw - 7rem)); padding: .62rem .8rem; border-radius: 7px; background: #102e39; color: white; font-size: .78rem; font-weight: 650; line-height: 1.2; opacity: 0; pointer-events: none; transform: translate(8px, -50%); transition: opacity .2s ease, transform .2s ease; }
 .facebook-float-copy::after { content: ''; position: absolute; top: 50%; right: -5px; width: 10px; height: 10px; background: #102e39; transform: translateY(-50%) rotate(45deg); }
 .facebook-float:hover .facebook-float-copy, .facebook-float:focus-within .facebook-float-copy { opacity: 1; transform: translate(0, -50%); }
-.facebook-float-close { position: absolute; top: -7px; right: -7px; display: grid; place-items: center; width: 22px; height: 22px; padding: 0; border: 1px solid rgba(16,46,57,.15); border-radius: 50%; background: white; color: #102e39; cursor: pointer; font-size: 1rem; line-height: 1; opacity: 0; transform: scale(.85); transition: opacity .2s ease, transform .2s ease; }
-.facebook-float:hover .facebook-float-close, .facebook-float:focus-within .facebook-float-close { opacity: 1; transform: scale(1); }
-.facebook-float-close:focus-visible { outline: 2px solid #102e39; outline-offset: 3px; }
-@media (max-width: 600px) { .facebook-float { right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); } .facebook-float-copy { display: none; } .facebook-float-close { opacity: 1; transform: scale(1); } }
+@media (max-width: 600px) { .facebook-float { right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); } .facebook-float-copy { display: none; } }
 
 /* Light, depth and tactile motion give the landing page a more live concert feel. */
 .hero::after { content: ''; position: absolute; z-index: 1; inset: -18%; pointer-events: none; background: radial-gradient(circle at 76% 28%, rgba(255,255,255,.12), transparent 20%), radial-gradient(circle at 28% 80%, rgba(0,0,0,.12), transparent 30%); }
