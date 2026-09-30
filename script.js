@@ -280,28 +280,98 @@ if (navToggle && navMenu) {
   window.matchMedia('(min-width: 761px)').addEventListener('change', () => setMenu(false));
 }
 
-// Native dialog provides keyboard focus containment and Escape-to-close.
+// A featured photograph rotates while the gallery is in view; the dialog keeps
+// the same selection for keyboard, pointer and touch navigation.
 const gallery = document.querySelector('.gallery-grid');
 if (gallery && typeof HTMLDialogElement !== 'undefined') {
+  const images = [...gallery.querySelectorAll('img')];
+  const section = gallery.closest('#galleri');
+  const galleryIcons = {
+    prev: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>',
+    next: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>',
+    close: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>'
+  };
+  const showcase = document.createElement('div');
+  showcase.className = 'gallery-showcase';
+  showcase.innerHTML = `<div class="gallery-stage"><button class="gallery-feature" type="button" aria-label="Åpne bilde i stor visning"><span class="gallery-feature-layer is-active"><img class="gallery-feature-backdrop" alt="" aria-hidden="true"><img class="gallery-feature-photo" alt=""></span><span class="gallery-feature-layer"><img class="gallery-feature-backdrop" alt="" aria-hidden="true"><img class="gallery-feature-photo" alt=""></span></button><button class="gallery-stage-arrow gallery-stage-prev" type="button" aria-label="Forrige bilde">${galleryIcons.prev}</button><button class="gallery-stage-arrow gallery-stage-next" type="button" aria-label="Neste bilde">${galleryIcons.next}</button><div class="gallery-stage-meta"><span class="gallery-stage-caption"></span><span class="gallery-stage-count"></span></div></div>`;
+  gallery.before(showcase);
+  showcase.append(gallery);
+  gallery.classList.add('gallery-rail');
+  gallery.setAttribute('aria-label', 'Velg et bilde fra konsertene');
+  const featured = showcase.querySelector('.gallery-feature');
+  const featureLayers = [...featured.querySelectorAll('.gallery-feature-layer')];
+  const stageCaption = showcase.querySelector('.gallery-stage-caption');
+  const stageCount = showcase.querySelector('.gallery-stage-count');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const stackedRail = window.matchMedia('(max-width: 760px)');
+  const choices = [];
+  let selected = 0;
+  let rotation;
+  let visible = false;
+  let gestureStart;
+  let suppressFeatureClick = false;
+  let activeLayer = 0;
+  let featureReady = false;
+  let featureRequest = 0;
+
   const viewer = document.createElement('dialog');
   viewer.className = 'image-viewer';
   viewer.setAttribute('aria-label', 'Bildevisning fra konsertscenen');
-  viewer.innerHTML = '<button class="viewer-close" type="button" aria-label="Lukk bilde">×</button><div class="viewer-stage"><button class="viewer-arrow viewer-prev" type="button" aria-label="Forrige bilde">‹</button><img alt=""><button class="viewer-arrow viewer-next" type="button" aria-label="Neste bilde">›</button></div><div class="viewer-footer"><p class="viewer-caption" aria-live="polite"></p><span class="viewer-count" aria-live="polite"></span></div>';
+  viewer.innerHTML = `<button class="viewer-close" type="button" aria-label="Lukk bilde">${galleryIcons.close}</button><div class="viewer-stage"><img class="viewer-backdrop" alt="" aria-hidden="true"><button class="viewer-arrow viewer-prev" type="button" aria-label="Forrige bilde">${galleryIcons.prev}</button><img class="viewer-photo" alt=""><button class="viewer-arrow viewer-next" type="button" aria-label="Neste bilde">${galleryIcons.next}</button></div><div class="viewer-footer"><p class="viewer-caption" aria-live="polite"></p><span class="viewer-count" aria-live="polite"></span></div>`;
   document.body.append(viewer);
-  const photo = viewer.querySelector('img');
+  const photo = viewer.querySelector('.viewer-photo');
+  const backdrop = viewer.querySelector('.viewer-backdrop');
   const caption = viewer.querySelector('.viewer-caption');
   const count = viewer.querySelector('.viewer-count');
-  const images = [...gallery.querySelectorAll('img')];
-  let selected = 0;
+
+  function scrollChoiceIntoRail(choice) {
+    const railRect = gallery.getBoundingClientRect();
+    const choiceRect = choice.getBoundingClientRect();
+    const offset = stackedRail.matches
+      ? choiceRect.left < railRect.left ? choiceRect.left - railRect.left : choiceRect.right > railRect.right ? choiceRect.right - railRect.right : 0
+      : choiceRect.top < railRect.top ? choiceRect.top - railRect.top : choiceRect.bottom > railRect.bottom ? choiceRect.bottom - railRect.bottom : 0;
+    if (offset) gallery.scrollBy({ [stackedRail.matches ? 'left' : 'top']: offset, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  }
+
+  function showFeaturedImage(src, alt) {
+    const request = ++featureRequest;
+    const nextLayer = featureReady ? 1 - activeLayer : activeLayer;
+    const layer = featureLayers[nextLayer];
+    const image = layer.querySelector('.gallery-feature-photo');
+    image.src = src;
+    image.alt = alt;
+    layer.querySelector('.gallery-feature-backdrop').src = src;
+    if (!featureReady) { featureReady = true; return; }
+    image.decode().catch(() => {}).then(() => {
+      if (request !== featureRequest) return;
+      featureLayers[activeLayer].classList.remove('is-active');
+      layer.classList.add('is-active');
+      activeLayer = nextLayer;
+    });
+  }
 
   function showPhoto(index) {
     selected = (index + images.length) % images.length;
     const img = images[selected];
-    photo.src = img.currentSrc || img.src;
+    const src = img.currentSrc || img.src;
+    showFeaturedImage(src, img.alt);
+    featured.setAttribute('aria-label', `Åpne bilde i stor visning: ${img.alt}`);
+    stageCaption.textContent = img.alt;
+    stageCount.textContent = `${String(selected + 1).padStart(2, '0')} / ${String(images.length).padStart(2, '0')}`;
+    choices.forEach((choice, i) => {
+      choice.classList.toggle('is-selected', i === selected);
+      if (i === selected) choice.setAttribute('aria-current', 'true');
+      else choice.removeAttribute('aria-current');
+    });
+    scrollChoiceIntoRail(choices[selected]);
+    const preload = new Image();
+    preload.src = images[(selected + 1) % images.length].currentSrc || images[(selected + 1) % images.length].src;
+    if (!viewer.open) return;
+    photo.src = src;
+    backdrop.src = src;
     photo.alt = img.alt;
     caption.textContent = img.alt;
     count.textContent = `${selected + 1} / ${images.length}`;
-    // Prepare neighboring photos so swiping feels immediate.
     [images[(selected + 1) % images.length], images[(selected - 1 + images.length) % images.length]].forEach((neighbor) => {
       const preload = new Image();
       preload.src = neighbor.currentSrc || neighbor.src;
@@ -312,17 +382,39 @@ if (gallery && typeof HTMLDialogElement !== 'undefined') {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'gallery-item';
-    button.setAttribute('aria-label', `Åpne bilde: ${img.alt}`);
+    button.setAttribute('aria-label', `Velg og åpne bilde ${index + 1}: ${img.alt}`);
     img.replaceWith(button);
     button.append(img);
+    button.insertAdjacentHTML('beforeend', `<span class="gallery-item-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>`);
+    choices.push(button);
     button.addEventListener('click', () => {
       showPhoto(index);
-      viewer.showModal();
+      openViewer();
     });
   });
+
+  function stopRotation() { window.clearInterval(rotation); rotation = undefined; }
+  function startRotation() {
+    stopRotation();
+    if (!visible || viewer.open || document.hidden || reducedMotion.matches) return;
+    rotation = window.setInterval(() => showPhoto(selected + 1), 6000);
+  }
+  function openViewer() {
+    stopRotation();
+    viewer.showModal();
+    showPhoto(selected);
+  }
+
+  featured.addEventListener('click', () => {
+    if (suppressFeatureClick) { suppressFeatureClick = false; return; }
+    openViewer();
+  });
+  showcase.querySelector('.gallery-stage-prev').addEventListener('click', () => { showPhoto(selected - 1); startRotation(); });
+  showcase.querySelector('.gallery-stage-next').addEventListener('click', () => { showPhoto(selected + 1); startRotation(); });
   viewer.querySelector('.viewer-prev').addEventListener('click', () => showPhoto(selected - 1));
   viewer.querySelector('.viewer-next').addEventListener('click', () => showPhoto(selected + 1));
   viewer.querySelector('.viewer-close').addEventListener('click', () => viewer.close());
+  viewer.addEventListener('close', startRotation);
   viewer.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') { event.preventDefault(); showPhoto(selected - 1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); showPhoto(selected + 1); }
@@ -340,11 +432,30 @@ if (gallery && typeof HTMLDialogElement !== 'undefined') {
     if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.25) showPhoto(selected + (dx < 0 ? 1 : -1));
     touchStart = undefined;
   }, { passive: true });
+  featured.addEventListener('touchstart', (event) => { gestureStart = { x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY }; }, { passive: true });
+  featured.addEventListener('touchend', (event) => {
+    if (!gestureStart) return;
+    const dx = event.changedTouches[0].clientX - gestureStart.x;
+    const dy = event.changedTouches[0].clientY - gestureStart.y;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.25) {
+      suppressFeatureClick = true;
+      showPhoto(selected + (dx < 0 ? 1 : -1));
+      startRotation();
+      window.setTimeout(() => { suppressFeatureClick = false; }, 450);
+    }
+    gestureStart = undefined;
+  }, { passive: true });
   viewer.addEventListener('click', (event) => {
     if (event.target !== viewer) return;
     const rect = viewer.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) viewer.close();
   });
+  showcase.addEventListener('focusin', stopRotation);
+  showcase.addEventListener('focusout', () => window.setTimeout(startRotation, 0));
+  document.addEventListener('visibilitychange', startRotation);
+  reducedMotion.addEventListener('change', startRotation);
+  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) startRotation(); else stopRotation(); }, { threshold: .2 }).observe(section);
+  showPhoto(0);
 }
 
 const videoSection = document.querySelector('.video-section');
@@ -354,7 +465,7 @@ if (videoSection) {
   const stage = videoSection.querySelector('.video-stage');
   const launchTemplate = stage.querySelector('.video-launch').cloneNode(true);
   let selected = 0;
-  const stackedVideos = window.matchMedia('(min-width: 1001px)');
+  const stackedVideos = window.matchMedia('(min-width: 801px)');
   const scrollRail = (amount) => rail.scrollBy({
     [stackedVideos.matches ? 'top' : 'left']: amount,
     behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
