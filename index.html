@@ -8,9 +8,9 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <meta name="theme-color" content="#142f39">
-  <meta name="description" content="Kjøp billetter til Asker symfoniorkesters høstkonsert i Asker kirke søndag 25. oktober kl. 18.00.">
-  <title>Høstkonsert i Asker kirke | Asker symfoniorkester</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Oppdag kommende konserter med Asker symfoniorkester og finn billetter til høstkonserten, Afternoon Tea og Opera &amp; Operettekveld.">
+  <title>Kommende konserter | Asker symfoniorkester</title>
+  <link rel="stylesheet" href="styles.css?v=39">
 </head>
 <body>
   <a class="skip-link" href="#main">Hopp til innhold</a>
@@ -31,7 +31,6 @@
       </button>
 
       <div class="nav-menu" id="nav-menu" data-nav-menu>
-        <a href="#konserter">Program</a>
         <a href="#kommende-konserter">Sesong</a>
         <a href="#videoer">Videoer</a>
         <a href="#om-oss">Orkesteret</a>
@@ -49,59 +48,41 @@
         <p class="hero-subtitle">Søndag 25. oktober kl. 18.00 i Asker kirke.</p>
         <p class="hero-intro">Tanja Karita Ikonen dirigerer. Ida Kamilla Andersen er solist i Bruchs fiolinkonsert.</p>
         <div class="button-row">
-          <a class="button button-primary button-large" href="https://checkout.ebillett.no/359/events/20/purchase/setup" target="_blank" rel="noopener">Kjøp billetter nå</a>
-          <a class="button button-secondary" href="#konserter">Se program</a>
+          <a class="button button-primary button-large" href="https://checkout.ebillett.no/359/events/20/purchase/setup" target="_blank" rel="noopener" aria-label="Kjøp billetter til høstkonserten">Kjøp billetter nå</a>
+          <a class="button button-secondary" href="#kommende-konserter">Se alle konserter</a>
         </div>
       </div>
 
       <section class="hero-gallery" aria-label="Bilder fra Asker symfoniorkester" data-hero-gallery>
         <div class="hero-gallery-track">
           <figure class="hero-gallery-slide is-active">
-            <img src="images/orchestra_and_choird.jpg" alt="Asker symfoniorkester og kor under konsert" fetchpriority="high">
+            <img src="images/orchestra_piano.jpg" alt="Pianosolist foran Asker symfoniorkester" fetchpriority="high">
           </figure>
           <figure class="hero-gallery-slide">
-            <img src="images/orchestra_1.jpg" alt="Asker symfoniorkester samlet på scenen" loading="eager">
+            <img src="images/orchestra_playing.jpg" alt="Asker symfoniorkester spiller i kirken" loading="lazy">
           </figure>
           <figure class="hero-gallery-slide">
-            <img src="images/orchestra_piano.jpg" alt="Pianosolist foran Asker symfoniorkester" loading="eager">
+            <img src="images/orchestra_with_abba.jpg" alt="Asker symfoniorkester i en ABBA-inspirert produksjon" loading="lazy">
+          </figure>
+          <figure class="hero-gallery-slide">
+            <img src="images/v1.jpg" alt="Asker symfoniorkester spiller konsert på scenen" loading="lazy">
+          </figure>
+          <figure class="hero-gallery-slide">
+            <img src="images/orchestra_11.jpg" alt="Orkesteret og publikum under en konsert" loading="lazy">
+          </figure>
+          <figure class="hero-gallery-slide">
+            <img src="images/orchestra_and_choird.jpg" alt="Asker symfoniorkester og kor under konsert" loading="lazy">
           </figure>
         </div>
         <div class="hero-gallery-controls" aria-label="Velg bakgrunnsbilde">
           <button class="is-active" type="button" aria-label="Vis bilde 1" aria-current="true"></button>
           <button type="button" aria-label="Vis bilde 2" aria-current="false"></button>
           <button type="button" aria-label="Vis bilde 3" aria-current="false"></button>
+          <button type="button" aria-label="Vis bilde 4" aria-current="false"></button>
+          <button type="button" aria-label="Vis bilde 5" aria-current="false"></button>
+          <button type="button" aria-label="Vis bilde 6" aria-current="false"></button>
         </div>
       </section>
-    </section>
-
-    <section class="section concert-feature" id="konserter" aria-labelledby="concert-title">
-      <div class="container concert-shell">
-        <div class="concert-date">
-          <span class="concert-day">25</span>
-          <span class="concert-month">Oktober</span>
-          <span class="concert-year">2026</span>
-        </div>
-
-        <div class="concert-copy">
-          <p class="eyebrow">Billetter er i salg</p>
-          <h2 id="concert-title">Program</h2>
-          <p class="lead">Tsjaikovskij · Bruch · Asker kirke</p>
-          <div class="concert-actions">
-            <a class="button button-primary" href="https://checkout.ebillett.no/359/events/20/purchase/setup" target="_blank" rel="noopener">Kjøp billetter</a>
-            <a class="button button-ghost" href="#kommende-konserter">Flere konserter</a>
-          </div>
-          <ul class="concert-highlights">
-            <li>Tsjaikovskij: Symfoni nr. 5</li>
-            <li>Max Bruch: Fiolinkonsert i G-moll</li>
-            <li>Ida Kamilla Andersen, fiolin</li>
-          </ul>
-        </div>
-
-        <figure class="concert-visual concert-poster">
-          <img src="images/hostkonsert-2026.png" alt="Høstkonsert med Asker symfoniorkester, 25. oktober" width="1920" height="1005" loading="lazy">
-        </figure>
-
-      </div>
     </section>
 
     <section class="section upcoming-section" id="kommende-konserter" aria-labelledby="upcoming-title">
@@ -110,72 +91,116 @@
           <p class="eyebrow">Kommende konserter</p>
           <h2 id="upcoming-title">Finn din neste konsert</h2>
         </div>
-        <div class="upcoming-carousel">
+        <div class="upcoming-carousel" tabindex="0" aria-label="Kommende konserter. Sveip, bruk piltastene eller velg en konsert nedenfor">
           <div class="upcoming-grid">
             <article class="upcoming-card upcoming-card-dark upcoming-card-poster">
               <img src="images/hostkonsert-2026.png" alt="Høstkonsert med Asker symfoniorkester, 25. oktober" width="1920" height="1005" loading="lazy">
               <div class="upcoming-card-body">
-                <p class="upcoming-date">25. oktober</p>
+                <p class="upcoming-date"><time datetime="2026-10-25T18:00">25. oktober 2026</time></p>
                 <h3>Høstkonsert i Asker kirke</h3>
                 <p class="upcoming-place">Asker kirke · kl. 18.00</p>
-                <p class="upcoming-note">Tsjaikovskij · Bruch · Ida Kamilla Andersen</p>
-                <a class="button button-primary upcoming-cta" href="https://checkout.ebillett.no/359/events/20/purchase/setup" target="_blank" rel="noopener">Kjøp billetter</a>
+                <p class="upcoming-repertoire"><span>På programmet</span>Tsjaikovskij · Bruch</p>
+                <div class="upcoming-actions">
+                  <button class="button button-more" type="button" data-event="hostkonsert" aria-haspopup="dialog">Se mer</button>
+                  <a class="button button-card" href="https://checkout.ebillett.no/359/events/20/purchase/setup" target="_blank" rel="noopener" aria-label="Kjøp billetter til Høstkonsert i Asker kirke">Kjøp billetter</a>
+                </div>
               </div>
             </article>
             <article class="upcoming-card upcoming-card-warm">
-              <img src="images/afternoon_te.jpeg" alt="Musikere spiller i mindre ensemble" loading="lazy">
+              <img src="images/afternoon-tea-2026-v3.png" alt="Afternoon Tea med Asker symfoniorkester i Venskaben" loading="lazy">
               <div class="upcoming-card-body">
-                <p class="upcoming-date">21. november</p>
+                <p class="upcoming-date"><time datetime="2026-11-21">21. november 2026</time></p>
                 <h3>Afternoon Tea i Venskaben</h3>
                 <p class="upcoming-place">Venskaben</p>
-                <p class="upcoming-note">Salongorkester, te, kaker og et musikalsk ettermiddagsformat.</p>
+                <p class="upcoming-repertoire"><span>På programmet</span>Salongorkester · te og kaker</p>
+                <div class="upcoming-actions">
+                  <button class="button button-more" type="button" data-event="afternoon-tea" aria-haspopup="dialog">Se mer</button>
+                  <a class="button button-card" href="https://checkout.ebillett.no/359/events/21/purchase" target="_blank" rel="noopener" aria-label="Kjøp billetter til Afternoon Tea i Venskaben">Kjøp billetter</a>
+                </div>
               </div>
             </article>
             <article class="upcoming-card upcoming-card-rose upcoming-card-poster">
               <img src="images/opera-operette-2026.png" alt="Opera &amp; Operettekveld, 29. november" width="1920" height="1005" loading="lazy">
               <div class="upcoming-card-body">
-                <p class="upcoming-date"><time datetime="2026-11-29T18:00">29. november</time></p>
+                <p class="upcoming-date"><time datetime="2026-11-29T18:00">29. november 2026</time></p>
                 <h3>Opera &amp; Operettekveld</h3>
                 <p class="upcoming-place">Østenstad kirke · kl. 18.00</p>
-                <p class="upcoming-note">Guro Haugli dirigerer. Marit Sehl, Cecilie Cathrine Ødegården og Øystein Skre er solister.</p>
-                <a class="button button-primary upcoming-cta" href="https://checkout.ebillett.no/359/events/22/purchase/setup" target="_blank" rel="noopener">Kjøp billetter</a>
-                <a class="event-details-link" href="#opera">Les om konserten</a>
+                <p class="upcoming-repertoire"><span>På programmet</span>Opera- og operetteperler</p>
+                <div class="upcoming-actions">
+                  <button class="button button-more" type="button" data-event="opera" aria-haspopup="dialog">Se mer</button>
+                  <a class="button button-card" href="https://checkout.ebillett.no/359/events/22/purchase/setup" target="_blank" rel="noopener" aria-label="Kjøp billetter til Opera og Operettekveld">Kjøp billetter</a>
+                </div>
+              </div>
+            </article>
+            <article class="upcoming-card upcoming-card-poster upcoming-card-opera-dynamitten">
+              <img src="images/opera-dynamitten-2026.png" alt="Opera og operette i Dynamitten 6. desember, plakat med arkivfoto av orkesteret" loading="lazy">
+              <div class="upcoming-card-body">
+                <p class="upcoming-date"><time datetime="2026-12-06">6. desember 2026</time></p>
+                <h3>Opera &amp; Operettekveld i Dynamitten</h3>
+                <p class="upcoming-place">Dynamitten · Sætre</p>
+                <p class="upcoming-repertoire"><span>På programmet</span>Opera- og operetteperler</p>
+                <div class="upcoming-actions upcoming-actions-single">
+                  <button class="button button-more" type="button" data-event="opera-dynamitten" aria-haspopup="dialog">Se mer</button>
+                </div>
+              </div>
+            </article>
+            <article class="upcoming-card upcoming-card-poster upcoming-card-spring">
+              <img src="images/varkonsert-2027.png" alt="Vårkonsert 7. mars, plakat med arkivfoto av pianist og orkester" loading="lazy">
+              <div class="upcoming-card-body">
+                <p class="upcoming-date"><time datetime="2027-03-07">7. mars 2027</time></p>
+                <h3>Vårkonsert i Asker kirke</h3>
+                <p class="upcoming-place">Asker kirke</p>
+                <p class="upcoming-repertoire"><span>På programmet</span>Beethovens trippelkonsert</p>
+                <div class="upcoming-actions upcoming-actions-single">
+                  <button class="button button-more" type="button" data-event="varkonsert" aria-haspopup="dialog">Se mer</button>
+                </div>
+              </div>
+            </article>
+            <article class="upcoming-card upcoming-card-poster upcoming-card-viola">
+              <img src="images/bratsjfestival-2027.png" alt="Bratsjfestival 1. juni, plakat med arkivfoto av orkesteret" loading="lazy">
+              <div class="upcoming-card-body">
+                <p class="upcoming-date"><time datetime="2027-06-01">1. juni 2027</time></p>
+                <h3>Konsert under bratsjfestivalen</h3>
+                <p class="upcoming-place">Asker kirke</p>
+                <p class="upcoming-repertoire"><span>På programmet</span>Bratsjfestival · program kommer</p>
+                <div class="upcoming-actions upcoming-actions-single">
+                  <button class="button button-more" type="button" data-event="bratsjfestival" aria-haspopup="dialog">Se mer</button>
+                </div>
               </div>
             </article>
           </div>
         </div>
-        <p class="ticket-note">Billetter til høstkonserten og Opera &amp; Operettekveld kan kjøpes via eBillett.</p>
-        <p class="season-note"><time datetime="2026-12-06">6. desember</time><span>Konsert i Dynamitten, Sætre. Mer informasjon kommer.</span></p>
+        <div class="upcoming-carousel-footer">
+          <div class="upcoming-carousel-progress" role="group" aria-label="Velg konsert"></div>
+          <span class="upcoming-carousel-count sr-only" aria-live="polite"></span>
+        </div>
       </div>
     </section>
 
-    <section class="section opera-section" id="opera" aria-labelledby="opera-title">
-      <div class="container two-column">
-        <div class="opera-copy">
-          <p class="eyebrow">Opera &amp; operette</p>
-          <h2 id="opera-title">En aften med operaperler</h2>
-          <p class="lead"><time datetime="2026-11-29T18:00">Søndag 29. november 2026 kl. 18.00</time><br>Østenstad kirke</p>
-          <p>Velkommen til en aften fylt med opera i Østenstad kirke. Vi har plukket ut et stort knippe med operaperler. Enten du er en stor operakjenner eller bare har interesse for operaens univers, kan du glede deg til å oppleve operaens mest populære melodier.</p>
-          <dl class="event-performers">
-            <div><dt>Dirigent</dt><dd>Guro Haugli</dd></div>
-            <div><dt>Solister</dt><dd>Marit Sehl, Cecilie Cathrine Ødegården og Øystein Skre</dd></div>
-          </dl>
-          <a class="button button-primary" href="https://checkout.ebillett.no/359/events/22/purchase/setup" target="_blank" rel="noopener">Kjøp billetter til operakvelden</a>
+    <dialog class="event-dialog" id="event-dialog" aria-labelledby="event-dialog-title">
+      <button class="event-dialog-close" type="button" aria-label="Lukk detaljer">×</button>
+      <div class="event-dialog-layout">
+        <div class="event-dialog-media" aria-hidden="true">
+          <img class="event-dialog-media-backdrop" src="" alt="">
+          <img class="event-dialog-image" src="" alt="">
         </div>
-        <figure class="opera-poster">
-          <picture>
-            <source media="(max-width: 600px)" srcset="images/opera-operette-2026-square.png" width="1200" height="1200">
-            <img src="images/opera-operette-2026.png" alt="Opera &amp; Operettekveld 29. november med Guro Haugli, Marit Sehl, Cecilie Cathrine Ødegården og Øystein Skre. Foto: Kjell Henry Hustad." width="1920" height="1005" loading="lazy">
-          </picture>
-        </figure>
+        <div class="event-dialog-content">
+          <p class="event-dialog-date"></p>
+          <h2 id="event-dialog-title"></h2>
+          <p class="event-dialog-place"></p>
+          <p class="event-dialog-section-label">Om konserten</p>
+          <div class="event-dialog-description"></div>
+        </div>
+        <div class="event-dialog-footer"><a class="button button-primary event-dialog-ticket" href="#" target="_blank" rel="noopener">Kjøp billetter</a></div>
       </div>
-    </section>
+    </dialog>
 
     <section class="section video-section" id="videoer" aria-labelledby="video-heading">
       <div class="container">
+        <div class="video-layout">
+          <div class="video-player-column">
         <div class="video-heading-row">
           <div><p class="eyebrow">Lytt til orkesteret</p><h2 id="video-heading">Musikken. Øyeblikkene.</h2></div>
-          <p class="video-intro">Et gjensyn med konsertscenen.<br>Utforsk åtte opptak fra 2025 og 2026.</p>
         </div>
         <div class="video-stage" id="video-stage">
           <a class="video-launch" href="https://www.youtube.com/watch?v=FYXpNnOqgFY" target="_blank" rel="noopener" aria-label="Spill av Pavane for bratsj og orkester">
@@ -189,16 +214,13 @@
             <p class="video-current-date">7. juni 2026</p>
             <h3 class="video-current-title">Pavane for bratsj og orkester</h3>
           </div>
-          <a class="video-youtube-link" href="https://www.youtube.com/watch?v=FYXpNnOqgFY" target="_blank" rel="noopener">Se på YouTube <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="video-library-header">
-          <p>Fra konsertarkivet <span class="video-counter" aria-live="polite">01 / 08</span></p>
-          <div class="video-controls" hidden>
-            <button type="button" class="video-prev" aria-label="Forrige video" aria-controls="video-stage" disabled>←</button>
-            <button type="button" class="video-next" aria-label="Neste video" aria-controls="video-stage">→</button>
           </div>
+          <div class="video-sidebar">
+        <div class="video-library-header">
+          <p>Se flere opptak <span class="video-counter" aria-live="polite">01 / 08</span></p>
         </div>
-        <div class="video-rail" aria-label="Velg et konsertopptak">
+        <div class="video-rail" id="video-rail" aria-label="Velg et konsertopptak">
             <a class="video-choice is-selected" href="https://www.youtube.com/watch?v=FYXpNnOqgFY" target="_blank" rel="noopener" data-video-id="FYXpNnOqgFY" data-video-title="Pavane for bratsj og orkester" data-video-date="7. juni 2026" aria-label="Velg video 1: Pavane for bratsj og orkester" aria-current="true">
               <span class="video-thumb"><img src="https://i.ytimg.com/vi/FYXpNnOqgFY/mqdefault.jpg" width="320" height="180" alt="" loading="lazy"><span class="video-number" aria-hidden="true">01</span><span class="video-selected-label" aria-hidden="true">Valgt</span></span>
               <span class="video-choice-title">Pavane for bratsj og orkester</span>
@@ -240,7 +262,8 @@
               <span class="video-choice-date">26. oktober 2025</span>
             </a>
         </div>
-        <p class="video-credit">Konsertopptak: Knut Helgesen · YouTube</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -280,6 +303,22 @@
           <img src="images/orchestra_playing.jpg" alt="Asker symfoniorkester spiller konsert" loading="lazy">
           <img src="images/orchestra_with_abba.jpg" alt="Orkesteret i en ABBA-inspirert produksjon" loading="lazy">
           <img src="images/v1.jpg" alt="Historisk orkesterbilde fra Asker symfoniorkester" loading="lazy">
+          <img src="images/gallery-1.jpg" alt="Fløytesolist foran orkesteret" loading="lazy">
+          <img src="images/gallery-2.jpg" alt="Solister og dirigent takkes etter konserten" loading="lazy">
+          <img src="images/gallery-3.jpg" alt="Orkesteret spiller for publikum i kirken" loading="lazy">
+          <img src="images/gallery-4.jpg" alt="Dirigenten leder orkesteret" loading="lazy">
+          <img src="images/gallery-5.jpg" alt="Fiolinsolist spiller med orkesteret" loading="lazy">
+          <img src="images/gallery-6.jpg" alt="Orkesteret spiller i kirken foran publikum" loading="lazy">
+          <img src="images/gallery-7.jpg" alt="Saksofonsolist spiller med orkesteret" loading="lazy">
+          <img src="images/gallery-8.jpg" alt="Hornrekken spiller under konserten" loading="lazy">
+          <img src="images/gallery-9.jpg" alt="Orkesteret spiller i kirkerommet" loading="lazy">
+          <img src="images/gallery-11.jpg" alt="Pianist ved flygelet med orkesteret" loading="lazy">
+          <img src="images/gallery-13.jpg" alt="Pianosolist og dirigent med orkesteret" loading="lazy">
+          <img src="images/gallery-15.jpg" alt="Fløytesolist spiller med orkesteret" loading="lazy">
+          <img src="images/gallery-16.jpg" alt="Cellist før en konsert i en stor arena" loading="lazy">
+          <img src="images/gallery-17.jpg" alt="Fiolinsolist på scenen under ABBA-konsert" loading="lazy">
+          <img src="images/gallery-18.jpg" alt="Tre sangere foran orkesteret" loading="lazy">
+          <img src="images/gallery-19.jpg" alt="Tre sangere opptrer på scenen" loading="lazy">
         </div>
       </div>
     </section>
@@ -376,6 +415,6 @@
     </a>
   </aside>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=18" defer></script>
 </body>
 </html>
