@@ -127,7 +127,7 @@ if (concertCarousel) {
   }
 
   function beginDrag() {
-    if (moving || pointerStart || cards.length <= visibleCount()) return false;
+    if (moving || pointerStart?.dragging || cards.length <= visibleCount()) return false;
     dragWidth = stepWidth();
     track.prepend(track.lastElementChild);
     track.style.transition = 'none';
@@ -202,22 +202,26 @@ if (concertCarousel) {
     }
   });
   concertCarousel.addEventListener('pointerdown', (event) => {
-    if (event.target.closest('button, a')) return;
+    if (event.button !== 0 || event.target.closest('button, a')) return;
     queuedTarget = null;
-    if (!beginDrag()) return;
+    if (moving || cards.length <= visibleCount()) return;
     scheduleAutoplay();
-    pointerStart = { x: event.clientX, y: event.clientY, id: event.pointerId };
-    concertCarousel.setPointerCapture(event.pointerId);
+    pointerStart = { x: event.clientX, y: event.clientY, id: event.pointerId, dragging: false };
   });
   concertCarousel.addEventListener('pointermove', (event) => {
     if (!pointerStart || event.pointerId !== pointerStart.id) return;
     const deltaX = event.clientX - pointerStart.x;
     const deltaY = event.clientY - pointerStart.y;
-    if (Math.abs(deltaY) > 12 && Math.abs(deltaY) > Math.abs(deltaX) * 1.2) {
-      settle(0);
+    if (!pointerStart.dragging && Math.abs(deltaY) > 12 && Math.abs(deltaY) > Math.abs(deltaX)) {
+      pointerStart = null;
       return;
     }
     if (Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (!pointerStart.dragging) {
+        if (!beginDrag()) { pointerStart = null; return; }
+        pointerStart.dragging = true;
+        concertCarousel.setPointerCapture(event.pointerId);
+      }
       event.preventDefault();
       const position = Math.max(-dragWidth * 2.2, Math.min(dragWidth * .2, -dragWidth + deltaX));
       track.style.transform = `translateX(${position}px)`;
@@ -225,12 +229,17 @@ if (concertCarousel) {
   });
   concertCarousel.addEventListener('pointerup', (event) => {
     if (!pointerStart || event.pointerId !== pointerStart.id) return;
+    if (!pointerStart.dragging) { pointerStart = null; scheduleAutoplay(); return; }
     const deltaX = event.clientX - pointerStart.x;
     const deltaY = event.clientY - pointerStart.y;
     const direction = Math.abs(deltaX) > Math.min(70, dragWidth * .18) && Math.abs(deltaX) > Math.abs(deltaY) * 1.2 ? (deltaX < 0 ? 1 : -1) : 0;
     settle(direction);
   });
-  concertCarousel.addEventListener('pointercancel', () => { if (pointerStart) settle(0); });
+  concertCarousel.addEventListener('pointercancel', () => {
+    if (!pointerStart) return;
+    if (pointerStart.dragging) settle(0);
+    else pointerStart = null;
+  });
   window.addEventListener('resize', updateVisible);
   panel.addEventListener('focusin', () => {
     if (document.activeElement.matches(':focus-visible')) window.clearTimeout(autoplayTimer);

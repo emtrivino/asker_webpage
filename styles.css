@@ -388,7 +388,7 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 .video-launch:hover .video-play-icon { transform: scale(1.06); background: white; }
 .video-launch:focus-visible { outline-offset: -6px; }
 .video-launch-label { position: relative; z-index: 1; font-size: .8rem; font-weight: 600; letter-spacing: .04em; }
-.video-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; touch-action: pan-y; }
 .video-now { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem 0; }
 .video-caption { min-width: 0; }
 .video-current-date { margin: 0 0 .2rem; color: #b4d0c3; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
@@ -396,7 +396,7 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 .video-library-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .7rem; min-height: 34px; }
 .video-library-header p { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin: 0; font-size: .84rem; font-weight: 600; }
 .video-counter { color: #b0c5c6; font-size: .72rem; letter-spacing: .1em; font-variant-numeric: tabular-nums; }
-.video-rail { position: absolute; inset: 46px 0 0; display: flex; flex-direction: column; min-height: 0; gap: .45rem; overflow-y: auto; overscroll-behavior-y: contain; touch-action: pan-y; scrollbar-width: thin; scrollbar-color: #75978e #203e47; }
+.video-rail { position: absolute; inset: 46px 0 0; display: flex; flex-direction: column; min-height: 0; gap: .45rem; overflow-y: auto; overscroll-behavior-y: auto; touch-action: pan-y; scrollbar-width: thin; scrollbar-color: #75978e #203e47; }
 .video-choice { display: grid; grid-template-columns: minmax(112px, 40%) minmax(0,1fr); align-content: center; column-gap: .8rem; min-width: 0; padding: .55rem; border: 1px solid transparent; border-radius: 12px; background: rgba(255,255,255,.035); color: #c7d8d7; text-decoration: none; transition: background .25s ease, border-color .25s ease, transform .25s ease; }
 .video-choice:hover { background: rgba(255,255,255,.1); }
 .video-choice.is-selected { border-color: #83baa8; background: rgba(118,177,154,.14); }
@@ -418,7 +418,7 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
   .video-sidebar { position: static; }
   .video-now { padding-block: 1rem 1.25rem; }
   .video-library-header { padding-top: 1rem; border-top: 1px solid #39535b; }
-  .video-rail { position: static; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 2rem) / 3); gap: 1rem; padding-bottom: .6rem; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; touch-action: pan-x; scroll-snap-type: x mandatory; }
+  .video-rail { position: static; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 2rem) / 3); gap: 1rem; padding-bottom: .6rem; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; overscroll-behavior-y: auto; touch-action: auto; scroll-snap-type: x mandatory; }
   .video-choice { display: block; scroll-snap-align: start; }
   .video-thumb { margin-bottom: .5rem; }
 }
@@ -682,7 +682,7 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 .gallery-stage-next { right: 1rem; }
 .gallery-stage-arrow:hover { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.45); }
 .gallery-stage-arrow:active { transform: translateY(-50%) scale(.94); }
-.gallery-rail.gallery-grid { display: grid; grid-template-columns: 1fr; grid-auto-rows: 112px; gap: .65rem; height: clamp(390px, 46vw, 560px); margin: 0; padding: 1px .3rem 1px 1px; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #a8bcb9 transparent; }
+.gallery-rail.gallery-grid { display: grid; grid-template-columns: 1fr; grid-auto-rows: 112px; gap: .65rem; height: clamp(390px, 46vw, 560px); margin: 0; padding: 1px .3rem 1px 1px; overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: auto; touch-action: auto; scrollbar-width: thin; scrollbar-color: #a8bcb9 transparent; }
 .gallery-rail .gallery-item, .gallery-rail .gallery-item:first-child, .gallery-rail .gallery-item:nth-last-child(-n+2) { grid-column: auto; grid-row: auto; height: 112px; border: 2px solid transparent; border-radius: 12px; background: #dce5e3; cursor: pointer; transition: border-color .2s, transform .2s, box-shadow .2s; }
 .gallery-rail .gallery-item.is-selected { border-color: #63a79c; box-shadow: 0 0 0 2px rgba(36, 91, 89, .16); }
 .gallery-rail .gallery-item::after { content: none; }
@@ -706,7 +706,7 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 @media (max-width: 760px) {
   .gallery-showcase { display: flex; flex-direction: column; gap: .7rem; }
   .gallery-stage { height: clamp(240px, 59vw, 420px); border-radius: 15px; }
-  .gallery-rail.gallery-grid { display: flex; flex-wrap: nowrap; gap: .55rem; width: 100%; height: 104px; padding: 2px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; scrollbar-width: none; }
+  .gallery-rail.gallery-grid { display: flex; flex-wrap: nowrap; gap: .55rem; width: 100%; height: 104px; padding: 2px; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; overscroll-behavior-y: auto; touch-action: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
   .gallery-rail.gallery-grid::-webkit-scrollbar { display: none; }
   .gallery-rail .gallery-item, .gallery-rail .gallery-item:first-child, .gallery-rail .gallery-item:nth-last-child(-n+2) { flex: 0 0 142px; width: 142px; height: 96px; scroll-snap-align: start; }
   .gallery-stage-arrow, .image-viewer .viewer-arrow { display: none; }
@@ -860,7 +860,7 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
   .video-sidebar { position: relative; }
   .video-now { padding-block: 1rem 0; }
   .video-library-header { padding-top: 0; border-top: 0; }
-  .video-rail { position: absolute; inset: 46px 0 0; display: flex; flex-direction: column; gap: .45rem; padding-bottom: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: contain; touch-action: pan-y; scroll-snap-type: none; }
+  .video-rail { position: absolute; inset: 46px 0 0; display: flex; flex-direction: column; gap: .45rem; padding-bottom: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: auto; touch-action: pan-y; scroll-snap-type: none; }
   .video-choice { display: grid; grid-template-columns: minmax(82px, 38%) minmax(0, 1fr); }
   .video-thumb { margin-bottom: 0; }
 }
