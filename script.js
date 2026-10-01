@@ -9,6 +9,7 @@ const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('[data-nav-menu]');
 
 const eventDialog = document.querySelector('#event-dialog');
+let suppressCardClick = false;
 if (eventDialog && typeof eventDialog.showModal === 'function') {
   const events = {
     hostkonsert: {
@@ -51,23 +52,39 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
       description: '<p>Asker symfoniorkester samarbeider med Povilas Syrrist-Gelgota og hans bratsjfestival om en konsert i Asker kirke.</p><p>Program, dirigent, klokkeslett og billettinformasjon kommer.</p>'
     }
   };
+  function openEvent(key) {
+    const item = events[key];
+    if (!item || eventDialog.open) return;
+    const image = eventDialog.querySelector('.event-dialog-image');
+    image.src = item.image;
+    image.alt = item.imageAlt;
+    eventDialog.querySelector('.event-dialog-media-backdrop').src = item.image;
+    eventDialog.querySelector('#event-dialog-title').textContent = item.title;
+    eventDialog.querySelector('.event-dialog-date').textContent = item.date;
+    eventDialog.querySelector('.event-dialog-place').textContent = item.place;
+    eventDialog.querySelector('.event-dialog-description').innerHTML = item.description;
+    const ticketLink = eventDialog.querySelector('.event-dialog-ticket');
+    ticketLink.closest('.event-dialog-footer').hidden = !item.ticket;
+    if (item.ticket) ticketLink.href = item.ticket;
+    else ticketLink.removeAttribute('href');
+    eventDialog.showModal();
+  }
   document.querySelectorAll('[data-event]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const item = events[button.dataset.event];
-      if (!item) return;
-      const image = eventDialog.querySelector('.event-dialog-image');
-      image.src = item.image;
-      image.alt = item.imageAlt;
-      eventDialog.querySelector('.event-dialog-media-backdrop').src = item.image;
-      eventDialog.querySelector('#event-dialog-title').textContent = item.title;
-      eventDialog.querySelector('.event-dialog-date').textContent = item.date;
-      eventDialog.querySelector('.event-dialog-place').textContent = item.place;
-      eventDialog.querySelector('.event-dialog-description').innerHTML = item.description;
-      const ticketLink = eventDialog.querySelector('.event-dialog-ticket');
-      ticketLink.closest('.event-dialog-footer').hidden = !item.ticket;
-      if (item.ticket) ticketLink.href = item.ticket;
-      else ticketLink.removeAttribute('href');
-      eventDialog.showModal();
+    button.addEventListener('click', () => openEvent(button.dataset.event));
+  });
+  document.querySelectorAll('.upcoming-card').forEach((card) => {
+    const key = card.querySelector('[data-event]')?.dataset.event;
+    if (!key) return;
+    card.tabIndex = 0;
+    card.setAttribute('aria-label', `Vis detaljer om ${events[key].title}`);
+    card.setAttribute('aria-haspopup', 'dialog');
+    card.addEventListener('click', (event) => {
+      if (!suppressCardClick && !event.target.closest('button, a')) openEvent(key);
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.target !== card || !['Enter', ' '].includes(event.key)) return;
+      event.preventDefault();
+      openEvent(key);
     });
   });
   eventDialog.querySelector('.event-dialog-close').addEventListener('click', () => eventDialog.close());
@@ -220,6 +237,7 @@ if (concertCarousel) {
       if (!pointerStart.dragging) {
         if (!beginDrag()) { pointerStart = null; return; }
         pointerStart.dragging = true;
+        suppressCardClick = true;
         concertCarousel.setPointerCapture(event.pointerId);
       }
       event.preventDefault();
@@ -234,11 +252,13 @@ if (concertCarousel) {
     const deltaY = event.clientY - pointerStart.y;
     const direction = Math.abs(deltaX) > Math.min(70, dragWidth * .18) && Math.abs(deltaX) > Math.abs(deltaY) * 1.2 ? (deltaX < 0 ? 1 : -1) : 0;
     settle(direction);
+    window.setTimeout(() => { suppressCardClick = false; }, 0);
   });
   concertCarousel.addEventListener('pointercancel', () => {
     if (!pointerStart) return;
     if (pointerStart.dragging) settle(0);
     else pointerStart = null;
+    window.setTimeout(() => { suppressCardClick = false; }, 0);
   });
   window.addEventListener('resize', updateVisible);
   panel.addEventListener('focusin', () => {

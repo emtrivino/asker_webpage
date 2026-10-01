@@ -632,6 +632,25 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
   background: #10191c;
 }
 .upcoming-carousel .upcoming-card-warm > img { background: #d9d5d1; }
+.upcoming-carousel .upcoming-card { cursor: pointer; }
+.upcoming-carousel .upcoming-card:focus-visible { outline: 3px solid var(--fjord); outline-offset: 4px; }
+
+/* Let the artwork meet the dialog edge while preserving the full poster. */
+.event-dialog { width: min(1060px, calc(100% - 2rem)); }
+.event-dialog-media { background: #10191c; }
+.event-dialog-image { width: 100%; height: 100%; max-width: none; max-height: none; border-radius: 0; box-shadow: none; }
+@media (min-width: 760px) {
+  .event-dialog-layout { grid-template-columns: minmax(0, 54%) minmax(0, 46%); min-height: min(440px, calc(100dvh - 2rem)); }
+  .event-dialog-image { width: 100%; height: 100%; max-height: none; }
+}
+@media (max-width: 759px) {
+  .event-dialog { width: calc(100% - 1rem); }
+  .event-dialog-media { --media-height: clamp(220px, 32dvh, 320px); }
+  .event-dialog-image { width: 100%; height: 100%; max-width: none; }
+}
+@media (max-width: 759px) and (max-height: 650px) {
+  .event-dialog-media { --media-height: 180px; }
+}
 
 /* About: carry the concert photograph's stage colours into a calmer editorial layout. */
 .about-section {
