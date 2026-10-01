@@ -582,7 +582,7 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
   .upcoming-header { margin-bottom: 1.1rem; }
   .upcoming-header .eyebrow { margin-bottom: .35rem; }
   .upcoming-header h2 { font-size: clamp(2.3rem, 4.8svh, 3.3rem); }
-  .upcoming-card > img, .upcoming-card-poster > img { height: clamp(238px, 43.2svh, 360px); aspect-ratio: auto; object-fit: cover; }
+  .upcoming-card > img, .upcoming-card-poster > img { height: clamp(238px, 32svh, 300px); aspect-ratio: auto; object-fit: contain; }
   .upcoming-card-warm > img { object-position: center top; }
   .upcoming-card-rose > img { object-position: center bottom; }
   .upcoming-card-opera-dynamitten > img, .upcoming-card-spring > img { object-position: center bottom; }
@@ -625,6 +625,13 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 @media (min-width: 761px) and (max-width: 1000px) { .upcoming-carousel .upcoming-card > img { aspect-ratio: 1.58; } }
 @media (max-width: 760px) { .upcoming-carousel .upcoming-grid { --visible-cards: 1; } .upcoming-carousel-progress button { width: 40px; } .upcoming-carousel-progress button::before { width: 16px; } .upcoming-carousel-progress button.is-active { width: 48px; } .upcoming-carousel-progress button.is-active::before { width: 30px; } }
 @media (max-width: 480px) { .upcoming-carousel .upcoming-card > img { aspect-ratio: 1.46; } }
+
+/* Keep the complete typography of each concert poster visible at every width. */
+.upcoming-carousel .upcoming-card > img {
+  object-fit: contain;
+  background: #10191c;
+}
+.upcoming-carousel .upcoming-card-warm > img { background: #d9d5d1; }
 
 /* About: carry the concert photograph's stage colours into a calmer editorial layout. */
 .about-section {
