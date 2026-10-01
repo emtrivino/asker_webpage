@@ -23,3 +23,9 @@ Velg enkleste rot-distribusjon:
 5. Lagre.
 
 `index.html`, `styles.css`, `script.js` og `images/` ligger i repo-roten, så bildepunktene bruker relative stier som `images/orchestra_piano.jpg`. Ikke flytt bildene uten å oppdatere stiene i HTML-filen.
+
+## Søk og deling
+
+Forsiden har kanonisk URL, beskrivelse, delingsbilde og strukturerte data for orkesteret. `favicon.png` brukes som ikon i nettlesere og som foreslått ikon i søkeresultater. `robots.txt` peker til `sitemap.xml`.
+
+Oppdater `<lastmod>` i `sitemap.xml` når innholdet på forsiden endres vesentlig. Etter publisering kan eieren sende `https://asym.no/sitemap.xml` til Google Search Console og be om ny indeksering av `https://asym.no/` via URL-inspeksjon. Søkemotorene bestemmer selv når de henter og viser endringene.
