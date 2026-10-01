@@ -28,4 +28,6 @@ Velg enkleste rot-distribusjon:
 
 Forsiden har kanonisk URL, beskrivelse, delingsbilde og strukturerte data for orkesteret. `favicon.png` brukes som ikon i nettlesere og som foreslått ikon i søkeresultater. `robots.txt` peker til `sitemap.xml`.
 
-Oppdater `<lastmod>` i `sitemap.xml` når innholdet på forsiden endres vesentlig. Etter publisering kan eieren sende `https://asym.no/sitemap.xml` til Google Search Console og be om ny indeksering av `https://asym.no/` via URL-inspeksjon. Søkemotorene bestemmer selv når de henter og viser endringene.
+`https://asym.no/` er verifisert i Google Search Console med HTML-taggen i `<head>`. Ikke fjern taggen; den holder eierskapet verifisert. Sitemapet ble sendt inn og ny indeksering av forsiden ble forespurt 1. oktober 2026. Oppdater `<lastmod>` i `sitemap.xml` når innholdet på forsiden endres vesentlig. Søkemotorene bestemmer selv når de henter og viser endringene.
+
+IndexNow-nøkkelfilen i repo-roten brukes ved varsling av oppdaterte URL-er til søkemotorer som støtter IndexNow. Behold filnavn og innhold uendret når nye versjoner publiseres.
