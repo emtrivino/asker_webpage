@@ -34,8 +34,8 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
     },
     'opera-dynamitten': {
       title: 'Opera & Operettekveld i Dynamitten', date: 'Søndag 6. desember 2026',
-      place: 'Dynamitten, Sætre', image: 'images/opera-dynamitten-2026.png',
-      imageAlt: 'Plakat for opera- og operettekvelden i Dynamitten, med arkivfoto av orkesteret',
+      place: 'Dynamitten, Sætre', image: 'images/opera-dynamitten-2026.jpg',
+      imageAlt: 'Orkesteret og solistene til Opera og operettekvelden i Dynamitten 6. desember',
       description: '<p>Den andre av orkesterets to opera- og operettekvelder, denne gangen i Dynamitten i Sætre. Programmet er et utvalg fra opera- og operettelitteraturen.</p><dl class="event-performers"><div><dt>Dirigent</dt><dd>Guro Anstensen Haugli</dd></div><div><dt>Solister</dt><dd>Øystein Skre (bass), Marit Sehl (mezzosopran) og Cecilie Cathrine Ødegården (sopran)</dd></div></dl><p>Klokkeslett og billettinformasjon kommer.</p>'
     },
     varkonsert: {
