@@ -510,7 +510,7 @@ if (videoSection) {
     const launch = launchTemplate.cloneNode(true);
     launch.href = choice.href;
     launch.setAttribute('aria-label', `Spill av ${videoTitle}`);
-    launch.querySelector('img').src = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+    launch.querySelector('img').src = `images/video-thumbnails/${videoId}.jpg`;
     stage.replaceChildren(launch);
     videoSection.querySelector('.video-current-title').textContent = videoTitle;
     videoSection.querySelector('.video-current-date').textContent = videoDate;
@@ -549,7 +549,7 @@ if (videoSection) {
     frame.title = choice.dataset.videoTitle;
     frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share';
     frame.allowFullscreen = true;
-    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.referrerPolicy = 'no-referrer';
     stage.replaceChildren(frame);
     frame.focus();
   });
