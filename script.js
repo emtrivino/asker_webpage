@@ -58,7 +58,6 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
     const image = eventDialog.querySelector('.event-dialog-image');
     image.src = item.image;
     image.alt = item.imageAlt;
-    eventDialog.querySelector('.event-dialog-media-backdrop').src = item.image;
     eventDialog.querySelector('#event-dialog-title').textContent = item.title;
     eventDialog.querySelector('.event-dialog-date').textContent = item.date;
     eventDialog.querySelector('.event-dialog-place').textContent = item.place;
