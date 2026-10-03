@@ -690,14 +690,24 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 .event-dialog-place {
   display: flex;
   align-items: center;
-  gap: .55rem;
+  gap: .65rem;
   margin-bottom: 1.2rem;
-  padding-bottom: 1.15rem;
-  border-color: #d5dfda;
+  padding: .7rem .75rem;
+  border: 1px solid #d5dfda;
+  border-radius: 9px;
+  background: #eef2ed;
   color: #315557;
   font-size: .88rem;
+  text-decoration: none;
+  transition: border-color .2s ease, background .2s ease;
 }
-.event-dialog-place::before { content: ''; flex: none; width: 6px; height: 6px; border-radius: 50%; background: #3a977c; }
+.event-dialog-place:hover { border-color: #9eb9b0; background: #e8efea; }
+.event-dialog-place:focus-visible { outline: 2px solid #7ba99b; outline-offset: 3px; }
+.event-dialog-place-pin { display: grid; place-items: center; flex: none; width: 26px; height: 26px; border-radius: 7px; background: #d7e8e0; color: #24695d; }
+.event-dialog-place-pin svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.event-dialog-place-name { min-width: 0; font-weight: 700; }
+.event-dialog-place-action { display: flex; align-items: center; gap: .35rem; margin-left: auto; color: #416b64; font-size: .72rem; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+.event-dialog-place-action span { font-size: .9rem; font-weight: 400; }
 .event-dialog-section-label { margin: 0 0 .45rem; color: #52726e; font-size: .63rem; letter-spacing: .14em; }
 .event-dialog-description { color: #41585b; font-size: .88rem; line-height: 1.62; }
 .event-dialog-description p { margin-bottom: .75rem; }

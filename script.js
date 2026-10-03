@@ -60,7 +60,10 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
     image.alt = item.imageAlt;
     eventDialog.querySelector('#event-dialog-title').textContent = item.title;
     eventDialog.querySelector('.event-dialog-date').textContent = item.date;
-    eventDialog.querySelector('.event-dialog-place').textContent = item.place;
+    const placeLink = eventDialog.querySelector('.event-dialog-place');
+    placeLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${item.place}, Norge`)}`;
+    placeLink.setAttribute('aria-label', `Vis ${item.place} i Google Maps`);
+    placeLink.querySelector('.event-dialog-place-name').textContent = item.place;
     eventDialog.querySelector('.event-dialog-description').innerHTML = item.description;
     const ticketLink = eventDialog.querySelector('.event-dialog-ticket');
     ticketLink.closest('.event-dialog-footer').hidden = !item.ticket;

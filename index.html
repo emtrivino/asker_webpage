@@ -59,7 +59,7 @@
       ]
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=71">
+  <link rel="stylesheet" href="styles.css?v=72">
 </head>
 <body>
   <a class="skip-link" href="#main">Hopp til innhold</a>
@@ -236,7 +236,11 @@
           <p class="event-dialog-kicker">Asker symfoniorkester <span aria-hidden="true">/</span> Konsert</p>
           <p class="event-dialog-date"></p>
           <h2 id="event-dialog-title"></h2>
-          <p class="event-dialog-place"></p>
+          <a class="event-dialog-place" href="#" target="_blank" rel="noopener">
+            <span class="event-dialog-place-pin" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></span>
+            <span class="event-dialog-place-name"></span>
+            <span class="event-dialog-place-action">Vis i kart <span aria-hidden="true">↗</span></span>
+          </a>
           <p class="event-dialog-section-label">Om konserten</p>
           <div class="event-dialog-description"></div>
         </div>
@@ -477,6 +481,6 @@
     </a>
   </aside>
 
-  <script src="script.js?v=32" defer></script>
+  <script src="script.js?v=33" defer></script>
 </body>
 </html>
