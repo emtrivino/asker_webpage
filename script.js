@@ -5,6 +5,23 @@ if (window.location.hostname === '127.0.0.1') {
   window.location.replace(localPreview.href);
 }
 
+// Small compatibility helpers keep the interactive sections working on older
+// iOS/Safari versions without adding a framework or loading a polyfill service.
+function onMediaQueryChange(query, handler) {
+  if (typeof query.addEventListener === 'function') query.addEventListener('change', handler);
+  else if (typeof query.addListener === 'function') query.addListener(handler);
+}
+
+function replaceContent(parent, child) {
+  while (parent.firstChild) parent.removeChild(parent.firstChild);
+  parent.appendChild(child);
+}
+
+function hasVisibleFocus(element) {
+  try { return element.matches(':focus-visible'); }
+  catch (error) { return element === document.activeElement; }
+}
+
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('[data-nav-menu]');
 
@@ -75,7 +92,8 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
     button.addEventListener('click', () => openEvent(button.dataset.event));
   });
   document.querySelectorAll('.upcoming-card').forEach((card) => {
-    const key = card.querySelector('[data-event]')?.dataset.event;
+    const eventButton = card.querySelector('[data-event]');
+    const key = eventButton ? eventButton.dataset.event : '';
     if (!key) return;
     card.tabIndex = 0;
     card.setAttribute('aria-label', `Vis detaljer om ${events[key].title}`);
@@ -105,7 +123,10 @@ if (concertCarousel) {
   const panel = concertCarousel.closest('.upcoming-panel');
   const today = new Date();
   const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-  const nextConcert = cards.findIndex((card) => card.querySelector('time')?.dateTime.slice(0, 10) >= todayKey);
+  const nextConcert = cards.findIndex((card) => {
+    const time = card.querySelector('time');
+    return time && time.dateTime.slice(0, 10) >= todayKey;
+  });
   let firstIndex = nextConcert < 0 ? 0 : nextConcert;
   let moving = false;
   let pointerStart = null;
@@ -146,7 +167,7 @@ if (concertCarousel) {
   }
 
   function beginDrag() {
-    if (moving || pointerStart?.dragging || cards.length <= visibleCount()) return false;
+    if (moving || (pointerStart && pointerStart.dragging) || cards.length <= visibleCount()) return false;
     dragWidth = stepWidth();
     track.prepend(track.lastElementChild);
     track.style.transition = 'none';
@@ -205,7 +226,7 @@ if (concertCarousel) {
     window.clearTimeout(autoplayTimer);
     if (reducedMotion.matches || !inView || document.hidden) return;
     autoplayTimer = window.setTimeout(() => {
-      if (!eventDialog?.open && !(panel.contains(document.activeElement) && document.activeElement.matches(':focus-visible')) && !moving && !pointerStart && queuedTarget === null) {
+      if (!(eventDialog && eventDialog.open) && !(panel.contains(document.activeElement) && hasVisibleFocus(document.activeElement)) && !moving && !pointerStart && queuedTarget === null) {
         move(1);
       }
       scheduleAutoplay();
@@ -264,14 +285,14 @@ if (concertCarousel) {
   });
   window.addEventListener('resize', updateVisible);
   panel.addEventListener('focusin', () => {
-    if (document.activeElement.matches(':focus-visible')) window.clearTimeout(autoplayTimer);
+    if (hasVisibleFocus(document.activeElement)) window.clearTimeout(autoplayTimer);
     else scheduleAutoplay();
   });
   panel.addEventListener('focusout', () => {
     requestAnimationFrame(() => { if (!panel.contains(document.activeElement)) scheduleAutoplay(); });
   });
   document.addEventListener('visibilitychange', scheduleAutoplay);
-  reducedMotion.addEventListener('change', scheduleAutoplay);
+  onMediaQueryChange(reducedMotion, scheduleAutoplay);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([entry]) => {
       inView = entry.intersectionRatio >= .2;
@@ -308,7 +329,7 @@ if (navToggle && navMenu) {
       if (!document.activeElement.closest('.site-header')) setMenu(false);
     });
   });
-  window.matchMedia('(min-width: 761px)').addEventListener('change', () => setMenu(false));
+  onMediaQueryChange(window.matchMedia('(min-width: 761px)'), () => setMenu(false));
 }
 
 // A featured photograph rotates while the gallery is in view; the dialog keeps
@@ -373,7 +394,8 @@ if (gallery && typeof HTMLDialogElement !== 'undefined') {
     image.alt = alt;
     layer.querySelector('.gallery-feature-backdrop').src = src;
     if (!featureReady) { featureReady = true; return; }
-    image.decode().catch(() => {}).then(() => {
+    const decoded = typeof image.decode === 'function' ? image.decode().catch(() => {}) : Promise.resolve();
+    decoded.then(() => {
       if (request !== featureRequest) return;
       featureLayers[activeLayer].classList.remove('is-active');
       layer.classList.add('is-active');
@@ -484,7 +506,7 @@ if (gallery && typeof HTMLDialogElement !== 'undefined') {
   showcase.addEventListener('focusin', stopRotation);
   showcase.addEventListener('focusout', () => window.setTimeout(startRotation, 0));
   document.addEventListener('visibilitychange', startRotation);
-  reducedMotion.addEventListener('change', startRotation);
+  onMediaQueryChange(reducedMotion, startRotation);
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) startRotation(); else stopRotation(); }, { threshold: .2 }).observe(section);
   showPhoto(0);
 }
@@ -497,10 +519,16 @@ if (videoSection) {
   const launchTemplate = stage.querySelector('.video-launch').cloneNode(true);
   let selected = 0;
   const stackedVideos = window.matchMedia('(min-width: 801px)');
-  const scrollRail = (amount) => rail.scrollBy({
-    [stackedVideos.matches ? 'top' : 'left']: amount,
-    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
-  });
+  const scrollRail = (amount) => {
+    const vertical = stackedVideos.matches;
+    if ('scrollBehavior' in document.documentElement.style) {
+      rail.scrollBy({
+        [vertical ? 'top' : 'left']: amount,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+      });
+    } else if (vertical) rail.scrollTop += amount;
+    else rail.scrollLeft += amount;
+  };
 
   function selectVideo(index, focus = false) {
     selected = Math.max(0, Math.min(choices.length - 1, index));
@@ -511,7 +539,7 @@ if (videoSection) {
     launch.href = choice.href;
     launch.setAttribute('aria-label', `Spill av ${videoTitle}`);
     launch.querySelector('img').src = `images/video-thumbnails/${videoId}.jpg`;
-    stage.replaceChildren(launch);
+    replaceContent(stage, launch);
     videoSection.querySelector('.video-current-title').textContent = videoTitle;
     videoSection.querySelector('.video-current-date').textContent = videoDate;
     videoSection.querySelector('.video-counter').textContent = `${String(selected + 1).padStart(2, '0')} / ${String(choices.length).padStart(2, '0')}`;
@@ -551,7 +579,7 @@ if (videoSection) {
     frame.allowFullscreen = true;
     // YouTube requires the site origin to identify embedded-player requests (error 153 otherwise).
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
-    stage.replaceChildren(frame);
+    replaceContent(stage, frame);
     frame.focus();
   });
 }
