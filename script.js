@@ -549,7 +549,8 @@ if (videoSection) {
     frame.title = choice.dataset.videoTitle;
     frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share';
     frame.allowFullscreen = true;
-    frame.referrerPolicy = 'no-referrer';
+    // YouTube requires the site origin to identify embedded-player requests (error 153 otherwise).
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
     stage.replaceChildren(frame);
     frame.focus();
   });
