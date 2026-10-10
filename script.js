@@ -34,39 +34,45 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
       place: 'Asker kirke', image: 'images/hostkonsert-2026.png',
       imageAlt: 'Plakat for høstkonserten 25. oktober',
       description: '<p>Tsjaikovskij og Bruch står på programmet. Tanja Karita Ikonen dirigerer, og Ida Kamilla Andersen er solist.</p><ul><li>Tsjaikovskij: Symfoni nr. 5</li><li>Max Bruch: Fiolinkonsert i G-moll</li><li>Ida Kamilla Andersen, fiolin</li></ul>',
-      ticket: 'https://checkout.ebillett.no/359/events/20/purchase/setup'
+      ticket: 'https://checkout.ebillett.no/359/events/20/purchase/setup',
+      url: '/konserter/hostkonsert-2026/'
     },
     'afternoon-tea': {
       title: 'Afternoon Tea i Venskaben', date: '21. november 2026',
       place: 'Venskaben', image: 'images/afternoon-tea-2026-v3.png',
       imageAlt: 'Afternoon Tea i Venskaben',
       description: '<p>Salongorkester, te og kaker i et musikalsk ettermiddagsformat.</p>',
-      ticket: 'https://checkout.ebillett.no/359/events/21/purchase'
+      ticket: 'https://checkout.ebillett.no/359/events/21/purchase',
+      url: '/konserter/afternoon-tea-2026/'
     },
     opera: {
       title: 'Opera & Operettekveld', date: 'Søndag 29. november 2026 · kl. 18.00',
       place: 'Østenstad kirke', image: 'images/opera-operette-2026.png',
       imageAlt: 'Plakat for Opera & Operettekveld 29. november',
       description: '<p>Opplev kjente opera- og operetteperler i Østenstad kirke – en kveld for både nysgjerrige og erfarne operalyttere.</p><dl class="event-performers"><div><dt>Dirigent</dt><dd>Guro Anstensen Haugli</dd></div><div><dt>Solister</dt><dd>Marit Sehl, Cecilie Cathrine Ødegården og Øystein Skre</dd></div></dl>',
-      ticket: 'https://checkout.ebillett.no/359/events/22/purchase/setup'
+      ticket: 'https://checkout.ebillett.no/359/events/22/purchase/setup',
+      url: '/konserter/opera-operette-2026/'
     },
     'opera-dynamitten': {
       title: 'Opera & Operettekveld i Dynamitten', date: 'Søndag 6. desember 2026',
       place: 'Dynamitten, Sætre', image: 'images/opera-dynamitten-2026.jpg',
       imageAlt: 'Orkesteret og solistene til Opera og operettekvelden i Dynamitten 6. desember',
-      description: '<p>Den andre av orkesterets to opera- og operettekvelder, denne gangen i Dynamitten i Sætre. Programmet er et utvalg fra opera- og operettelitteraturen.</p><dl class="event-performers"><div><dt>Dirigent</dt><dd>Guro Anstensen Haugli</dd></div><div><dt>Solister</dt><dd>Øystein Skre (bass), Marit Sehl (mezzosopran) og Cecilie Cathrine Ødegården (sopran)</dd></div></dl><p>Klokkeslett og billettinformasjon kommer.</p>'
+      description: '<p>Den andre av orkesterets to opera- og operettekvelder, denne gangen i Dynamitten i Sætre. Programmet er et utvalg fra opera- og operettelitteraturen.</p><dl class="event-performers"><div><dt>Dirigent</dt><dd>Guro Anstensen Haugli</dd></div><div><dt>Solister</dt><dd>Øystein Skre (bass), Marit Sehl (mezzosopran) og Cecilie Cathrine Ødegården (sopran)</dd></div></dl><p>Klokkeslett og billettinformasjon kommer.</p>',
+      url: '/konserter/opera-dynamitten-2026/'
     },
     varkonsert: {
       title: 'Vårkonsert i Asker kirke', date: 'Søndag 7. mars 2027',
       place: 'Asker kirke', image: 'images/varkonsert-2027.png',
       imageAlt: 'Plakat for vårkonserten med arkivfoto av pianist og orkester',
-      description: '<p>Beethovens trippelkonsert står på programmet med studenter fra Barratt Due. Eldar Nilsen dirigerer.</p><p>Konserten markerer Barratt Dues 100-årsjubileum og 200 år siden Beethovens død. Øvrig program, klokkeslett og billettinformasjon kommer.</p>'
+      description: '<p>Beethovens trippelkonsert står på programmet med studenter fra Barratt Due. Eldar Nilsen dirigerer.</p><p>Konserten markerer Barratt Dues 100-årsjubileum og 200 år siden Beethovens død. Øvrig program, klokkeslett og billettinformasjon kommer.</p>',
+      url: '/konserter/varkonsert-2027/'
     },
     bratsjfestival: {
       title: 'Konsert under bratsjfestivalen', date: 'Tirsdag 1. juni 2027',
       place: 'Asker kirke', image: 'images/bratsjfestival-2027.png',
       imageAlt: 'Plakat for bratsjfestivalen med arkivfoto av orkesteret',
-      description: '<p>Asker symfoniorkester samarbeider med Povilas Syrrist-Gelgota og hans bratsjfestival om en konsert i Asker kirke.</p><p>Program, dirigent, klokkeslett og billettinformasjon kommer.</p>'
+      description: '<p>Asker symfoniorkester samarbeider med Povilas Syrrist-Gelgota og hans bratsjfestival om en konsert i Asker kirke.</p><p>Program, dirigent, klokkeslett og billettinformasjon kommer.</p>',
+      url: '/konserter/bratsjfestival-2027/'
     }
   };
   function openEvent(key) {
@@ -82,6 +88,7 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
     placeLink.setAttribute('aria-label', `Vis ${item.place} i Google Maps`);
     placeLink.querySelector('.event-dialog-place-name').textContent = item.place;
     eventDialog.querySelector('.event-dialog-description').innerHTML = item.description;
+    eventDialog.querySelector('.event-page-link').href = item.url;
     const ticketLink = eventDialog.querySelector('.event-dialog-ticket');
     ticketLink.closest('.event-dialog-footer').hidden = !item.ticket;
     if (item.ticket) ticketLink.href = item.ticket;
@@ -89,7 +96,12 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
     eventDialog.showModal();
   }
   document.querySelectorAll('[data-event]').forEach((button) => {
-    button.addEventListener('click', () => openEvent(button.dataset.event));
+    button.addEventListener('click', (event) => {
+      // Keep real links crawlable and allow opening the concert in a new tab.
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      event.preventDefault();
+      openEvent(button.dataset.event);
+    });
   });
   document.querySelectorAll('.upcoming-card').forEach((card) => {
     const eventButton = card.querySelector('[data-event]');
@@ -533,15 +545,17 @@ if (videoSection) {
   function selectVideo(index, focus = false) {
     selected = Math.max(0, Math.min(choices.length - 1, index));
     const choice = choices[selected];
-    const { videoId, videoTitle, videoDate } = choice.dataset;
+    const { videoTitle, videoDate } = choice.dataset;
     // Removing the previous frame stops audio when another recording is selected.
     const launch = launchTemplate.cloneNode(true);
     launch.href = choice.href;
     launch.setAttribute('aria-label', `Spill av ${videoTitle}`);
-    launch.querySelector('img').src = `images/video-thumbnails/${videoId}.jpg`;
+    // Reuse the explicit thumbnail URL instead of assuming a filename from the video ID.
+    launch.querySelector('img').src = choice.querySelector('img').src;
     replaceContent(stage, launch);
     videoSection.querySelector('.video-current-title').textContent = videoTitle;
     videoSection.querySelector('.video-current-date').textContent = videoDate;
+    videoSection.querySelector('.video-external-link').href = choice.href;
     videoSection.querySelector('.video-counter').textContent = `${String(selected + 1).padStart(2, '0')} / ${String(choices.length).padStart(2, '0')}`;
     choices.forEach((item, i) => {
       item.classList.toggle('is-selected', i === selected);

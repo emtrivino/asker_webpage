@@ -1,0 +1,41 @@
+.content-nav { width: min(calc(100% - var(--gutter) * 2), var(--container)); margin-inline: auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: .75rem; }
+.content-nav > div { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+.content-nav > div a { font-size: .85rem; font-weight: 600; padding-block: .5rem; }
+.content-main { padding-block: 2rem 5rem; }
+.breadcrumbs { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .8rem; margin-bottom: 3rem; color: var(--muted); }
+.content-main h1 { font-size: clamp(2.5rem, 5.5vw, 5rem); max-width: 18ch; margin-bottom: 1.5rem; }
+.content-main > .lead { max-width: 50rem; }
+.content-hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 4rem); margin-bottom: 3rem; }
+.content-hero img { width: 100%; border-radius: 12px; }
+.content-poster { max-height: 540px; object-fit: contain; background: var(--mist); }
+.content-section { border-top: 1px solid var(--line); padding-block: 2rem; max-width: 900px; }
+.content-section h2 { font-size: clamp(1.65rem, 3vw, 2.5rem); }
+.content-section p, .content-section ul { max-width: 70ch; }
+.content-section figure { margin-inline: 0; }
+.content-history { max-width: 650px; border-radius: 8px; }
+.content-section figcaption { color: var(--muted); font-size: .8rem; margin-top: .5rem; }
+.concert-facts { display: grid; gap: 1rem; margin-block: 1.5rem; }
+.concert-facts div { display: grid; grid-template-columns: 7rem 1fr; }
+.concert-facts dt { font-weight: 700; color: var(--ink); }
+.concert-facts dd { margin: 0; }
+.concert-list { margin-block: 3rem; }
+.concert-list article { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1fr); gap: 2rem; padding-block: 2rem; border-top: 1px solid var(--line); align-items: start; }
+.concert-list img { width: 100%; max-height: 340px; object-fit: contain; background: var(--mist); border-radius: 8px; }
+.concert-list h2 { font-size: clamp(1.6rem, 3vw, 2.5rem); }
+.concert-list h2 a, .recording-grid h3 { text-decoration: none; }
+.recording-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+.recording-grid a { text-decoration: none; }
+.recording-grid img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
+.recording-grid h3 { font-size: 1.45rem; }
+.recording-grid p { margin-top: .5rem; font-size: .85rem; color: var(--muted); }
+.content-note { margin-top: 1.5rem; }
+.discover-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 1.5rem; }
+.event-page-link { display: inline-block; margin-top: 1rem; color: var(--fjord); font-weight: 600; }
+@media (max-width: 760px) {
+  .content-nav { align-items: flex-start; flex-direction: column; }
+  .content-nav > div { gap: .25rem 1rem; }
+  .content-hero, .concert-list article, .recording-grid { grid-template-columns: 1fr; }
+  .content-main { padding-top: 1.5rem; }
+  .breadcrumbs { margin-bottom: 2rem; }
+  .concert-list article { gap: 1.5rem; }
+}

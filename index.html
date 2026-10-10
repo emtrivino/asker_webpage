@@ -44,13 +44,14 @@
           "publisher": { "@id": "https://asym.no/#organization" }
         },
         {
-          "@type": "Organization",
+          "@type": "MusicGroup",
           "@id": "https://asym.no/#organization",
           "name": "Asker symfoniorkester",
           "alternateName": "ASYM",
           "url": "https://asym.no/",
           "logo": {
             "@type": "ImageObject",
+            "url": "https://asym.no/favicon.png",
             "contentUrl": "https://asym.no/favicon.png",
             "width": 512,
             "height": 512
@@ -64,6 +65,7 @@
     }
   </script>
   <link rel="stylesheet" href="styles.css?v=75">
+  <link rel="stylesheet" href="content-pages.css?v=1">
 </head>
 <body>
   <a class="skip-link" href="#main">Hopp til innhold</a>
@@ -102,7 +104,7 @@
         <p class="hero-intro">Tanja Karita Ikonen dirigerer. Ida Kamilla Andersen er solist i Bruchs fiolinkonsert.</p>
         <div class="button-row">
           <a class="button button-primary button-large" href="https://checkout.ebillett.no/359/events/20/purchase/setup" target="_blank" rel="noopener" aria-label="Kjøp billetter til høstkonserten">Kjøp billetter nå</a>
-          <a class="button button-secondary" href="#kommende-konserter">Se alle konserter</a>
+          <a class="button button-secondary" href="/konserter/">Se alle konserter</a>
         </div>
       </div>
 
@@ -154,7 +156,7 @@
                 <p class="upcoming-place">Asker kirke · kl. 18.00</p>
                 <p class="upcoming-repertoire"><span>På programmet</span>Tsjaikovskij · Bruch</p>
                 <div class="upcoming-actions">
-                  <button class="button button-more" type="button" data-event="hostkonsert" aria-haspopup="dialog">Se mer</button>
+                  <a class="button button-more" href="/konserter/hostkonsert-2026/" data-event="hostkonsert" aria-haspopup="dialog">Se mer</a>
                   <a class="button button-card" href="https://checkout.ebillett.no/359/events/20/purchase/setup" target="_blank" rel="noopener" aria-label="Kjøp billetter til Høstkonsert i Asker kirke">Kjøp billetter</a>
                 </div>
               </div>
@@ -167,7 +169,7 @@
                 <p class="upcoming-place">Venskaben</p>
                 <p class="upcoming-repertoire"><span>På programmet</span>Salongorkester · te og kaker</p>
                 <div class="upcoming-actions">
-                  <button class="button button-more" type="button" data-event="afternoon-tea" aria-haspopup="dialog">Se mer</button>
+                  <a class="button button-more" href="/konserter/afternoon-tea-2026/" data-event="afternoon-tea" aria-haspopup="dialog">Se mer</a>
                   <a class="button button-card" href="https://checkout.ebillett.no/359/events/21/purchase" target="_blank" rel="noopener" aria-label="Kjøp billetter til Afternoon Tea i Venskaben">Kjøp billetter</a>
                 </div>
               </div>
@@ -180,7 +182,7 @@
                 <p class="upcoming-place">Østenstad kirke · kl. 18.00</p>
                 <p class="upcoming-repertoire"><span>På programmet</span>Opera- og operetteperler</p>
                 <div class="upcoming-actions">
-                  <button class="button button-more" type="button" data-event="opera" aria-haspopup="dialog">Se mer</button>
+                  <a class="button button-more" href="/konserter/opera-operette-2026/" data-event="opera" aria-haspopup="dialog">Se mer</a>
                   <a class="button button-card" href="https://checkout.ebillett.no/359/events/22/purchase/setup" target="_blank" rel="noopener" aria-label="Kjøp billetter til Opera og Operettekveld">Kjøp billetter</a>
                 </div>
               </div>
@@ -193,7 +195,7 @@
                 <p class="upcoming-place">Dynamitten · Sætre</p>
                 <p class="upcoming-repertoire"><span>På programmet</span>Opera- og operetteperler</p>
                 <div class="upcoming-actions upcoming-actions-single">
-                  <button class="button button-more" type="button" data-event="opera-dynamitten" aria-haspopup="dialog">Se mer</button>
+                  <a class="button button-more" href="/konserter/opera-dynamitten-2026/" data-event="opera-dynamitten" aria-haspopup="dialog">Se mer</a>
                 </div>
               </div>
             </article>
@@ -205,7 +207,7 @@
                 <p class="upcoming-place">Asker kirke</p>
                 <p class="upcoming-repertoire"><span>På programmet</span>Beethovens trippelkonsert</p>
                 <div class="upcoming-actions upcoming-actions-single">
-                  <button class="button button-more" type="button" data-event="varkonsert" aria-haspopup="dialog">Se mer</button>
+                  <a class="button button-more" href="/konserter/varkonsert-2027/" data-event="varkonsert" aria-haspopup="dialog">Se mer</a>
                 </div>
               </div>
             </article>
@@ -217,7 +219,7 @@
                 <p class="upcoming-place">Asker kirke</p>
                 <p class="upcoming-repertoire"><span>På programmet</span>Bratsjfestival · program kommer</p>
                 <div class="upcoming-actions upcoming-actions-single">
-                  <button class="button button-more" type="button" data-event="bratsjfestival" aria-haspopup="dialog">Se mer</button>
+                  <a class="button button-more" href="/konserter/bratsjfestival-2027/" data-event="bratsjfestival" aria-haspopup="dialog">Se mer</a>
                 </div>
               </div>
             </article>
@@ -247,6 +249,7 @@
           </a>
           <p class="event-dialog-section-label">Om konserten</p>
           <div class="event-dialog-description"></div>
+          <a class="event-page-link" href="/konserter/">Åpne konsertsiden med program og praktisk informasjon</a>
         </div>
         <div class="event-dialog-footer"><a class="button button-primary event-dialog-ticket" href="#" target="_blank" rel="noopener"><span>Kjøp billetter</span><span class="event-dialog-ticket-icon" aria-hidden="true">↗</span></a></div>
       </div>
@@ -270,7 +273,9 @@
           <div class="video-caption" aria-live="polite" aria-atomic="true">
             <p class="video-current-date">7. juni 2026</p>
             <h3 class="video-current-title">Pavane for bratsj og orkester</h3>
+            <a class="video-external-link" href="https://www.youtube.com/watch?v=FYXpNnOqgFY" target="_blank" rel="noopener">Åpne videoen på YouTube ↗</a>
           </div>
+          <a href="/repertoar/">Repertoar og konsertopptak</a>
         </div>
           </div>
           <div class="video-sidebar">
@@ -335,6 +340,7 @@
             <li>Et inkluderende miljø for utvikling, samspill og mestring.</li>
             <li>Øvelser tirsdager kl. 19.00–21.45.</li>
           </ul>
+          <a href="/om/">Les mer om orkesteret og historien</a>
         </div>
         <div class="about-visual">
           <img src="images/about-orchestra-audience.webp" alt="Asker symfoniorkester spiller foran et stort publikum i blått scenelys" loading="lazy">
@@ -414,6 +420,7 @@
             <div class="salon-detail"><span>Repertoar</span><p>Repertoaret beveger seg mellom wienerklassisk taffelmusikk, norske perler og kjente klassiske stykker i et lettere, elegant format.</p></div>
             <div class="salon-detail"><span>Atmosfære</span><p>Salongorkesteret passer godt til mindre arrangementer der musikken skal skape nærhet, atmosfære og historisk klang.</p></div>
           </div>
+          <a href="/salongorkester/">Les mer om salongorkesteret</a>
         </div>
         <figure class="salon-visual">
           <img src="images/salongorkester-venskaben-editorial.png" alt="Salongorkesteret spiller tett på publikum i Venskaben" loading="lazy">
@@ -450,7 +457,7 @@
           <p class="lead">Vil du spille symfonisk musikk i et aktivt orkester?</p>
           <p>Øvelser tirsdager kl. 19.00–21.45</p>
         </div>
-        <a class="button button-light" href="mailto:leder@asym.no">Kontakt oss</a>
+        <a class="button button-light" href="/bli-med/">Les om å bli med</a>
       </div>
     </section>
   </main>
@@ -465,6 +472,13 @@
         <a class="footer-ticket-link ticket-cta" href="#kommende-konserter">Kjøp billetter</a>
       </div>
     </div>
+    <nav class="container discover-links" aria-label="Utforsk orkesteret">
+      <a href="/konserter/">Alle konserter</a>
+      <a href="/om/">Om orkesteret</a>
+      <a href="/repertoar/">Repertoar og opptak</a>
+      <a href="/salongorkester/">Salongorkesteret</a>
+      <a href="/bli-med/">Bli med</a>
+    </nav>
     <div class="container footer-support-row">
       <span>Høstkonserten støttes av</span>
       <div class="footer-support-logos" role="list" aria-label="Høstkonsertens støttespillere">
@@ -484,6 +498,6 @@
     </a>
   </aside>
 
-  <script src="script.js?v=36" defer></script>
+  <script src="script.js?v=38" defer></script>
 </body>
 </html>

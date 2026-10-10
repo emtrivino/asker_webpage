@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://asym.no/</loc>
-    <lastmod>2026-10-03</lastmod>
-  </url>
-  <url>
-    <loc>https://asym.no/personvern.html</loc>
-    <lastmod>2026-10-03</lastmod>
-  </url>
+  <url><loc>https://asym.no/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/personvern.html</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/konserter/hostkonsert-2026/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/konserter/afternoon-tea-2026/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/konserter/opera-operette-2026/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/konserter/opera-dynamitten-2026/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/konserter/varkonsert-2027/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/konserter/bratsjfestival-2027/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/konserter/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/om/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/salongorkester/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/bli-med/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://asym.no/repertoar/</loc><lastmod>2026-10-10</lastmod></url>
 </urlset>
