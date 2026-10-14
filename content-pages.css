@@ -5,17 +5,17 @@
 .breadcrumbs { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .8rem; margin-bottom: 3rem; color: var(--muted); }
 .content-main h1 { font-size: clamp(2.5rem, 5.5vw, 5rem); max-width: 18ch; margin-bottom: 1.5rem; }
 .content-main > .lead { max-width: 50rem; }
-.content-hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 4rem); margin-bottom: 3rem; }
+.content-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 5vw, 4rem); margin-bottom: 3rem; }
 .content-hero img { width: 100%; border-radius: 12px; }
 .content-poster { max-height: 540px; object-fit: contain; background: var(--mist); }
 .content-section { border-top: 1px solid var(--line); padding-block: 2rem; max-width: 900px; }
 .content-section h2 { font-size: clamp(1.65rem, 3vw, 2.5rem); }
 .content-section p, .content-section ul { max-width: 70ch; }
 .content-section figure { margin-inline: 0; }
-.content-history { max-width: 650px; border-radius: 8px; }
+.content-history { width: 100%; max-width: 650px; height: auto; border-radius: 8px; }
 .content-section figcaption { color: var(--muted); font-size: .8rem; margin-top: .5rem; }
 .concert-facts { display: grid; gap: 1rem; margin-block: 1.5rem; }
-.concert-facts div { display: grid; grid-template-columns: 7rem 1fr; }
+.concert-facts div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: .5rem; }
 .concert-facts dt { font-weight: 700; color: var(--ink); }
 .concert-facts dd { margin: 0; }
 .concert-list { margin-block: 3rem; }
@@ -31,6 +31,13 @@
 .content-note { margin-top: 1.5rem; }
 .discover-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 1.5rem; }
 .event-page-link { display: inline-block; margin-top: 1rem; color: var(--fjord); font-weight: 600; }
+.content-nav > *, .content-hero > *, .concert-list article > * { min-width: 0; }
+.content-nav > div a { display: inline-flex; align-items: center; min-height: 44px; }
+.content-section { overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+  .content-main h1 { font-size: clamp(2rem, 9vw, 2.7rem); }
+  .concert-facts div { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
+}
 @media (max-width: 760px) {
   .content-nav { align-items: flex-start; flex-direction: column; }
   .content-nav > div { gap: .25rem 1rem; }

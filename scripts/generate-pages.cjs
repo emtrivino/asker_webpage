@@ -55,7 +55,7 @@ function page({url, title, heading, description, image = 'images/orchestra_piano
 <meta property="og:site_name" content="Asker symfoniorkester"><meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${site}/${image}"><meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/styles.css?v=75"><link rel="stylesheet" href="/content-pages.css?v=1">
+<link rel="stylesheet" href="/styles.css?v=76"><link rel="stylesheet" href="/content-pages.css?v=2">
 <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':graph}, null, 2).replace(/</g, '\\u003c')}</script>
 </head><body class="content-page"><a class="skip-link" href="#main">Hopp til innhold</a>
 <header class="site-header">${navigation}</header>

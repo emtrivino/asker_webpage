@@ -12,6 +12,16 @@ python3 -m http.server 8000
 
 Gå deretter til <http://localhost:8000>.
 
+## Responsiv kvalitetssjekk
+
+`node scripts/check-responsive.cjs` kontrollerer alle URL-ene i sitemapet med Playwright og Chrome mot den lokale serveren. Playwright må være tilgjengelig som Node-pakke; sett eventuelt `PLAYWRIGHT_MODULE_PATH` til en eksisterende installasjon. `RESPONSIVE_BASE_URL` kan brukes for en annen lokal serveradresse, og `RESPONSIVE_BROWSER=edge` kan velge Edge.
+
+Sjekken dekker 320–4704 CSS-piksler på forsiden, mobil/tablet/desktop på alle undersider, tekstforstørrelse til 200 %, liggende mobil, meny ved endring av vindusstørrelse, tastaturnavigasjon i konsertkarusellen, billettdialog, bildegalleri og tilgjengelig innhold uten JavaScript. Den feiler ved horisontal sideoverflyt, avkuttet tekst og JavaScript-feil. Dette er regresjonstester, ikke en full WCAG-sertifisering eller en erstatning for testing i Safari og på fysiske enheter.
+
+Historie og salongorkester bruker sentrerte oppslag med maksimalt 1440 px bredde. Høyden følger innholdet, slik at forstørret tekst ikke kuttes. Resten av innholdet bruker nettstedets felles 1200 px beholder. Oppdater CSS/JavaScript-versjonsnumrene i forsiden, personvernsiden og sidegeneratoren når ressursene endres, og kjør deretter sidegeneratoren.
+
+`node scripts/check-videos.cjs` tester videovalget i mobil- og desktopbredde, miniatyrer, telleren, tastaturnavigasjon, at forrige avspiller fjernes og at alle opptak finnes på repertoarsiden uten duplikater. Testen bruker de samme Playwright-innstillingene som responsivsjekken. Sett `LIVE_VIDEO_PLAYBACK=1` for å verifisere faktisk avspilling fra YouTube for alle opptak på desktop og det nyeste på mobil; dette krever nettverk og kan påvirkes av YouTubes tilgjengelighet.
+
 ## GitHub Pages
 
 Velg enkleste rot-distribusjon:

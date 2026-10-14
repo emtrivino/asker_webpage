@@ -7,6 +7,7 @@ if (window.location.hostname === '127.0.0.1') {
 
 // Small compatibility helpers keep the interactive sections working on older
 // iOS/Safari versions without adding a framework or loading a polyfill service.
+document.documentElement.classList.add('js');
 function onMediaQueryChange(query, handler) {
   if (typeof query.addEventListener === 'function') query.addEventListener('change', handler);
   else if (typeof query.addListener === 'function') query.addListener(handler);
@@ -55,9 +56,10 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
     },
     'opera-dynamitten': {
       title: 'Opera & Operettekveld i Dynamitten', date: 'Søndag 6. desember 2026',
-      place: 'Dynamitten, Sætre', image: 'images/opera-dynamitten-2026.jpg',
+      place: 'Dynamitten, Sætre', image: 'images/opera-dynamitten-2026-soloists.png',
       imageAlt: 'Orkesteret og solistene til Opera og operettekvelden i Dynamitten 6. desember',
-      description: '<p>Den andre av orkesterets to opera- og operettekvelder, denne gangen i Dynamitten i Sætre. Programmet er et utvalg fra opera- og operettelitteraturen.</p><dl class="event-performers"><div><dt>Dirigent</dt><dd>Guro Anstensen Haugli</dd></div><div><dt>Solister</dt><dd>Øystein Skre (bass), Marit Sehl (mezzosopran) og Cecilie Cathrine Ødegården (sopran)</dd></div></dl><p>Klokkeslett og billettinformasjon kommer.</p>',
+      description: '<p>Den andre av orkesterets to opera- og operettekvelder, denne gangen i Dynamitten i Sætre. Programmet er et utvalg fra opera- og operettelitteraturen.</p><dl class="event-performers"><div><dt>Dirigent</dt><dd>Guro Anstensen Haugli</dd></div><div><dt>Solister</dt><dd>Marit Sehl (mezzosopran) og Øystein Skre (bass)</dd></div></dl><p>Klokkeslett kommer.</p>',
+      ticket: 'https://checkout.ebillett.no/359/events/23/purchase',
       url: '/konserter/opera-dynamitten-2026/'
     },
     varkonsert: {
@@ -127,6 +129,7 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
 
 const concertCarousel = document.querySelector('.upcoming-carousel');
 if (concertCarousel) {
+  concertCarousel.classList.add('is-enhanced');
   const track = concertCarousel.querySelector('.upcoming-grid');
   const cards = [...track.children];
   const count = document.querySelector('.upcoming-carousel-count');
@@ -161,7 +164,7 @@ if (concertCarousel) {
     progress.append(button);
   });
 
-  const visibleCount = () => window.innerWidth <= 760 ? 1 : window.innerWidth <= 1000 ? 2 : 3;
+  const visibleCount = () => Number(getComputedStyle(track).getPropertyValue('--visible-cards')) || 1;
   const stepWidth = () => track.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap);
 
   function updateVisible() {
@@ -341,7 +344,7 @@ if (navToggle && navMenu) {
       if (!document.activeElement.closest('.site-header')) setMenu(false);
     });
   });
-  onMediaQueryChange(window.matchMedia('(min-width: 761px)'), () => setMenu(false));
+  onMediaQueryChange(window.matchMedia('(min-width: 901px)'), () => setMenu(false));
 }
 
 // A featured photograph rotates while the gallery is in view; the dialog keeps
@@ -576,7 +579,7 @@ if (videoSection) {
       selectVideo(index);
     });
     choice.addEventListener('keydown', (event) => {
-      const target = {ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: choices.length - 1}[event.key];
+      const target = {ArrowRight: index + 1, ArrowLeft: index - 1, ArrowDown: index + 1, ArrowUp: index - 1, Home: 0, End: choices.length - 1}[event.key];
       if (target === undefined) return;
       event.preventDefault();
       selectVideo(target, true);
