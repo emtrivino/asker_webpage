@@ -703,7 +703,6 @@ if (videoSection) {
 const heroGallery = document.querySelector('[data-hero-gallery]');
 if (heroGallery) {
   const slides = [...heroGallery.querySelectorAll('.hero-gallery-slide')];
-  const controls = [...heroGallery.querySelectorAll('.hero-gallery-controls button')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let activeSlide = 0;
   let rotation;
@@ -712,11 +711,6 @@ if (heroGallery) {
     activeSlide = (index + slides.length) % slides.length;
     slides[(activeSlide + 1) % slides.length].querySelector('img').loading = 'eager';
     slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === activeSlide));
-    controls.forEach((control, controlIndex) => {
-      const selected = controlIndex === activeSlide;
-      control.classList.toggle('is-active', selected);
-      control.setAttribute('aria-current', String(selected));
-    });
   }
 
   function startHeroRotation() {
@@ -730,11 +724,6 @@ if (heroGallery) {
     rotation = undefined;
   }
 
-  controls.forEach((control, index) => control.addEventListener('click', () => {
-    showHeroSlide(index);
-    stopHeroRotation();
-    startHeroRotation();
-  }));
   document.addEventListener('visibilitychange', () => document.hidden ? stopHeroRotation() : startHeroRotation());
   startHeroRotation();
 }

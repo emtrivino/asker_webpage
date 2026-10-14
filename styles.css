@@ -111,11 +111,6 @@ h3 { font-size: clamp(1.5rem, 2.2vw, 1.95rem); }
 .hero-gallery-slide img { object-fit: cover; object-position: center 48%; filter: saturate(.96) contrast(1.04); }
 .hero-gallery-slide:nth-child(2) img { object-position: center 48%; }
 .hero-gallery-slide:nth-child(3) img { object-position: center 45%; }
-.hero-gallery-controls { position: absolute; right: clamp(1.25rem, 4vw, 3rem); bottom: clamp(.25rem, 1vw, .75rem); z-index: 3; display: flex; gap: 0; }
-.hero-gallery-controls button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; }
-.hero-gallery-controls button::before { content: ''; width: 24px; height: 4px; border-radius: 99px; background: rgba(255,255,255,.45); transition: width .25s ease, background .25s ease; }
-.hero-gallery-controls button.is-active::before { width: 36px; background: #e4eee5; }
-.hero-gallery-controls button:focus-visible { outline: 2px solid white; outline-offset: 4px; }
 .carousel-track, .carousel-slide, .carousel-slide img { width: 100%; height: 100%; }
 .carousel-slide { margin: 0; }
 .carousel-slide img { object-fit: cover; object-position: 60% 45%; }
@@ -1106,7 +1101,6 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
   .video-thumb { margin-bottom: 0; }
 }
 @media (max-width: 760px) {
-  .hero-gallery-controls { top: .5rem; right: var(--gutter); bottom: auto; }
 }
 
 /* Reflow safeguards for narrow screens, enlarged text and short viewports. */
@@ -1165,7 +1159,6 @@ dd, figcaption, .button, .privacy-back { overflow-wrap: anywhere; }
   .home-page .nav-menu { background: #112c37; border-color: #ffffff22; }
   .home-page .nav-menu.is-open { max-height: calc(100dvh - 73px); }
   .home-page .hero { padding-top: calc(72px + 3rem); }
-  .home-page .hero-gallery-controls { top: 80px; }
 }
 @media (max-height: 500px) {
   .home-page .site-header { position: absolute; }
