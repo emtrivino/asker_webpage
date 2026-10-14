@@ -581,7 +581,7 @@ if (videoSection) {
   const stage = videoSection.querySelector('.video-stage');
   const launchTemplate = stage.querySelector('.video-launch').cloneNode(true);
   let selected = 0;
-  const stackedVideos = window.matchMedia('(min-width: 801px)');
+  const stackedVideos = window.matchMedia('(min-width: 1101px)');
   const scrollRail = (amount) => {
     const vertical = stackedVideos.matches;
     if ('scrollBehavior' in document.documentElement.style) {
@@ -601,8 +601,10 @@ if (videoSection) {
     const launch = launchTemplate.cloneNode(true);
     launch.href = choice.href;
     launch.setAttribute('aria-label', `Spill av ${videoTitle}`);
-    // Reuse the explicit thumbnail URL instead of assuming a filename from the video ID.
-    launch.querySelector('img').src = choice.querySelector('img').src;
+    const preview = launch.querySelector('img');
+    preview.src = choice.dataset.videoPreview || choice.querySelector('img').src;
+    preview.removeAttribute('width');
+    preview.removeAttribute('height');
     replaceContent(stage, launch);
     videoSection.querySelector('.video-current-title').textContent = videoTitle;
     videoSection.querySelector('.video-current-date').textContent = videoDate;
@@ -624,6 +626,9 @@ if (videoSection) {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
       selectVideo(index);
+      if (!stackedVideos.matches) {
+        stage.scrollIntoView({block:'start', behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+      }
     });
     choice.addEventListener('keydown', (event) => {
       const target = {ArrowRight: index + 1, ArrowLeft: index - 1, ArrowDown: index + 1, ArrowUp: index - 1, Home: 0, End: choices.length - 1}[event.key];
@@ -638,7 +643,7 @@ if (videoSection) {
     window.asymCookies.requestVideo(() => {
     const choice = choices[selected];
     const frame = document.createElement('iframe');
-    frame.src = `https://www.youtube-nocookie.com/embed/${choice.dataset.videoId}?autoplay=1&rel=0&playsinline=1&fs=1`;
+    frame.src = `https://www.youtube-nocookie.com/embed/${choice.dataset.videoId}?autoplay=1&rel=0&playsinline=1&fs=1&controls=1&hl=nb`;
     frame.title = choice.dataset.videoTitle;
     frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share';
     frame.allowFullscreen = true;

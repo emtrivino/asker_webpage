@@ -1166,3 +1166,36 @@ dd, figcaption, .button, .privacy-back { overflow-wrap: anywhere; }
   .home-page .nav-menu.is-open { max-height: none; }
 }
 html:not(.js) .home-page .site-header { position: relative; background: #112c37; }
+
+/* A larger featured recording with a compact selection beside it. */
+#videoer { padding-block: clamp(1.5rem, 3vw, 3rem); background: #102832; }
+#videoer > .container { width: min(calc(100% - var(--gutter) * 2), 1440px); }
+.video-heading-row { margin-bottom: 1.1rem; }
+.video-heading-row h2 { font-size: clamp(1.8rem, 2.8vw, 2.6rem); line-height: 1.15; }
+.video-heading-row .eyebrow { margin-bottom: .35rem; }
+.video-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 1.25rem; }
+.video-stage { min-height: 200px; border-radius: 12px; border-color: #58726d; box-shadow: 0 16px 40px #00000033; }
+.video-now { padding-block: .85rem 0; }
+.video-current-title { font-size: clamp(1.35rem, 2.1vw, 1.9rem); line-height: 1.2; }
+.video-current-date { margin-bottom: .3rem; }
+.video-play-icon { width: clamp(64px, 6vw, 88px); background: #fff; color: #102832; border-color: white; }
+.video-launch-label { font-size: .9rem; }
+.video-sidebar { position: relative; }
+.video-library-header { min-height: 30px; margin-bottom: .6rem; padding-top: 0; border-top: 0; }
+.video-library-header p { width: 100%; justify-content: space-between; font-size: .8rem; }
+.video-rail { position: absolute; inset: 40px 0 0; display: flex; flex-direction: column; gap: .35rem; padding-right: .35rem; overflow-x: hidden; overflow-y: auto; scroll-snap-type: none; }
+.video-choice { display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: .2rem .65rem; padding: .45rem; border-radius: 8px; background: transparent; }
+.video-thumb { margin-bottom: 0; border-radius: 5px; }
+.video-choice-title { font-size: .8rem; line-height: 1.35; }
+.video-choice-date { font-size: .7rem; margin-top: 0; }
+.video-choice.is-selected { background: #23453f; border-color: #9dcdb8; }
+.video-number, .video-selected-label { bottom: .25rem; font-size: .6rem; padding: .1rem .25rem; }
+.video-number { left: .25rem; }
+.video-selected-label { right: .25rem; }
+@media (max-width: 1100px) {
+  .video-layout { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .video-sidebar { position: static; }
+  .video-rail { position: static; display: grid; grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: clamp(210px, 29vw, 260px); gap: .6rem; padding: .2rem .2rem .65rem; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; touch-action: pan-x pan-y; }
+  .video-choice { grid-template-columns: 86px minmax(0, 1fr); scroll-snap-align: start; background: #ffffff05; }
+  .video-library-header { margin-bottom: .35rem; }
+}

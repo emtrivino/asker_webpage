@@ -34,6 +34,9 @@ const supplied = ['sMVAiCz0D3U', '3dWpDRrjYIo', 'H15EEgzzeFc', '_TFt8pRIo2k', 'r
           return image && image.complete && image.naturalWidth > 0;
         });
         assert(await page.locator('.video-launch img').evaluate(img => img.naturalWidth > 0), 'Thumbnail loads');
+        assert(await page.locator('.video-launch img').evaluate(img => img.naturalWidth >= 480), 'Featured preview uses a larger source');
+        const playerBounds = await page.locator('.video-stage').boundingBox();
+        assert(playerBounds.width >= 200 && playerBounds.height >= 200, 'YouTube minimum player dimensions');
         await page.locator('.video-launch').click();
         const iframe = page.locator('.video-stage iframe');
         assert((await iframe.getAttribute('src')).startsWith('https://www.youtube-nocookie.com/embed/' + id + '?'));
