@@ -41,7 +41,7 @@ const memberForm = document.querySelector('#member-form');
 function membershipEmail(form) {
   const fields = new FormData(form);
   const body = `Navn: ${String(fields.get('Navn')).trim()}\nE-post: ${String(fields.get('E-post')).trim()}\n\n${String(fields.get('Melding')).trim()}`;
-  return `mailto:trivinoeduards@gmail.com?subject=${encodeURIComponent('Ny melding om medlemskap fra asym.no')}&body=${encodeURIComponent(body)}`;
+  return `mailto:leder@asym.no?subject=${encodeURIComponent('Ny melding om medlemskap fra asym.no')}&body=${encodeURIComponent(body)}`;
 }
 if (memberForm) {
   memberForm.addEventListener('focusin', () => window.asymCookies?.dismiss());
@@ -67,7 +67,7 @@ if (memberForm) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 20000);
     try {
-      const response = await fetch('https://formsubmit.co/ajax/trivinoeduards@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/leder@asym.no', {
         method: 'POST', headers: {'Content-Type':'application/json', 'Accept':'application/json'},
         body: JSON.stringify({...Object.fromEntries(new FormData(memberForm)), _replyto:memberForm.elements.namedItem('E-post').value}), signal: controller.signal
       });

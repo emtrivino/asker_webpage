@@ -25,7 +25,7 @@ const base = process.env.RESPONSIVE_BASE_URL || 'http://localhost:8000';
       assert((await page.locator('.member-form-status').textContent()).includes('Kunne ikke sende'));
       assert.equal(await page.locator('#member-message').inputValue(),'Fiolin og kammermusikk.');
       assert(await page.locator('.member-email-fallback').isVisible());
-      assert((await page.locator('.member-email-fallback').getAttribute('href')).startsWith('mailto:trivinoeduards@gmail.com?'));
+      assert((await page.locator('.member-email-fallback').getAttribute('href')).startsWith('mailto:leder@asym.no?'));
       mode = 'success';
       await form.locator('button[type="submit"]').click();
       await page.waitForFunction(()=>!document.querySelector('#member-form').hasAttribute('aria-busy'));
