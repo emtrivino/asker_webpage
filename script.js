@@ -26,6 +26,49 @@ function hasVisibleFocus(element) {
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('[data-nav-menu]');
 
+const memberForm = document.querySelector('#member-form');
+function membershipEmail(form) {
+  const fields = new FormData(form);
+  const body = ['Hei!', '', 'Jeg er interessert i å bli med i Asker symfoniorkester.', '',
+    ...[...fields].map(([name, value]) => `${name}: ${String(value).trim()}`), '', 'Vennlig hilsen', String(fields.get('Navn')).trim()].join('\n');
+  return `mailto:leder@asym.no?subject=${encodeURIComponent('Interesse for medlemskap i Asker symfoniorkester')}&body=${encodeURIComponent(body)}`;
+}
+if (memberForm) {
+  memberForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!memberForm.reportValidity()) return;
+    window.location.href = membershipEmail(memberForm);
+  });
+}
+
+// Keep privacy information in a popup on the main page.
+const privacyDialog = document.createElement('dialog');
+privacyDialog.className = 'privacy-dialog';
+privacyDialog.setAttribute('aria-label', 'Personvern og informasjonskapsler');
+privacyDialog.innerHTML = '<button class="privacy-dialog-close" type="button" aria-label="Lukk personvern">×</button><div class="privacy-dialog-content"></div>';
+document.body.append(privacyDialog);
+privacyDialog.querySelector('button').addEventListener('click', () => privacyDialog.close());
+let privacyLoaded = false;
+document.addEventListener('click', async event => {
+  const link = event.target.closest('a');
+  if (!link || new URL(link.href).pathname !== '/personvern.html') return;
+  event.preventDefault();
+  if (privacyDialog.open) return;
+  privacyDialog.showModal();
+  const content = privacyDialog.querySelector('.privacy-dialog-content');
+  if (privacyLoaded) return;
+  content.textContent = 'Laster personverninformasjon …';
+  try {
+    const response = await fetch('/personvern.html');
+    if (!response.ok) throw new Error('Privacy information unavailable');
+    const source = new DOMParser().parseFromString(await response.text(), 'text/html');
+    content.replaceChildren(source.querySelector('.privacy-article').cloneNode(true));
+    privacyLoaded = true;
+  } catch (_) {
+    content.textContent = 'Vi bruker ikke analyse- eller reklamecookies. YouTube-videoer lastes etter samtykke. Valget kan endres via Informasjonskapsler nederst på siden. Spørsmål? Skriv til leder@asym.no.';
+  }
+});
+
 const eventDialog = document.querySelector('#event-dialog');
 let suppressCardClick = false;
 if (eventDialog && typeof eventDialog.showModal === 'function') {
@@ -90,7 +133,6 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
     placeLink.setAttribute('aria-label', `Vis ${item.place} i Google Maps`);
     placeLink.querySelector('.event-dialog-place-name').textContent = item.place;
     eventDialog.querySelector('.event-dialog-description').innerHTML = item.description;
-    eventDialog.querySelector('.event-page-link').href = item.url;
     const ticketLink = eventDialog.querySelector('.event-dialog-ticket');
     ticketLink.closest('.event-dialog-footer').hidden = !item.ticket;
     if (item.ticket) ticketLink.href = item.ticket;
