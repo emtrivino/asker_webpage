@@ -17,7 +17,7 @@ const events = vm.runInNewContext('(' + eventSource[1] + ')', {}, { timeout: 100
 const dates = {
   hostkonsert: '2026-10-25T18:00:00+01:00',
   'afternoon-tea': '2026-11-21', opera: '2026-11-29T18:00:00+01:00',
-  'opera-dynamitten': '2026-12-06', varkonsert: '2027-03-07', bratsjfestival: '2027-06-01'
+  'opera-dynamitten': '2026-12-06T18:00:00+01:00', varkonsert: '2027-03-07', bratsjfestival: '2027-06-01'
 };
 for (const [key, item] of Object.entries(events)) {
   if (!dates[key] || !/^\/konserter\/[a-z0-9-]+\/$/.test(item.url || '')) {
@@ -55,7 +55,7 @@ function page({url, title, heading, description, image = 'images/orchestra_piano
 <meta property="og:site_name" content="Asker symfoniorkester"><meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${site}/${image}"><meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/styles.css?v=76"><link rel="stylesheet" href="/content-pages.css?v=2">
+<link rel="stylesheet" href="/styles.css?v=77"><link rel="stylesheet" href="/content-pages.css?v=2">
 <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':graph}, null, 2).replace(/</g, '\\u003c')}</script>
 </head><body class="content-page"><a class="skip-link" href="#main">Hopp til innhold</a>
 <header class="site-header">${navigation}</header>

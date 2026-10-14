@@ -55,10 +55,10 @@ if (eventDialog && typeof eventDialog.showModal === 'function') {
       url: '/konserter/opera-operette-2026/'
     },
     'opera-dynamitten': {
-      title: 'Opera & Operettekveld i Dynamitten', date: 'Søndag 6. desember 2026',
+      title: 'Opera & Operettekveld i Dynamitten', date: 'Søndag 6. desember 2026 · kl. 18.00',
       place: 'Dynamitten, Sætre', image: 'images/opera-dynamitten-2026-soloists.png',
       imageAlt: 'Orkesteret og solistene til Opera og operettekvelden i Dynamitten 6. desember',
-      description: '<p>Den andre av orkesterets to opera- og operettekvelder, denne gangen i Dynamitten i Sætre. Programmet er et utvalg fra opera- og operettelitteraturen.</p><dl class="event-performers"><div><dt>Dirigent</dt><dd>Guro Anstensen Haugli</dd></div><div><dt>Solister</dt><dd>Marit Sehl (mezzosopran) og Øystein Skre (bass)</dd></div></dl><p>Klokkeslett kommer.</p>',
+      description: '<p>Den andre av orkesterets to opera- og operettekvelder, denne gangen i Dynamitten i Sætre. Programmet er et utvalg fra opera- og operettelitteraturen.</p><dl class="event-performers"><div><dt>Dirigent</dt><dd>Guro Anstensen Haugli</dd></div><div><dt>Solister</dt><dd>Marit Sehl (mezzosopran) og Øystein Skre (bass)</dd></div></dl>',
       ticket: 'https://checkout.ebillett.no/359/events/23/purchase',
       url: '/konserter/opera-dynamitten-2026/'
     },
