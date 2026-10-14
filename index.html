@@ -64,7 +64,7 @@
       ]
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=83">
+  <link rel="stylesheet" href="styles.css?v=84">
   <link rel="stylesheet" href="content-pages.css?v=2">
 </head>
 <body class="home-page">
@@ -458,23 +458,23 @@
           <p class="eyebrow light">Musikk i fellesskap</p>
           <h2 id="member-title">Bli medlem</h2>
           <p class="lead">Har du lyst til å spille med oss?</p>
-          <p>Asker symfoniorkester samler musikere på tvers av generasjoner. Hos oss får du spille symfonisk musikk, utvikle deg som musiker og være en del av et musikalsk fellesskap.</p>
-          <p>Vi spiller både symfoniske verk og konserter sammen med solister, kor og andre musikere. Fortell oss hvilket instrument du spiller og litt om din erfaring, så tar styret kontakt med deg.</p>
-          <div class="member-rehearsal"><span>Faste øvelser</span><strong>Tirsdager · kl. 19.00–21.45</strong><p>Kontakt oss for praktisk informasjon og muligheten til å bli med på en øvelse.</p></div>
-          <p>Vi gleder oss til å høre fra deg!</p>
+          <p>Fortell oss litt om deg selv og hvilket instrument du spiller. Styret tar kontakt med deg.</p>
+          <div class="member-rehearsal"><span>Faste øvelser</span><strong>Tirsdager · kl. 19.00–21.45</strong></div>
         </div>
-        <form class="member-form" id="member-form" action="mailto:leder@asym.no" method="post" enctype="text/plain">
-          <h3>Ta kontakt om medlemskap</h3>
-          <p>Fyll ut skjemaet og fortell litt om deg selv.</p>
+        <form class="member-form" id="member-form" action="https://formsubmit.co/trivinoeduards@gmail.com" method="post">
+          <h3>Send en melding</h3>
           <div class="member-fields">
             <label for="member-name"><span>Navn <span aria-hidden="true">*</span></span><input id="member-name" name="Navn" autocomplete="name" maxlength="120" required></label>
-            <label for="member-email"><span>E-postadresse <span aria-hidden="true">*</span></span><input id="member-email" name="E-postadresse" type="email" autocomplete="email" maxlength="254" required></label>
-            <label class="member-field-wide" for="member-instrument"><span>Instrument <span aria-hidden="true">*</span></span><input id="member-instrument" name="Instrument" maxlength="120" required placeholder="For eksempel fiolin eller klarinett"></label>
-            <label class="member-field-wide" for="member-message">Fortell litt om din musikalske bakgrunn<textarea id="member-message" name="Musikalsk bakgrunn" rows="4" maxlength="3000"></textarea></label>
+            <label for="member-email"><span>E-postadresse <span aria-hidden="true">*</span></span><input id="member-email" name="E-post" type="email" autocomplete="email" maxlength="254" required></label>
+            <label class="member-field-wide" for="member-message"><span>Melding <span aria-hidden="true">*</span></span><textarea id="member-message" name="Melding" rows="3" maxlength="3000" required placeholder="Instrument og litt om deg"></textarea></label>
           </div>
-          <p class="member-form-note" id="member-form-note">Feltene med * må fylles ut. Skjemaet åpner e-postprogrammet ditt med en ferdig melding til leder@asym.no. Du leser gjennom og sender selv.</p>
-          <button class="button button-light" type="submit" aria-describedby="member-form-note">Åpne e-post til styret <span aria-hidden="true">↗</span></button>
-          <p class="member-form-alternative">Du kan også skrive direkte til <a href="mailto:leder@asym.no">leder@asym.no</a>.</p>
+          <input type="hidden" name="_subject" value="Ny melding om medlemskap fra asym.no">
+          <input type="hidden" name="_template" value="basic">
+          <div class="form-honeypot" aria-hidden="true"><label>La feltet stå tomt<input name="_honey" tabindex="-1" autocomplete="off"></label></div>
+          <p class="member-form-note" id="member-form-note">Sendes til <a href="mailto:trivinoeduards@gmail.com">trivinoeduards@gmail.com</a> · <a href="personvern.html">Personvern</a></p>
+          <button class="button button-light" type="submit" aria-describedby="member-form-note">Send melding <span aria-hidden="true">↗</span></button>
+          <p class="member-form-status" role="status" aria-live="polite"></p>
+          <p class="member-form-alternative" hidden><a class="member-email-fallback" href="mailto:trivinoeduards@gmail.com">Send via e-post i stedet ↗</a></p>
         </form>
       </div>
     </section>
@@ -507,7 +507,7 @@
     </a>
   </aside>
 
-  <script src="cookies.js?v=2" defer></script>
-  <script src="script.js?v=47" defer></script>
+  <script src="cookies.js?v=3" defer></script>
+  <script src="script.js?v=48" defer></script>
 </body>
 </html>

@@ -47,6 +47,7 @@
   preferences.addEventListener('click', open);
   (document.querySelector('.footer-links') || document.querySelector('.site-footer')).append(preferences);
   window.asymCookies = {
+    dismiss,
     requestVideo(play) { if (allowed === true) play(); else { pendingVideo = play; open(); } }
   };
   if (allowed === null) open();

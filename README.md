@@ -2,6 +2,8 @@
 
 Dette repoet inneholder en statisk nettside for Asker symfoniorkester med forside, konsertsider, sesongoversikt og informasjon om orkesteret. Siden er laget med ren HTML, CSS og JavaScript, uten backend og uten eksterne rammeverk.
 
+Medlemskapsskjemaet sender via FormSubmit. Prøvemottaker er `trivinoeduards@gmail.com`; styrets kontaktadresse er fortsatt `leder@asym.no`. Ved mottakerbytte må adressen oppdateres i HTML, JavaScript og personvernteksten, og mottakeren må aktivere skjemaet via FormSubmit-e-posten. Aktivering kan være knyttet til nettstedets opprinnelse; test faktisk levering fra asym.no, ikke bare localhost. `scripts/check-membership.cjs` tester UI og feilhåndtering med simulerte svar uten å sende e-post. En bekreftet API-innsending er ikke en bekreftelse på at mottakeren har lest eller mottatt e-posten.
+
 ## Forhåndsvis lokalt
 
 Kjør en enkel lokal server fra repo-roten. Navigasjon til undersidene bruker stier fra nettstedsroten og krever HTTP-forhåndsvisning:

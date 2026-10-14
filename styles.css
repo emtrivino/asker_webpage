@@ -42,6 +42,10 @@ body:has(.cookie-dialog:not([hidden])) .facebook-float { visibility: hidden; }
 .member-fields input:focus-visible, .member-fields textarea:focus-visible { outline: 3px solid #b4d9cb; outline-offset: 3px; }
 .member-form .member-form-note, .member-form .member-form-alternative { color: #c6d8d5; font-size: .85rem; line-height: 1.6; }
 .member-form-alternative { margin-top: 1rem; }
+.form-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.member-form-status { margin: .8rem 0 0; color: #e6f2ec; font-size: .9rem; }
+.member-form-status:empty { display: none; }
+.member-form button:disabled { opacity: .7; cursor: wait; }
 .privacy-dialog { width: min(760px, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); padding: clamp(1.25rem, 4vw, 2.5rem); border: 1px solid var(--line); border-radius: 16px; background: var(--paper); color: var(--text); }
 .privacy-dialog::backdrop { background: #142f3977; }
 .privacy-dialog h1 { margin-bottom: 1.5rem; padding-right: 2.5rem; font-size: clamp(2rem, 5vw, 3rem); }
