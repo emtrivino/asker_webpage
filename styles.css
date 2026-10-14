@@ -1143,3 +1143,26 @@ dd, figcaption, .button, .privacy-back { overflow-wrap: anywhere; }
   .nav-menu.is-open { max-height: none; }
   .hero { min-height: 0; padding-block: 2rem; }
 }
+
+/* The homepage photograph extends behind the navigation to the top of the screen. */
+.home-page .site-header { position: fixed; inset: 0 0 auto; background: transparent; border-color: transparent; backdrop-filter: none; transition: background .2s ease, border-color .2s ease; }
+.home-page .site-header.is-scrolled { background: rgba(17,44,55,.97); border-color: #ffffff22; backdrop-filter: blur(18px); }
+.home-page .nav { min-height: 88px; }
+.home-page .brand, .home-page .nav-menu a { color: #fff; }
+.home-page .brand-mark { border-color: #ffffffb3; }
+.home-page .nav-toggle { border-color: #ffffff80; }
+.home-page .nav-toggle span { background: white; }
+.home-page .hero { min-height: 100svh; padding-top: calc(88px + clamp(2rem, 4svh, 4rem)); padding-bottom: clamp(3rem, 6svh, 5rem); }
+.home-page .hero::before { background: linear-gradient(180deg,rgba(3,15,21,.8),transparent 35%), linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.25) 55%,rgba(0,0,0,.08)), linear-gradient(0deg,rgba(0,0,0,.4),transparent 55%); }
+@media (max-width: 900px) {
+  .home-page .nav { min-height: 72px; }
+  .home-page .nav-menu { background: #112c37; border-color: #ffffff22; }
+  .home-page .nav-menu.is-open { max-height: calc(100dvh - 73px); }
+  .home-page .hero { padding-top: calc(72px + 3rem); }
+  .home-page .hero-gallery-controls { top: 80px; }
+}
+@media (max-height: 500px) {
+  .home-page .site-header { position: absolute; }
+  .home-page .nav-menu.is-open { max-height: none; }
+}
+html:not(.js) .home-page .site-header { position: relative; background: #112c37; }

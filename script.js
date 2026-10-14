@@ -25,6 +25,12 @@ function hasVisibleFocus(element) {
 
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('[data-nav-menu]');
+const overlayHeader = document.querySelector('.home-page [data-header]');
+if (overlayHeader) {
+  const updateHeader = () => overlayHeader.classList.toggle('is-scrolled', window.scrollY > 32);
+  window.addEventListener('scroll', updateHeader, {passive:true});
+  updateHeader();
+}
 
 const memberForm = document.querySelector('#member-form');
 function membershipEmail(form) {
