@@ -23,10 +23,15 @@ const supplied = ['sMVAiCz0D3U', '3dWpDRrjYIo', 'H15EEgzzeFc', '_TFt8pRIo2k', 'r
       for (const [index, id] of ids.entries()) {
         await page.locator(`[data-video-id="${id}"]`).click();
         assert.equal(await page.locator('.video-stage iframe').count(), 0, 'Switching selection stops previous player');
-        assert.equal(await page.locator('.video-external-link').getAttribute('href'), 'https://www.youtube.com/watch?v=' + id);
+        assert.equal(await page.locator('.video-launch').getAttribute('href'), 'https://www.youtube.com/watch?v=' + id);
+        assert.equal(await page.locator('.video-now a').count(), 0, 'Caption has no extra navigation links');
         assert.equal(await page.locator('.video-counter').textContent(), `${String(index + 1).padStart(2,'0')} / ${String(ids.length).padStart(2,'0')}`);
         assert.equal(await page.locator('.video-choice[aria-current="true"]').count(), 1);
-        await page.locator('.video-launch img').evaluate(img => img.decode());
+        await page.locator('.video-launch').scrollIntoViewIfNeeded();
+        await page.waitForFunction(() => {
+          const image = document.querySelector('.video-launch img');
+          return image && image.complete && image.naturalWidth > 0;
+        });
         assert(await page.locator('.video-launch img').evaluate(img => img.naturalWidth > 0), 'Thumbnail loads');
         await page.locator('.video-launch').click();
         const iframe = page.locator('.video-stage iframe');

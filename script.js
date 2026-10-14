@@ -558,7 +558,6 @@ if (videoSection) {
     replaceContent(stage, launch);
     videoSection.querySelector('.video-current-title').textContent = videoTitle;
     videoSection.querySelector('.video-current-date').textContent = videoDate;
-    videoSection.querySelector('.video-external-link').href = choice.href;
     videoSection.querySelector('.video-counter').textContent = `${String(selected + 1).padStart(2, '0')} / ${String(choices.length).padStart(2, '0')}`;
     choices.forEach((item, i) => {
       item.classList.toggle('is-selected', i === selected);
