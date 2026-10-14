@@ -25,6 +25,11 @@ function hasVisibleFocus(element) {
 
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('[data-nav-menu]');
+const footer = document.querySelector('.home-page .site-footer');
+const floatingFacebook = document.querySelector('[data-facebook-float]');
+if (footer && floatingFacebook && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => floatingFacebook.classList.toggle('is-footer-visible', entry.isIntersecting)).observe(footer);
+}
 const overlayHeader = document.querySelector('.home-page [data-header]');
 if (overlayHeader) {
   const updateHeader = () => overlayHeader.classList.toggle('is-scrolled', window.scrollY > 32);

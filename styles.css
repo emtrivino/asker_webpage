@@ -1167,6 +1167,30 @@ dd, figcaption, .button, .privacy-back { overflow-wrap: anywhere; }
 }
 html:not(.js) .home-page .site-header { position: relative; background: #112c37; }
 
+/* Two compact footer rows: useful links, then the concert supporters. */
+.home-page .site-footer { padding-block: .85rem; }
+.home-page .footer-inner { flex-wrap: wrap; gap: .25rem 1rem; }
+.home-page .footer-links { flex-wrap: wrap; gap: .25rem 1rem; }
+.home-page .footer-links a, .home-page .cookie-preferences { white-space: normal; overflow-wrap: anywhere; }
+.home-page .footer-support-row { margin-top: .5rem; padding-top: .65rem; gap: .5rem 1rem; flex-wrap: wrap; }
+.home-page .footer-support-logos { flex-wrap: nowrap; gap: .5rem; }
+.home-page .support-logo { height: 56px; padding: 5px 7px; border-radius: 7px; }
+.home-page .support-logo-sparebank { width: 56px; min-width: 56px; }
+.home-page .support-logo-sparebank img { max-width: 38px; max-height: 42px; }
+.home-page .support-logo-asker, .home-page .support-logo-orchestra { width: 102px; min-width: 102px; }
+.home-page .support-logo-asker img { max-width: 86px; max-height: 42px; }
+.home-page .support-logo-orchestra span { transform: scale(.65); }
+.home-page .support-logo-orchestra { display: flex; align-items: center; justify-content: center; }
+.home-page .support-logo-orchestra span { flex-shrink: 0; }
+.facebook-float.is-footer-visible { opacity: 0; visibility: hidden; pointer-events: none; }
+@media (max-width: 760px) {
+  .home-page .footer-inner { justify-content: center; }
+  .home-page .footer-inner > p { display: none; }
+  .home-page .footer-links { gap: .75rem; }
+  .home-page .footer-support-row { justify-content: center; }
+  .home-page .footer-support-row > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+
 /* A larger featured recording with a compact selection beside it. */
 #videoer { padding-block: clamp(1.5rem, 3vw, 3rem); background: #102832; }
 #videoer > .container { width: min(calc(100% - var(--gutter) * 2), 1440px); }
