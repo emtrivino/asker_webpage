@@ -22,6 +22,8 @@ Historie og salongorkester bruker sentrerte oppslag med maksimalt 1440 px bredde
 
 `node scripts/check-videos.cjs` tester videovalget i mobil- og desktopbredde, miniatyrer, telleren, tastaturnavigasjon, at forrige avspiller fjernes og at alle opptak finnes på repertoarsiden uten duplikater. Testen bruker de samme Playwright-innstillingene som responsivsjekken. Sett `LIVE_VIDEO_PLAYBACK=1` for å verifisere faktisk avspilling fra YouTube for alle opptak på desktop og det nyeste på mobil; dette krever nettverk og kan påvirkes av YouTubes tilgjengelighet.
 
+`node scripts/check-cookies.cjs` tester godta/avslå, lagring av valget, blokkering av YouTube før samtykke og stopp av avspilleren ved tilbaketrekking. `cookies.js` lastes på alle sider. Nettstedet bruker ikke analyse- eller reklamecookies; valget gjelder innebygde YouTube-videoer og kan endres i bunnteksten.
+
 ## GitHub Pages
 
 Velg enkleste rot-distribusjon:

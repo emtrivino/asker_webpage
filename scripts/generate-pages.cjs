@@ -55,7 +55,7 @@ function page({url, title, heading, description, image = 'images/orchestra_piano
 <meta property="og:site_name" content="Asker symfoniorkester"><meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${site}/${image}"><meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/styles.css?v=77"><link rel="stylesheet" href="/content-pages.css?v=2">
+<link rel="stylesheet" href="/styles.css?v=78"><link rel="stylesheet" href="/content-pages.css?v=2">
 <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':graph}, null, 2).replace(/</g, '\\u003c')}</script>
 </head><body class="content-page"><a class="skip-link" href="#main">Hopp til innhold</a>
 <header class="site-header">${navigation}</header>
@@ -63,6 +63,7 @@ function page({url, title, heading, description, image = 'images/orchestra_piano
 <nav class="breadcrumbs" aria-label="Brødsmuler"><a href="/">Forsiden</a>${parent ? ' <span>/</span> <a href="/konserter/">Konserter</a>' : ''} <span>/</span> <span aria-current="page">${esc(heading)}</span></nav>
 ${body}
 </main><footer class="site-footer"><div class="container footer-inner"><p>Asker symfoniorkester · Stiftet 1972 · Asker, Norge</p><div class="footer-links"><a href="/konserter/">Konserter</a><a href="/salongorkester/">Salongorkester</a><a href="mailto:leder@asym.no">Kontakt oss</a><a href="/personvern.html">Personvern</a></div></div></footer>
+<script src="/cookies.js?v=1" defer></script>
 </body></html>`;
   const file = url.slice(1) + 'index.html';
   if (!fs.existsSync(path.join(root, file)) || read(file).trimEnd() !== output) write(file, output);

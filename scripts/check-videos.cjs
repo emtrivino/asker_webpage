@@ -9,6 +9,7 @@ const supplied = ['sMVAiCz0D3U', '3dWpDRrjYIo', 'H15EEgzzeFc', '_TFt8pRIo2k', 'r
   const browser = await chromium.launch({channel:process.env.RESPONSIVE_BROWSER || 'chrome',headless:true});
   try {
     const page = await browser.newPage({reducedMotion:'reduce'});
+    await page.addInitScript(() => localStorage.setItem('asym-media-consent-v1', JSON.stringify({allowed:true,expires:Date.now()+86400000})));
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     if (!process.env.LIVE_VIDEO_PLAYBACK) await page.route('https://www.youtube-nocookie.com/embed/**', route => route.fulfill({contentType:'text/html',body:'<title>Embedded player test</title>'}));

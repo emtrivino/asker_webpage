@@ -587,6 +587,7 @@ if (videoSection) {
   stage.addEventListener('click', (event) => {
     if (!event.target.closest('.video-launch') || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
+    window.asymCookies.requestVideo(() => {
     const choice = choices[selected];
     const frame = document.createElement('iframe');
     frame.src = `https://www.youtube-nocookie.com/embed/${choice.dataset.videoId}?autoplay=1&rel=0&playsinline=1&fs=1`;
@@ -597,6 +598,10 @@ if (videoSection) {
     frame.referrerPolicy = 'strict-origin-when-cross-origin';
     replaceContent(stage, frame);
     frame.focus();
+    });
+  });
+  window.addEventListener('asym-cookie-change', event => {
+    if (!event.detail.allowed) selectVideo(selected);
   });
 }
 

@@ -28,6 +28,7 @@ async function checkLayout(page, label) {
   const browser = await chromium.launch({ channel: process.env.RESPONSIVE_BROWSER || 'chrome', headless: true });
   try {
     const page = await browser.newPage({ reducedMotion: 'reduce' });
+    await page.addInitScript(() => localStorage.setItem('asym-media-consent-v1', JSON.stringify({allowed:true,expires:Date.now()+86400000})));
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     let checks = 0;
@@ -88,6 +89,7 @@ async function checkLayout(page, label) {
     console.log('Menu resizing/Escape, carousel navigation, ticket dialog and gallery passed.');
 
     const touch = await browser.newPage({ hasTouch: true, isMobile: true, viewport: {width:375,height:667}, reducedMotion:'reduce' });
+    await touch.addInitScript(() => localStorage.setItem('asym-media-consent-v1', JSON.stringify({allowed:true,expires:Date.now()+86400000})));
     await touch.goto(base + '/');
     await touch.locator('.nav-toggle').tap();
     assert.equal(await touch.locator('.nav-toggle').getAttribute('aria-expanded'), 'true');
