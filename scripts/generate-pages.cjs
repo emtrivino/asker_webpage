@@ -29,7 +29,7 @@ const plain = html => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const site = 'https://asym.no';
 const org = { '@type': 'MusicGroup', '@id': site + '/#organization', name: 'Asker symfoniorkester', alternateName: 'ASYM', url: site + '/', foundingDate: '1972', email: 'leder@asym.no', logo: {'@type':'ImageObject',url:site + '/favicon.png',contentUrl:site + '/favicon.png',width:512,height:512}, image:site + '/images/orchestra_piano.jpg', sameAs: ['https://www.facebook.com/profile.php?id=100062928895060'] };
 const pages = [];
-const navigation = `<nav class="content-nav" aria-label="Hovednavigasjon"><a class="brand" href="/" aria-label="Asker symfoniorkester hjem"><span class="brand-mark" aria-hidden="true">ASYM</span><span class="brand-text">Asker symfoniorkester</span></a><div><a href="/konserter/">Konserter</a><a href="/om/">Orkesteret</a><a href="/repertoar/">Opptak</a><a href="/bli-med/">Bli med</a></div></nav>`;
+const navigation = `<nav class="content-nav" aria-label="Hovednavigasjon"><a class="brand brand-signature" href="/" aria-label="Asker symfoniorkester hjem">${read('images/asym-wordmark.svg').trim()}<span class="brand-name">Asker symfoniorkester</span></a><div><a href="/konserter/">Konserter</a><a href="/om/">Orkesteret</a><a href="/repertoar/">Opptak</a><a href="/bli-med/">Bli med</a></div></nav>`;
 function page({url, title, heading, description, image = 'images/orchestra_piano.jpg', body, schema = [], parent}) {
   const canonical = site + url;
   const crumbs = [{name: 'Forsiden', item: site + '/'}];
@@ -55,7 +55,7 @@ function page({url, title, heading, description, image = 'images/orchestra_piano
 <meta property="og:site_name" content="Asker symfoniorkester"><meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${site}/${image}"><meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/styles.css?v=84"><link rel="stylesheet" href="/content-pages.css?v=2">
+<link rel="stylesheet" href="/styles.css?v=85"><link rel="stylesheet" href="/content-pages.css?v=2">
 <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@graph':graph}, null, 2).replace(/</g, '\\u003c')}</script>
 </head><body class="content-page"><a class="skip-link" href="#main">Hopp til innhold</a>
 <header class="site-header">${navigation}</header>
