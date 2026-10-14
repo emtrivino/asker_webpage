@@ -1179,27 +1179,24 @@ html:not(.js) .home-page .site-header { position: relative; background: #112c37;
 .brand-name { display: block; color: inherit; font-size: .66rem; font-weight: 500; line-height: 1.3; letter-spacing: .055em; white-space: nowrap; }
 .brand-wave { transform-box: fill-box; transform-origin: center; opacity: .65; }
 @media (prefers-reduced-motion: no-preference) {
-  .brand-symbol > g > path { animation: brand-letter-arrival 1s ease-in-out both; }
-  .brand-symbol > g > path:nth-child(2) { animation-delay: .08s; }
-  .brand-symbol > g > path:nth-child(3) { animation-delay: .16s; }
-  .brand-symbol > g > path:nth-child(4) { animation-delay: .24s; }
-  .brand-wave { animation: brand-resonance 2.6s ease-in-out both; }
-  .brand:hover .brand-wave, .brand:focus-visible .brand-wave { animation: brand-hover-resonance 1.2s ease-in-out both; }
+  .brand-symbol > g > path { transform-box: fill-box; transform-origin: center; animation: brand-letter-loop 6.8s cubic-bezier(.45,0,.2,1) infinite; }
+  .brand-symbol > g > path:nth-child(2) { animation-delay: -.18s; }
+  .brand-symbol > g > path:nth-child(3) { animation-delay: -.36s; }
+  .brand-symbol > g > path:nth-child(4) { animation-delay: -.54s; }
+  .brand-wave { animation: brand-resonance-loop 6.8s cubic-bezier(.45,0,.2,1) infinite; }
+  .brand:hover .brand-symbol path, .brand:focus-visible .brand-symbol path { animation-play-state: paused; }
 }
-@keyframes brand-letter-arrival {
-  0% { transform: translateY(2px); }
-  45% { transform: translateY(-1px); }
-  100% { transform: translateY(0); }
+@keyframes brand-letter-loop {
+  0%, 62%, 100% { transform: translateY(0) rotate(0) scale(1); }
+  14% { transform: translateY(-4px) rotate(-1.5deg) scale(1.04); }
+  28% { transform: translateY(2px) rotate(1deg) scale(.985); }
+  43% { transform: translateY(-1px) rotate(-.4deg) scale(1.01); }
 }
-@keyframes brand-resonance {
-  0% { transform: scaleY(.15); opacity: .25; }
-  35% { transform: scaleY(1.4); opacity: .9; }
-  65% { transform: scaleY(.4); opacity: .45; }
-  100% { transform: scaleY(1); opacity: .65; }
-}
-@keyframes brand-hover-resonance {
-  0%, 100% { transform: scaleY(1); opacity: .65; }
-  45% { transform: scaleY(1.65); opacity: 1; }
+@keyframes brand-resonance-loop {
+  0%, 62%, 100% { transform: scaleY(.6); opacity: .5; }
+  14% { transform: scaleY(1.6); opacity: .9; }
+  28% { transform: scaleY(.35); opacity: .55; }
+  43% { transform: scaleY(1.1); opacity: .75; }
 }
 @media (max-width: 900px) {
   .brand-symbol { width: 125px; height: 47px; }
