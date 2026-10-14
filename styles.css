@@ -13,10 +13,12 @@
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --serif: Georgia, 'Times New Roman', serif;
 }
-.cookie-dialog { width: min(540px, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); padding: clamp(1.25rem, 4vw, 2rem); border: 1px solid var(--line); border-radius: 16px; background: var(--paper); color: var(--text); box-shadow: 0 20px 70px #142f3933; }
-.cookie-dialog::backdrop { background: #142f3955; }
-.cookie-dialog h2 { margin-bottom: 1rem; font-size: clamp(1.7rem, 6vw, 2.4rem); }
-.cookie-dialog p { font-size: 1rem; line-height: 1.6; }
+.cookie-dialog { position: fixed; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 120; width: min(380px, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); overflow-y: auto; margin: 0; padding: 1.15rem; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--text); box-shadow: 0 8px 35px #142f3933; }
+.cookie-dialog[hidden] { display: none; }
+.cookie-dialog h2 { margin-bottom: .65rem; padding-right: 2rem; font-size: 1.4rem; }
+.cookie-dialog p { margin-bottom: .5rem; font-size: .85rem; line-height: 1.55; }
+.cookie-close { position: absolute; top: .4rem; right: .4rem; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--ink); font-size: 1.5rem; cursor: pointer; }
+body:has(.cookie-dialog:not([hidden])) .facebook-float { visibility: hidden; }
 .cookie-dialog > a { display: inline-flex; align-items: center; min-height: 44px; }
 .cookie-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
 .cookie-actions button { flex: 1; min-height: 48px; padding: .65rem 1.25rem; border: 1px solid var(--fjord); border-radius: 999px; background: white; color: var(--ink); cursor: pointer; }
