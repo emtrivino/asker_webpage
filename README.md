@@ -2,7 +2,7 @@
 
 Dette repoet inneholder en statisk nettside for Asker symfoniorkester med forside, konsertsider, sesongoversikt og informasjon om orkesteret. Siden er laget med ren HTML, CSS og JavaScript, uten backend og uten eksterne rammeverk.
 
-Medlemskapsskjemaet sender via FormSubmit. Mottaker er styret på `leder@asym.no`. Ved mottakerbytte må adressen oppdateres i HTML, JavaScript og personvernteksten, og mottakeren må aktivere skjemaet via FormSubmit-e-posten. Aktivering kan være knyttet til nettstedets opprinnelse. Ikke send reelle testmeldinger uten uttrykkelig tillatelse. `scripts/check-membership.cjs` tester UI og feilhåndtering med simulerte svar uten å sende e-post. En bekreftet API-innsending er ikke en bekreftelse på at mottakeren har lest eller mottatt e-posten.
+Medlemskap: «Kontakt oss» åpner brukerens e-postprogram med `leder@asym.no` som mottaker. Nettsiden har ikke kontaktskjema. Ikke send testmeldinger uten uttrykkelig tillatelse.
 
 ## Forhåndsvis lokalt
 

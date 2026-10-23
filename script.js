@@ -37,58 +37,6 @@ if (overlayHeader) {
   updateHeader();
 }
 
-const memberForm = document.querySelector('#member-form');
-function membershipEmail(form) {
-  const fields = new FormData(form);
-  const body = `Navn: ${String(fields.get('Navn')).trim()}\nE-post: ${String(fields.get('E-post')).trim()}\n\n${String(fields.get('Melding')).trim()}`;
-  return `mailto:leder@asym.no?subject=${encodeURIComponent('Ny melding om medlemskap fra asym.no')}&body=${encodeURIComponent(body)}`;
-}
-if (memberForm) {
-  memberForm.addEventListener('focusin', () => window.asymCookies?.dismiss());
-  let submitting = false;
-  memberForm.addEventListener('submit', async event => {
-    event.preventDefault();
-    if (submitting || !memberForm.reportValidity()) return;
-    const fields = new FormData(memberForm);
-    if (fields.get('_honey')) return;
-    for (const name of ['Navn', 'E-post', 'Melding']) {
-      const input = memberForm.elements.namedItem(name);
-      input.value = input.value.trim();
-    }
-    if (!memberForm.reportValidity()) return;
-    const button = memberForm.querySelector('button[type="submit"]');
-    const status = memberForm.querySelector('.member-form-status');
-    const fallback = memberForm.querySelector('.member-form-alternative');
-    fallback.hidden = true;
-    submitting = true;
-    button.disabled = true;
-    memberForm.setAttribute('aria-busy', 'true');
-    status.textContent = 'Sender …';
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 20000);
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/leder@asym.no', {
-        method: 'POST', headers: {'Content-Type':'application/json', 'Accept':'application/json'},
-        body: JSON.stringify({...Object.fromEntries(new FormData(memberForm)), _replyto:memberForm.elements.namedItem('E-post').value}), signal: controller.signal
-      });
-      const result = await response.json();
-      const activationPending = /activat|verif|confirm/i.test(String(result.message || ''));
-      if (!response.ok || activationPending || (result.success !== true && result.success !== 'true')) throw new Error('Send failed');
-      status.textContent = 'Takk! Meldingen er sendt.';
-      memberForm.reset();
-    } catch (_) {
-      status.textContent = 'Kunne ikke sende meldingen. Prøv igjen, eller send via e-post nedenfor.';
-      memberForm.querySelector('.member-email-fallback').href = membershipEmail(memberForm);
-      fallback.hidden = false;
-    } finally {
-      clearTimeout(timeout);
-      submitting = false;
-      button.disabled = false;
-      memberForm.removeAttribute('aria-busy');
-    }
-  });
-}
-
 // Keep privacy information in a popup on the main page.
 const privacyDialog = document.createElement('dialog');
 privacyDialog.className = 'privacy-dialog';
