@@ -62,7 +62,7 @@ function page({url, title, heading, description, image = 'images/orchestra_piano
 <main id="main" class="container content-main">
 <nav class="breadcrumbs" aria-label="Brødsmuler"><a href="/">Forsiden</a>${parent ? ' <span>/</span> <a href="/konserter/">Konserter</a>' : ''} <span>/</span> <span aria-current="page">${esc(heading)}</span></nav>
 ${body}
-</main><footer class="site-footer"><div class="container footer-inner"><p>Asker symfoniorkester · Stiftet 1972 · Asker, Norge</p><div class="footer-links"><a href="/konserter/">Konserter</a><a href="/salongorkester/">Salongorkester</a><a href="mailto:leder@asym.no">Kontakt oss</a><a href="/personvern.html">Personvern</a></div></div></footer>
+</main><footer class="site-footer"><div class="container footer-inner"><p>Asker symfoniorkester · Stiftet 1972 · Asker, Norge</p><div class="footer-links"><a href="/konserter/">Konserter</a><a href="/salongorkester/">Salongorkester</a><a href="mailto:leder@asym.no">Kontakt oss</a></div></div></footer>
 <script src="/cookies.js?v=3" defer></script>
 </body></html>`;
   const file = url.slice(1) + 'index.html';
