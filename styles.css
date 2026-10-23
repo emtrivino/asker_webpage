@@ -1033,22 +1033,27 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 }
 
 /* Keep practical contact details compact before the final invitation to join. */
-#kontakt { padding-block: clamp(1.75rem, 3.5svh, 2.5rem); border-top: 1px solid var(--line); background: #eef2ef; }
-#kontakt .two-column { align-items: center; gap: clamp(2rem, 5vw, 5rem); }
-#kontakt .eyebrow { margin-bottom: .5rem; }
-#kontakt h2 { margin-bottom: .7rem; font-size: clamp(2.4rem, 3.5vw, 3.25rem); }
-#kontakt p { margin-bottom: 0; }
-#kontakt .contact-card { padding: 1rem 1.35rem; background: rgba(255, 255, 255, .7); }
-#kontakt .contact-email { margin-bottom: .55rem; font-size: clamp(1.65rem, 2.6vw, 2.2rem); }
-#kontakt .contact-list { gap: 0; }
-#kontakt .contact-list > span { padding-block: .38rem; }
-#bli-medlem { padding-block: clamp(2rem, 4svh, 3rem); }
-#bli-medlem .eyebrow { margin-bottom: .55rem; }
-#bli-medlem h2 { margin-bottom: .6rem; font-size: clamp(2.3rem, 3.8vw, 3.45rem); }
-#bli-medlem .lead { margin-bottom: .6rem; }
+#kontakt { padding-block: 1.25rem; border-top: 1px solid var(--line); background: #eef2ef; }
+#kontakt .two-column { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: center; gap: 2rem; }
+#kontakt h2 { margin-bottom: .4rem; font-size: clamp(1.65rem, 2.5vw, 2rem); }
+#kontakt p { max-width: 42ch; margin-bottom: 0; font-size: .9rem; }
+#kontakt .contact-card { padding: .75rem 1rem; background: rgba(255, 255, 255, .7); }
+#kontakt .contact-email { margin-bottom: .4rem; font-size: 1.4rem; }
+#kontakt .contact-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.25rem; }
+#kontakt .contact-list > span { grid-template-columns: 62px minmax(0, 1fr); gap: .5rem; padding-block: .3rem; font-size: .8rem; }
+#kontakt .contact-list strong { font-size: .6rem; letter-spacing: .06em; }
+#bli-medlem { padding-block: 1.25rem; }
+#bli-medlem h2 { margin-bottom: .35rem; font-size: clamp(1.65rem, 2.5vw, 2rem); }
+#bli-medlem .member-copy p { margin-bottom: .25rem; font-size: .9rem; }
+#bli-medlem .member-copy .member-rehearsal { margin-bottom: 0; font-size: .8rem; }
 @media (max-width: 760px) {
-  #kontakt .two-column { gap: 1.5rem; }
-  #bli-medlem .member-panel { gap: 1.25rem; }
+  #kontakt .two-column { grid-template-columns: minmax(0, 1fr); gap: .85rem; }
+  #bli-medlem .member-panel { gap: .85rem; }
+}
+@media (max-width: 600px) {
+  #kontakt .contact-card { padding: 0; background: transparent; }
+  #kontakt .contact-list { grid-template-columns: minmax(0, 1fr); }
+  #kontakt .contact-list > span { grid-template-columns: 75px minmax(0, 1fr); }
 }
 
 /* Tablet widths have room for editorial spreads, but not for desktop type sizes. */
