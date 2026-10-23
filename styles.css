@@ -706,12 +706,20 @@ h1, h2, h3, p, li, .brand-text, .contact-list { overflow-wrap: anywhere; }
 @media (max-width: 760px) { .upcoming-carousel.is-enhanced .upcoming-grid { --visible-cards: 1; } .upcoming-carousel-progress button { width: 40px; } .upcoming-carousel-progress button::before { width: 16px; } .upcoming-carousel-progress button.is-active { width: 48px; } .upcoming-carousel-progress button.is-active::before { width: 30px; } }
 @media (max-width: 480px) { .upcoming-carousel.is-enhanced .upcoming-card > img { aspect-ratio: 1.46; } }
 
-/* Keep the complete typography of each concert poster visible at every width. */
+/* Consistent artwork frames, filled edge to edge without letterboxing. */
+.upcoming-card > img,
 .upcoming-carousel.is-enhanced .upcoming-card > img {
-  object-fit: contain;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1920 / 1005;
+  object-fit: cover;
+  object-position: center;
   background: #10191c;
 }
-.upcoming-carousel.is-enhanced .upcoming-card-warm > img { background: #d9d5d1; }
+.upcoming-card-warm > img,
+.upcoming-carousel.is-enhanced .upcoming-card-warm > img { object-position: center top; }
+.upcoming-card-opera-dynamitten > img,
+.upcoming-carousel.is-enhanced .upcoming-card-opera-dynamitten > img { object-position: center bottom; }
 .upcoming-carousel.is-enhanced .upcoming-card { cursor: pointer; }
 .upcoming-carousel.is-enhanced .upcoming-card:focus-visible { outline: 3px solid var(--fjord); outline-offset: 4px; }
 
