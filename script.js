@@ -69,14 +69,6 @@ const eventDialog = document.querySelector('#event-dialog');
 let suppressCardClick = false;
 if (eventDialog && typeof eventDialog.showModal === 'function') {
   const events = {
-    hostkonsert: {
-      title: 'Høstkonsert i Asker kirke', date: 'Søndag 25. oktober 2026 · kl. 18.00',
-      place: 'Asker kirke', image: 'images/hostkonsert-2026.png',
-      imageAlt: 'Plakat for høstkonserten 25. oktober',
-      description: '<p>Tsjaikovskij og Bruch står på programmet. Tanja Carita Ikonen dirigerer, og Ida Kamilla Andersen er solist.</p><ul><li>Tsjaikovskij: Symfoni nr. 5</li><li>Max Bruch: Fiolinkonsert i G-moll</li><li>Ida Kamilla Andersen, fiolin</li></ul>',
-      ticket: 'https://checkout.ebillett.no/359/events/20/purchase/setup',
-      url: '/konserter/hostkonsert-2026/'
-    },
     'afternoon-tea': {
       title: 'Afternoon Tea i Venskaben', date: '21. november 2026',
       place: 'Venskaben', image: 'images/afternoon-tea-2026-v3.png',

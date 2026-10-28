@@ -110,7 +110,7 @@ async function checkLayout(page, label) {
     const fallback = await browser.newPage({ javaScriptEnabled: false, viewport: {width:320,height:568} });
     await fallback.goto(base + '/');
     assert(await fallback.locator('.nav-menu').isVisible());
-    assert.equal(await fallback.locator('.upcoming-card').count(), 6);
+    assert.equal(await fallback.locator('.upcoming-card').count(), 5);
     assert.equal(await fallback.locator('.upcoming-carousel').evaluate(e => getComputedStyle(e).overflowX), 'visible');
     await checkLayout(fallback, 'Without JavaScript');
     console.log('Navigation and all concert cards remain available without JavaScript.');
