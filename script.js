@@ -69,14 +69,6 @@ const eventDialog = document.querySelector('#event-dialog');
 let suppressCardClick = false;
 if (eventDialog && typeof eventDialog.showModal === 'function') {
   const events = {
-    'afternoon-tea': {
-      title: 'Afternoon Tea i Venskaben', date: '21. november 2026',
-      place: 'Venskaben', image: 'images/afternoon-tea-2026-v3.png',
-      imageAlt: 'Afternoon Tea i Venskaben',
-      description: '<p>Salongorkester, te og kaker i et musikalsk ettermiddagsformat.</p>',
-      ticket: 'https://checkout.ebillett.no/359/events/21/purchase',
-      url: '/konserter/afternoon-tea-2026/'
-    },
     opera: {
       title: 'Opera & Operettekveld', date: 'Søndag 29. november 2026 · kl. 18.00',
       place: 'Østenstad kirke', image: 'images/opera-operette-2026.png',
